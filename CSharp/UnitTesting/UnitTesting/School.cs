@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnitTesting
 {
-    class School
+    public abstract class School
     {
+
     }
 }

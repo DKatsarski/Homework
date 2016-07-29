@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTesting
 {
-    public class Student
+    class Validator
     {
-
     }
 }
