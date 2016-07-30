@@ -1,12 +1,14 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTesting.Contracts
 {
-    interface ICourse
+    public interface ICourse : INameable
     {
+        ICollection<IStudent> Students { get; }
+
+        bool AddStudentToCourse(IStudent student);
+
+        bool RemoveStudentFromCourse(IStudent student);
     }
 }

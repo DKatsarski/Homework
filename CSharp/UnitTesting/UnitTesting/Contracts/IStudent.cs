@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnitTesting.Contracts
+﻿namespace UnitTesting.Contracts
 {
-    interface IStudent
+    public interface IStudent : INameable, IIdentifiable
     {
+        bool JoinCourse(ICourse course);
+        bool LeaveCourse(ICourse course);
     }
 }

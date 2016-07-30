@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTesting
+namespace UnitTesting.Contracts
 {
-    class Validator
+    interface IGenerateId
     {
+        int Generate();
     }
 }
