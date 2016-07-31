@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTesting.Contracts
 {
-    interface IGenerateId
+    public interface IGenerateId
     {
         int Generate();
     }

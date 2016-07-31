@@ -8,7 +8,7 @@ using UnitTesting.Contracts;
 
 namespace UnitTesting.Utils
 {
-    class GenerateId : IGenerateId
+    public class GenerateId : IGenerateId
     {
         private int currentId;
         private int minimumValue;
