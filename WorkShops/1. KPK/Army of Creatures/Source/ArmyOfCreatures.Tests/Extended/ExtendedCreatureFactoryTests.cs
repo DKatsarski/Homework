@@ -6,6 +6,9 @@
 
     using ArmyOfCreatures.Extended;
     using ArmyOfCreatures.Extended.Creatures;
+    using System.Reflection;
+    using System.Collections.Generic;
+    using System.Linq;
 
     [TestFixture]
     public class ExtendedCreatureFactoryTests
@@ -22,7 +25,7 @@
             Assert.IsTrue(resultingException.Message.Contains("Creature Name is null or empty"));
         }
 
-        [Test]
+        [Test]  
         [TestCase("AncientBehemoth", typeof(AncientBehemoth))]
         [TestCase("CyclopsKing", typeof(CyclopsKing))]
         [TestCase("Goblin", typeof(Goblin))]
