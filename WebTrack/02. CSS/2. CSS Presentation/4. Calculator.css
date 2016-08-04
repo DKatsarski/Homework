@@ -1,0 +1,224 @@
+body {
+  margin-top: 0;
+  margin-left: 0;
+  box-sizing: border-box;
+}
+
+body div.calculator-frame {
+  background-image: url('./Assets/04-Windows-Calculator-Frame.png');
+  background-repeat: no-repeat;
+  width: 458px;
+  height: 447px;
+  position: absolute;
+  z-index: 1;
+}
+
+body div.calculator-frame div.inside-frame {
+  background-color: #D9E4F1;
+  width: 430px;
+  height: 388px;
+  position: absolute;
+  top: 41px;
+  left: 14px;
+  z-index: 0;
+  border-radius: 1px;
+  border: 2px outset rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+body div.calculator-frame div.inside-frame div.menu-bar {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px outset rgba(0, 0, 0, 0.25);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FDFEFF), to(#E2E7F7));
+  background-image: -webkit-linear-gradient(top, #FDFEFF, #E2E7F7);
+  background-image: -moz-linear-gradient(top, #FDFEFF, #E2E7F7);
+  background-image: linear-gradient(to bottom, #FDFEFF, #E2E7F7);
+}
+
+body div.calculator-frame div.inside-frame div.menu-bar span {
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+body div.calculator-frame div.inside-frame div.result-box {
+  height: 34px;
+  margin-left: 9px;
+  margin-right: 11px;
+  margin-top: 14px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#E6EEFB), to(#FEFEFE));
+  background-image: -webkit-linear-gradient(top, #E6EEFB, #FEFEFE);
+  background-image: -moz-linear-gradient(top, #E6EEFB, #FEFEFE);
+  background-image: linear-gradient(to bottom, #E6EEFB, #FEFEFE);
+  text-align: right;
+  font-family: consolas;
+  font-size: 24px;
+  padding-top: 18px;
+  padding-bottom: 0px;
+  padding-right: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+body div.calculator-frame div.inside-frame div.binary-numbers {
+  height: 63px;
+  margin-left: 9px;
+  margin-right: 10px;
+  margin-top: 5px;
+  border: 2px outset rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-family: consolas;
+}
+
+body div.calculator-frame div.inside-frame div.binary-numbers div.binary-row div.binary-cell {
+  display: inline-block;
+  margin-left: 11px;
+  vertical-align: top;
+  text-align: left;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: bold;
+  color: #424D67;
+  margin-top:1px;
+}
+
+body div.calculator-frame div.inside-frame div.binary-numbers div.binary-row div.binary-cell:last-child {
+  text-align: right;
+}
+
+body div.calculator-frame div.inside-frame div.binary-numbers div.binary-row div.binary-cell span {
+  color: #A9988B;
+  font-weight: 400;
+}
+
+body div.calculator-frame div.inside-frame div.number-base {
+  height: 98px;
+  width: 75px;
+  margin-left: 9px;
+  float: left;
+  margin-top: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-family: consolas;
+  font-size: 14px;
+  color: #424D67;
+  font-weight: bold;
+}
+
+body div.calculator-frame div.inside-frame div.number-base input, body div.calculator-frame div.inside-frame div.binary-word input {
+  padding: 0;
+  margin-right: 1px;
+  margin-top: 6px;
+}
+
+body div.calculator-frame div.inside-frame div.binary-word {
+  clear: left;
+  height: 98px;
+  width: 75px;
+  margin-left: 9px;
+  float: left;
+  margin-top: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-family: consolas;
+  font-size: 14px;
+  color: #424D67;
+  font-weight: bold;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid {
+  padding: 0px;
+  float:right;
+  height: 205px;
+  width: 328px;
+  margin-right: 6px;
+  margin-top: 7px;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row {
+  padding: 0;
+  margin-top: px;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input{
+  margin: 0;
+  margin-right: 5px;
+  width: 36px;
+  height: 32px;
+  float: left;
+  border: 2px outset rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin-top: 3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px 2px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #1C3658;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row:first-child input{
+  margin-top: 0;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.matte-btn{
+  background-color: #D9E4F1;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.blue-shiny-btn,
+body div.calculator-frame div.inside-frame div.button-grid input.blue-shiny-btn{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F9FDFF), to(#D5E0EE));
+  background-image: -webkit-linear-gradient(top, #F9FDFF, #D5E0EE);
+  background-image: -moz-linear-gradient(top, #F9FDFF, #D5E0EE);
+  background-image: linear-gradient(to bottom, #F9FDFF, #D5E0EE);;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.white-shiny-btn{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F5FAFC), to(#E8ECF4));
+  background-image: -webkit-linear-gradient(top, #F5FAFC, #E8ECF4);
+  background-image: -moz-linear-gradient(top, #F5FAFC, #E8ECF4);
+  background-image: linear-gradient(to bottom, #F5FAFC, #E8ECF4);;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.gold-shiny-btn{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FEF2E7), to(#FAEA8D));
+  background-image: -webkit-linear-gradient(top, #FEF2E7, #FAEA8D);
+  background-image: -moz-linear-gradient(top, #FEF2E7, #FAEA8D);
+  background-image: linear-gradient(to bottom, #FEF2E7, #FAEA8D);
+  border-color: #E5DA71;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.num-zero{
+  width: 77px;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid input.plus-btn{
+  width:36px;
+  height: 67px;
+  float:right;
+  clear: right;
+  margin-right: 5px;
+  margin-top: 3px;
+  border: 2px outset rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px 2px;
+  font-weight: bold;
+  font-size: 22px;
+  color:#1C3658;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.large-font{
+  font-size: 14px;
+  font-weight: 400;
+  color: #1C3658;
+}
+
+body div.calculator-frame div.inside-frame div.button-grid div.button-row input.shallow-border{
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}

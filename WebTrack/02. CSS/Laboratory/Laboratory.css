@@ -1,0 +1,22 @@
+body {
+background-color: lawngreen;  
+
+}
+
+
+.flex {
+    border: 1px solid black;
+    width: 200px;
+    margin: 10px;
+}
+
+#omg {
+        display: flex;
+        flex-direction:  column;
+        border: 1px solid black;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        height: 1250px;
+        margin: 10px;
+}
