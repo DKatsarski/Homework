@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Logic", "BankSystem.Logic\BankSystem.Logic.csproj", "{1D7A9E5D-CC0F-4F84-938D-9C6E9D5EE9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.CLI", "BankSystem.CLI\BankSystem.CLI.csproj", "{453CEF3F-1952-4CEF-84AB-952CF84BB59F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Logic.Tests", "BankSystem.Tests\BankSystem.Logic.Tests.csproj", "{9F08C734-7C16-46DF-8463-BCEA5F8A94D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D7A9E5D-CC0F-4F84-938D-9C6E9D5EE9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7A9E5D-CC0F-4F84-938D-9C6E9D5EE9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7A9E5D-CC0F-4F84-938D-9C6E9D5EE9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7A9E5D-CC0F-4F84-938D-9C6E9D5EE9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{453CEF3F-1952-4CEF-84AB-952CF84BB59F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453CEF3F-1952-4CEF-84AB-952CF84BB59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453CEF3F-1952-4CEF-84AB-952CF84BB59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453CEF3F-1952-4CEF-84AB-952CF84BB59F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F08C734-7C16-46DF-8463-BCEA5F8A94D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F08C734-7C16-46DF-8463-BCEA5F8A94D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F08C734-7C16-46DF-8463-BCEA5F8A94D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F08C734-7C16-46DF-8463-BCEA5F8A94D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
