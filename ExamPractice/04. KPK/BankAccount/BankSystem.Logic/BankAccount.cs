@@ -37,7 +37,15 @@ namespace BankSystem.Logic
         
         public void Deposit(decimal money)
         {
-            this.logger.Log($"{this.Name} depisits {money}.");
+            try
+            {
+                this.logger.Log($"{this.Name} depisits {money}.");
+
+            }
+            catch(ArgumentException)
+            {
+            }
+
             this.Money += money;
         }
     }
