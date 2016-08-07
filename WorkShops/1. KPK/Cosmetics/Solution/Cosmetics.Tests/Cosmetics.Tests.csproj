@@ -52,13 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryTests.cs" />
-    <Compile Include="CosmeticsFactoryTests.cs" />
-    <Compile Include="Engine.Cosmetics.Tests.cs" />
-    <Compile Include="FakeCosmetics.cs" />
-    <Compile Include="ShampooTests.cs" />
-    <Compile Include="ToothPastTest.cs" />
-    <Compile Include="ValidatorTests.cs" />
+    <Compile Include="Common\ValidatorTests.cs" />
+    <Compile Include="Engine\EngineCommandTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,7 +63,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine.Commands.Test.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
