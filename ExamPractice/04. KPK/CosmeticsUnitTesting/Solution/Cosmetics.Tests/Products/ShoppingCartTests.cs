@@ -1,6 +1,6 @@
 ﻿using Cosmetics.Contracts;
 using Cosmetics.Products;
-using Cosmetics.Products.Fakes;
+using Cosmetics.Products.Fakes
 using Moq;
 using NUnit.Framework;
 using System;
@@ -33,7 +33,9 @@ namespace Cosmetics.Tests.Products
         {
             // Arrange
             var mockedProduct = new Mock<IProduct>();
+#pragma warning disable CS0436 // Type conflicts with imported type
             var shoppingCart = new MockedShoppingCart();
+#pragma warning restore CS0436 // Type conflicts with imported type
 
             // Act
             shoppingCart.AddProduct(mockedProduct.Object);

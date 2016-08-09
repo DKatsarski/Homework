@@ -114,6 +114,8 @@
     <Compile Include="Engine\EngineCosmeticsFactoryTests.cs" />
     <Compile Include="Fakes\MockedCosmeticsEngine.cs" />
     <Compile Include="Products\CategoryToPrintTest.cs" />
+    <Compile Include="Products\Fakes\MockedCategory.cs" />
+    <Compile Include="Products\Fakes\MockedShoppingCart.cs" />
     <Compile Include="Products\ProductsShoppingCartTests.cs" />
     <Compile Include="Products\ShampooPrintTest.cs" />
     <Compile Include="Products\ShoppingCartTests.cs" />
