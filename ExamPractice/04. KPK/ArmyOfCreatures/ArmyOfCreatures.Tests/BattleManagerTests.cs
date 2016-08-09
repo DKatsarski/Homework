@@ -55,9 +55,9 @@ namespace ArmyOfCreatures.Tests
 
             var testBattleManager = new MockedBattleManager(fakeAttacker.Object, fakeDefender.Object, fakeFactory.Object, fakeLogger.Object);
 
-            var attackerIdentifier = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+            var attackerIdentifier = CreatureIdentifier.CreatureIdentifierFromString("asd(1)");
 
-            var deffenderIdentifier = CreatureIdentifier.CreatureIdentifierFromString("ArchDevil(2)");
+            var deffenderIdentifier = CreatureIdentifier.CreatureIdentifierFromString("fds(2)");
 
             testBattleManager.Attack(attackerIdentifier, deffenderIdentifier);
 
