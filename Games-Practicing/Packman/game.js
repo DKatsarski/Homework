@@ -8,7 +8,8 @@ function createGame(selector) {
     packman = {
         "x": 30,
         "y": 30,
-        "size": 30
+        "size": 30,
+        "speed": 3,
     },
     dir = 0,
     // doing the controlers (keys for movement)
@@ -19,8 +20,15 @@ function createGame(selector) {
         "40": 1, 
 
     },
+    ball = {
+        "x": 200,
+        "y": 200,
+        "size": 5
+    };
+   
+
     // a variable to make packman move in th corresponding direction
-    dirDeltas = [{
+    const dirDeltas = [{
         "x": +1,
         "y": 0
     }, {
@@ -41,7 +49,7 @@ const stepstToChangeMouth = 12;
 
 function gameLoop() {
     //Give a color to the packman.
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = "green";
     
     //method to reDraw the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -70,13 +78,29 @@ function gameLoop() {
        
    }
 
-    packman.x += dirDeltas[dir].x;  // changing the directions appropriatly
-    packman.y += dirDeltas[dir].y;
+   drawBall(ball);
+
+    packman.x += dirDeltas[dir].x * packman.speed;  // changing the directions appropriatly and sets the speed
+    packman.y += dirDeltas[dir].y * packman.speed;
+
+//logic for passing throw the walls
+    packman.x = (packman.x + canvas.width) % canvas.width;
+    packman.y = (packman.y + canvas.height) % canvas.height; 
 
     // with this method we should make the anmation, because setTimeOut coould make problems
     //if for example our machin crashes *(i would continue running and so it would make occurred)
     window.requestAnimationFrame(gameLoop); 
     }
+
+    function drawBall (ballToDraw) {
+    ctx.beginPath();
+    ctx.fillStyle = "red";
+        
+    ctx.arc(ball.x, ball.y, ball.size, 0, 2 * Math.PI ); 
+    ctx.fill();
+        
+    }
+
 document.body.addEventListener("keydown", function(ev){
     console.log(ev.keyCode); //.keyCode shows what key have you pressed.
 
