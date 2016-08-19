@@ -13,6 +13,15 @@ namespace IntergalacticTravel.Tests.Fakes
         {
         }
 
-      
+        public ILocation Location
+        {
+            get
+            {
+                return base.location;
+            }
+
+        }
+
+
     }
 }

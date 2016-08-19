@@ -12,13 +12,17 @@ namespace IntergalacticTravel.Tests
     {
         //GetResources should return a newly created Resources object with correctly set up properties(Gold, Bronze and Silver coins), no matter what the order of the parameters is, when the input string is in the correct format. (Check with all possible cases):
 
-        [Test]
-        public void GetResources_ShouldReturnNewlyCreatedResourcesObject_WithTheCorrespondingPorperties()
+        [TestCase ("create resourses bronze(40) silver(30) gold(20)")]
+        [TestCase("create resourses silver(30) bronze(40) gold(20)")]
+        [TestCase("create resourses gold(20) bronze(40) silver(30)")]
+        [TestCase("create resourses bronze(40) silver(30) gold(20)")]
+
+        public void GetResources_ShouldReturnNewlyCreatedResourcesObject_WithTheCorrespondingPorperties(string str)
         {
             var testFactory = new ResourcesFactory();
 
             
-            var testResources = testFactory.GetResources("sdf sdf bronze(40) silver(30) gold(20) sdf sdf");
+            var testResources = testFactory.GetResources(str);
 
             var amount = (uint)20;
 
@@ -42,11 +46,14 @@ namespace IntergalacticTravel.Tests
 
         //GetResources should throw OverflowException, when the input string command is in the correct format, but any of the values that represent the resource amount is larger than uint.MaxValue. (Check with at least 2 different cases)
 
-        [Test]
-        public void asdf()
+        [TestCase("create resourses bronze(400000000000000) silver(30) gold(20)")]
+        [TestCase("create resourses bronze(21) silver(3000000000000000) gold(20)")]
+        [TestCase("create resourses bronze(21) silver(30) gold(2000000000000000000)")]
+        public void GetResourcesShouldThrowOverFlowException_WhenStringIsTooBig(string str)
         {
-            //DIDNT FIGURED OUT WHAT THE CORRECT COMMAND IS.
-            //TODO: Figure it out!
+            var testRFactory = new ResourcesFactory();
+
+            Assert.Throws<OverflowException>(() => testRFactory.GetResources(str));
         }
     }
 

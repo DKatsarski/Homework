@@ -80,16 +80,21 @@ namespace IntergalacticTravel.Tests
         {
             var fakeOwner = new Mock<IBusinessOwner>();
             var fakeGalacticMap = new Mock<IEnumerable<IPath>>();
-            var fakeLocation = new Mock<ILocation>();
 
             var fakeTargetLocation = new Mock<ILocation>();
             var fakeUnit = new Mock<IUnit>();
+            fakeUnit.Setup(x => x.CurrentLocation.Planet.Galaxy.Name).Returns("UAUA");
 
-            fakeTargetLocation.Name = "NOWERE";
+            fakeUnit.Setup(x => x.CurrentLocation.Planet.Name).Returns("FDFD");
 
-            var teleportStation = new MockTeleportStation(fakeOwner.Object, fakeGalacticMap.Object, fakeLocation.Object);
+            fakeTargetLocation.Setup(x => x.Planet.Name).Returns("AASD");
+            fakeTargetLocation.Setup(x => x.Planet.Galaxy.Name).Returns("asdf");
 
-            var messageNull = Assert.Throws<TeleportOutOfRangeException>(() => teleportStation.TeleportUnit(fakeUnit.Object, fakeTargetLocation.Object));
+            var teleportStation = new MockTeleportStation(
+                fakeOwner.Object, fakeGalacticMap.Object, fakeTargetLocation.Object);
+
+            var messageNull = Assert.Throws<TeleportOutOfRangeException>(
+                () => teleportStation.TeleportUnit(fakeUnit.Object, fakeTargetLocation.Object));
 
             StringAssert.Contains("unitToTeleport.CurrentLocation", messageNull.Message);
         }
