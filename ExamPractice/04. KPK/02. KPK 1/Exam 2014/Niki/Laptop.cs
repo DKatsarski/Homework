@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Computers.UI
+﻿namespace Computers.UI
 {
-    class Laptop
+    public class Laptop
     {
         private static void Main()
         {
