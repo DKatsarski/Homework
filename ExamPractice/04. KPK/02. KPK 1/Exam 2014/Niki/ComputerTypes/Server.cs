@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Computers.UI.Console.ComputerTypes
 {
-    class Server
+    public class Server : Computer
     {
+        internal void Process(int data)
+        {
+            this.Ram.SaveValue(data);
+
+            // TODO: Fix it
+            Cpu.SquareNumber();
+        }
     }
 }
