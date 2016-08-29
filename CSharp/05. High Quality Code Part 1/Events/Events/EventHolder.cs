@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 namespace Events
 {
 
-    class EventHolder
+    public class EventHolder
     {
-        MultiDictionary<string, Event>
-            byTitle = new MultiDictionary<string,
-            Event>(true);
-        OrderedBag<Event>
-            byDate = new OrderedBag<
-            Event>();
+        
+
+        MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
+
+        OrderedBag<Event> byDate = new OrderedBag<Event>();
 
         public void AddEvent(DateTime date,
                              string title,
@@ -42,6 +41,7 @@ namespace Events
             }
             byTitle.Remove(title);
             Messages.EventDeleted(removed);
+            
         }
         public void ListEvents(DateTime date, int count)
         {

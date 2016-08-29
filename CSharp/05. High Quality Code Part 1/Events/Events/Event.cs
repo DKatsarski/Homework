@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Events
 {
-    class Event : IComparable
+    public class Event : IComparable
     {
         public DateTime date;
         public String title;
