@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wintellect.PowerCollections;
-
-namespace Events
+﻿namespace Events
 {
+    using System;
+    using Wintellect.PowerCollections;
 
     public class EventHolder
     {
-        
+        private MultiDictionary<string, Event> toTitle = new MultiDictionary<string, Event>(true);
 
-        MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
+        private OrderedBag<Event> toDate = new OrderedBag<Event>();
 
-        OrderedBag<Event> byDate = new OrderedBag<Event>();
-
-        public void AddEvent(DateTime date, string title,string location)
+        public void AddEvent(DateTime date, string title, string location)
         {
             Event newEvent = new Event(date, title, location);
-            byTitle.Add(title.ToLower(), newEvent);
-            byDate.Add(newEvent);
+            this.toTitle.Add(title.ToLower(), newEvent);
+            this.toDate.Add(newEvent);
             Messages.EventAdded();
         }
 
@@ -28,29 +21,37 @@ namespace Events
         {
             string title = titleToDelete.ToLower();
             int removed = 0;
-            foreach (var eventToRemove in byTitle[title])
+
+            foreach (var eventToRemove in this.toTitle[title])
             {
                 removed++;
-                byDate.Remove(eventToRemove);
+                this.toDate.Remove(eventToRemove);
             }
-            byTitle.Remove(title);
+
+            this.toTitle.Remove(title);
             Messages.EventDeleted(removed);
         }
+
         public void ListEvents(DateTime date, int count)
         {
-            OrderedBag<Event>.View
-                    eventsToShow = byDate.RangeFrom(new Event(
-                    date, "", ""),
-                    true);
+            OrderedBag<Event>.View eventsToShow = this.toDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
             int showed = 0;
             foreach (var eventToShow in eventsToShow)
             {
-                if (showed == count) break;
+                if (showed == count)
+                {
+                    break;
+                }
+
                 Messages.PrintEvent(eventToShow);
 
                 showed++;
             }
-            if (showed == 0) Messages.NoEventsFound();
+
+            if (showed == 0)
+            {
+                Messages.NoEventsFound();
+            }
         }
     }
 }

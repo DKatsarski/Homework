@@ -1,13 +1,13 @@
-﻿using System;
-using System.Text;
-
-namespace Events
+﻿namespace Events
 {
+    using System;
+    using System.Text;
+
     public class Event : IComparable
     {
-        public DateTime date;
-        public string title;
-        public string location;
+        private DateTime date;
+        private string title;
+        private string location;
 
         public Event(DateTime date, string title, string location)
         {
@@ -19,40 +19,39 @@ namespace Events
         public int CompareTo(object obj)
         {
             Event other = obj as Event;
-            int byDate = this.date.CompareTo(other.date);
-            int byTitle = this.title.CompareTo(other.title);
+            int toDate = this.date.CompareTo(other.date);
+            int toTitle = this.title.CompareTo(other.title);
+            int toLocation = this.location.CompareTo(other.location);
 
-            int byLocation = this.location.CompareTo(other.location);
-            if (byDate == 0)
+            if (toDate == 0)
             {
-                if (byTitle == 0)
+                if (toTitle == 0)
                 { 
-                    return byLocation;
+                    return toLocation;
                 }
                 else
                 {
-                    return byTitle;
+                    return toTitle;
                 }
             }
             else
             {
-                return byDate;
+                return toDate;
             }
         }
 
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
-            toString.Append(date.ToString("yyyy-MM-ddTHH:mm:ss"));
-            toString.Append(" | " + title);
+            toString.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));
+            toString.Append(" | " + this.title);
 
-            if (location != null && location != "")
+            if (this.location != null && this.location != string.Empty)
             {
-                toString.Append(" | " + location);
+                toString.Append(" | " + this.location);
             }
 
             return toString.ToString();
         }
     }
-
 }
