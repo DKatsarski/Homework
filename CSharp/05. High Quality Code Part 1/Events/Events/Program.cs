@@ -10,6 +10,9 @@ using Wintellect.PowerCollections;
 
 public class Program
 {
+    //TODO: I DON'T see any idea in this output
+    static StringBuilder output = new StringBuilder();
+
     static EventHolder events = new EventHolder();
 
     static void Main(string[] args)
