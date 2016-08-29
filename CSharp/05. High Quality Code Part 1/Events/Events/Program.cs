@@ -107,9 +107,8 @@ public class Program
     private static DateTime GetDate(string command, string commandType)
     {
         DateTime date = DateTime.Parse(command
-            .Substring(commandType.Length +
+            .Substring(commandType.Length + 1, 20));
 
-            1, 20));
         return date;
     }
 }
