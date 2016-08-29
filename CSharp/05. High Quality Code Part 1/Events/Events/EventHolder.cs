@@ -16,24 +16,17 @@ namespace Events
 
         OrderedBag<Event> byDate = new OrderedBag<Event>();
 
-        public void AddEvent(DateTime date,
-                             string title,
-                              string location)
+        public void AddEvent(DateTime date, string title,string location)
         {
-            Event newEvent = new Event(date,
-                                       title,
-                                       location);
-            byTitle.Add(
-                        title.ToLower(),
-                        newEvent
-                        );
-            byDate.Add(newEvent); Messages.EventAdded();
+            Event newEvent = new Event(date, title, location);
+            byTitle.Add(title.ToLower(), newEvent);
+            byDate.Add(newEvent);
+            Messages.EventAdded();
         }
 
         public void DeleteEvents(string titleToDelete)
         {
-            string title = titleToDelete
-                    .ToLower();
+            string title = titleToDelete.ToLower();
             int removed = 0;
             foreach (var eventToRemove in byTitle[title])
             {
@@ -42,7 +35,6 @@ namespace Events
             }
             byTitle.Remove(title);
             Messages.EventDeleted(removed);
-            
         }
         public void ListEvents(DateTime date, int count)
         {

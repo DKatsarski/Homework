@@ -21,12 +21,12 @@ namespace Events
             {
                 NoEventsFound();
             }
-
             else
             {
                 output.AppendFormat("{0} events deleted\n", x);
             }
         }
+
         public static void NoEventsFound()
         {
             output.Append("No events found\n");
@@ -40,5 +40,4 @@ namespace Events
             }
         }
     }
-
 }

@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Events
 {
     public class Event : IComparable
     {
         public DateTime date;
-        public String title;
-        public String location;
+        public string title;
+        public string location;
 
-        public Event(DateTime date, String title, String location)
+        public Event(DateTime date, string title, string location)
         {
             this.date = date;
-
             this.title = title;
             this.location = location;
         }
@@ -30,25 +26,31 @@ namespace Events
             if (byDate == 0)
             {
                 if (byTitle == 0)
+                { 
                     return byLocation;
+                }
                 else
-                { return byTitle; }
-
-
+                {
+                    return byTitle;
+                }
             }
             else
+            {
                 return byDate;
+            }
         }
 
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
-            toString.Append(date
-                .ToString("yyyy-MM-ddTHH:mm:ss"));
-
-
+            toString.Append(date.ToString("yyyy-MM-ddTHH:mm:ss"));
             toString.Append(" | " + title);
-            if (location != null && location != "") toString.Append(" | " + location);
+
+            if (location != null && location != "")
+            {
+                toString.Append(" | " + location);
+            }
+
             return toString.ToString();
         }
     }
