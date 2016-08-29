@@ -207,8 +207,7 @@ commandForExecution.Substring(firstPipeIndex
 + 1).Trim();
             eventLocation = "";
         }
-        else
-        {
+        else {
             eventTitle = commandForExecution.Substring(
                                                     firstPipeIndex + 1,
                                                     lastPipeIndex - firstPipeIndex - 1)
