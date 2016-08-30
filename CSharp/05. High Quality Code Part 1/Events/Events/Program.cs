@@ -1,7 +1,7 @@
-﻿namespace Events
+﻿namespace Events.UI
 {
+    using Logic;
     using System;
-    using System.Text;
 
     public class Program
     {

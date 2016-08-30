@@ -1,9 +1,10 @@
-﻿namespace Events
+﻿namespace Events.Logic
 {
+    using Contracts;
     using System;
     using Wintellect.PowerCollections;
 
-    public class EventHolder
+    public class EventHolder : IEventHolder
     {
         private MultiDictionary<string, Event> toTitle = new MultiDictionary<string, Event>(true);
 

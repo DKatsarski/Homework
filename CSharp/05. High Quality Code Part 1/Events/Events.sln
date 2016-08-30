@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{C3C98F55-C37D-4657-83C2-4DD9B1890531}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Logic", "Events\Events.Logic.csproj", "{C3C98F55-C37D-4657-83C2-4DD9B1890531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

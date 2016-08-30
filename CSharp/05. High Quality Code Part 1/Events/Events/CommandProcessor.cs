@@ -1,11 +1,12 @@
-﻿namespace Events
+﻿namespace Events.Logic
 {
+    using Contracts;
     using System;
 
     public static class CommandProcessor
     {
         // TODO: Find a better way to uncouple the calsses
-        private static EventHolder events = new EventHolder();
+        private static IEventHolder events = new EventHolder();
 
         public static bool ExecuteNextCommand()
         {
