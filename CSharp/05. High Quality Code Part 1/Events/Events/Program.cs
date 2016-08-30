@@ -72,6 +72,7 @@
 
         private static void AddEvent(string command)
         {
+            // TODO: Maybe add new static class GetParamtersrs and maybe delete the fields below
             DateTime date;
             string title;
             string location;
