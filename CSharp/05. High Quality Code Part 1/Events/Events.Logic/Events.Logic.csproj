@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="CommandProcessor.cs" />
     <Compile Include="Contracts\IEventHolder.cs" />
     <Compile Include="Event.cs" />

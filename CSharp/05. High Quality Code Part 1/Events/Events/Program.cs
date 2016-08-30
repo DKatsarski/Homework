@@ -1,7 +1,8 @@
 ﻿namespace Events.UI
 {
-    using Logic;
     using System;
+
+    using Logic;
 
     public class Program
     {

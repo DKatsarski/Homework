@@ -1,7 +1,8 @@
 ﻿namespace Events.Logic
 {
-    using Contracts;
     using System;
+
+    using Contracts;
 
     public static class CommandProcessor
     {
