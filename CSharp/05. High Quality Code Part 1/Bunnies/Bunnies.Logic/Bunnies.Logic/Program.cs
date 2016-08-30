@@ -6,6 +6,7 @@ using System.Linq;
 namespace High.Quality.Code.BadExample
 {
     using global::Bunnies.Logic;
+    using global::Bunnies.Logic.Contracts;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Text;
     using System.Threading.Tasks;
@@ -73,54 +74,10 @@ File.Create(bunniesFilePath); fileStream.Close();
 
 
 
-    public enum FurType
-    {
-        NotFluffy, ALittleFluffy, Fluffy, FluffyToTheLimit
-    }
+  
 
-    public
-        interface
-            IWriter
-    {
-        void Write(string message);
-        void WriteLine(string message);
-    }
+ 
 
-    public
-        class
-            ConsoleWriter :
-            IWriter
-    {
-        public void Write(string message)
-        {
-            Console.Write(message);
-        }
-        public void WriteLine(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
 
-    public static class StringExtensions
-    {
-        public static string SplitToSeparateWordsByUppercaseLetter(this string sequence)
-        {
-            var probableStringMargin = 10;
-            var probableStringSize = sequence.Length + probableStringMargin;
-            var builder = new StringBuilder(probableStringSize);
 
-            var singleWhitespace = ' ';
-            foreach (var letter in sequence)
-            {
-                if (Char.IsUpper(letter))
-                {
-                    builder.Append(singleWhitespace);
-                }
-
-                builder.Append(letter);
-            }
-
-            return builder.ToString().Trim();
-        }
-    }
 }

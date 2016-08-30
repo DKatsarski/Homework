@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bunny.cs" />
+    <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="Contracts\IWritter.cs" />
+    <Compile Include="FurType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
