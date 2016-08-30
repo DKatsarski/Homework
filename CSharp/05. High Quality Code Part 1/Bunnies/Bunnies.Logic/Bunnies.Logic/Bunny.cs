@@ -1,13 +1,8 @@
-﻿using High.Quality.Code.BadExample;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Bunnies.Logic.Contracts;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Bunnies.Logic
 {
-    [Serializable]
     public class Bunny
     {
         public int Age { get; set; }

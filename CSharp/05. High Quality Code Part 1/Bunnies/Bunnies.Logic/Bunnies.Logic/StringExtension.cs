@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bunnies.Logic
+﻿namespace Bunnies.Logic
 {
+    using System.Text;
+
     public static class StringExtensions
     {
         public static string SplitToSeparateWordsByUppercaseLetter(this string sequence)
@@ -17,7 +13,7 @@ namespace Bunnies.Logic
             var singleWhitespace = ' ';
             foreach (var letter in sequence)
             {
-                if (Char.IsUpper(letter))
+                if (char.IsUpper(letter))
                 {
                     builder.Append(singleWhitespace);
                 }
