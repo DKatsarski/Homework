@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Logic", "Events\Events.Logic.csproj", "{C3C98F55-C37D-4657-83C2-4DD9B1890531}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.UI", "Events\Events.UI.csproj", "{C3C98F55-C37D-4657-83C2-4DD9B1890531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Logic", "Events.Logic\Events.Logic.csproj", "{C7CAE684-F325-4115-9DBC-0C3A9E34E1CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C3C98F55-C37D-4657-83C2-4DD9B1890531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3C98F55-C37D-4657-83C2-4DD9B1890531}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3C98F55-C37D-4657-83C2-4DD9B1890531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7CAE684-F325-4115-9DBC-0C3A9E34E1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7CAE684-F325-4115-9DBC-0C3A9E34E1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7CAE684-F325-4115-9DBC-0C3A9E34E1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7CAE684-F325-4115-9DBC-0C3A9E34E1CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
