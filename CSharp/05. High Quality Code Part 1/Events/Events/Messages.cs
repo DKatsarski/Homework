@@ -35,5 +35,10 @@
                 output.Append(eventToPrint + "\n");
             }
         }
+
+        public static StringBuilder ShowOutput()
+        {
+            return output;
+        }
     }
 }
