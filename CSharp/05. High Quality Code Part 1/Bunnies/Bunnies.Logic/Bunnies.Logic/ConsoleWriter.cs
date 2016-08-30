@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Bunnies.Logic.Contracts;
+    using Contracts;
 
     public class ConsoleWriter : IWriter
     {

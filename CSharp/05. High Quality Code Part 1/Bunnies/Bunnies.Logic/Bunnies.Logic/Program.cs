@@ -1,8 +1,7 @@
-﻿namespace High.Quality.Code.BadExample
+﻿namespace Bunnies.Logic
 {
     using System.Collections.Generic;
     using System.IO;
-    using global::Bunnies.Logic;
 
     public class Bunnies
     {

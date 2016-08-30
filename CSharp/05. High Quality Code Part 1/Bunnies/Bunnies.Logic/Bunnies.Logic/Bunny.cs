@@ -1,18 +1,23 @@
-﻿using Bunnies.Logic.Contracts;
-using System.Text;
-
-namespace Bunnies.Logic
+﻿namespace Bunnies.Logic
 {
+    using System.Text;
+
+    using Contracts;
+
     public class Bunny
     {
         public int Age { get; set; }
+
         public string Name { get; set; }
+
         public FurType FurType { get; set; }
+
         public void Introduce(IWriter writer)
         {
             writer.WriteLine($"{this.Name} - \"I am {this.Age} years old!\"");
             writer.WriteLine($"{this.Name} - \"And I am {this.FurType.ToString().SplitToSeparateWordsByUppercaseLetter()}");
         }
+
         public override string ToString()
         {
             var builderSize = 200;
@@ -25,5 +30,4 @@ namespace Bunnies.Logic
             return builder.ToString();
         }
     }
-
 }
