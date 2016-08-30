@@ -76,6 +76,7 @@
             string title;
             string location;
 
+            // TODO: Change the AddEvent with the static class EventHandler 
             GetParameters(command, "AddEvent", out date, out title, out location);
 
             events.AddEvent(date, title, location);
