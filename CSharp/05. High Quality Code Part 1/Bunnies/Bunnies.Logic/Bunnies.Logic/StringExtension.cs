@@ -9,8 +9,8 @@
             var probableStringMargin = 10;
             var probableStringSize = sequence.Length + probableStringMargin;
             var builder = new StringBuilder(probableStringSize);
-
             var singleWhitespace = ' ';
+
             foreach (var letter in sequence)
             {
                 if (char.IsUpper(letter))

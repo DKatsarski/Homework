@@ -3,16 +3,16 @@
     using System.Collections.Generic;
     using System.IO;
 
-    public class Bunnies
+    public class StartUp
     {
         public static void Main(string[] args)
         {
             var bunnies = new List<Bunny>
             {
                 new Bunny { Name = "Leonid", Age = 1, FurType = FurType.NotFluffy },
-                new Bunny { Age = 2, Name = "Rasputin", FurType = FurType.ALittleFluffy },
-                new Bunny { FurType = FurType.ALittleFluffy, Name = "Tiberii", Age = 3, },
-                new Bunny { Name = "Neron", FurType = FurType.ALittleFluffy, Age = 1 },
+                new Bunny { Name = "Rasputin", Age = 2, FurType = FurType.ALittleFluffy },
+                new Bunny { Name = "Tiberii", Age = 3, FurType = FurType.ALittleFluffy, },
+                new Bunny { Name = "Neron",  Age = 1, FurType = FurType.ALittleFluffy },
                 new Bunny { Name = "Klavdii", Age = 3, FurType = FurType.Fluffy },
                 new Bunny { Name = "Vespasian", Age = 3, FurType = FurType.Fluffy },
                 new Bunny { Name = "Domician", Age = 4, FurType = FurType.FluffyToTheLimit },
