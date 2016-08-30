@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Events
+﻿namespace Events
 {
+    using System;
+
     public static class CommandProcessor
     {
         // TODO: Find a better way to uncouple the calsses
@@ -43,6 +39,7 @@ namespace Events
 
                 return false;
             }
+
             return false;
         }
 
