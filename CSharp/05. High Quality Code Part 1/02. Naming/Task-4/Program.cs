@@ -11,7 +11,7 @@
             
             string command = string.Empty;
             char[,] field = CreatePlayingField();
-            char[,] bombs = slojibombite();
+            char[,] bombs = SetBombs();
             int counter = 0;
             bool isDetonated = false;
             List<PointsHolder> topPlayers = new List<PointsHolder>(6);
@@ -29,8 +29,10 @@
                     dumpp(field);
                     flag = false;
                 }
+
                 Console.Write("Daj red i kolona : ");
                 command = Console.ReadLine().Trim();
+
                 if (command.Length >= 3)
                 {
                     if (int.TryParse(command[0].ToString(), out row) &&
@@ -40,14 +42,15 @@
                         command = "turn";
                     }
                 }
+
                 switch (command)
                 {
                     case "top":
-                        klasacia(topPlayers);
+                        RangList(topPlayers);
                         break;
                     case "restart":
                         field = CreatePlayingField();
-                        bombs = slojibombite();
+                        bombs = SetBombs();
                         dumpp(field);
                         isDetonated = false;
                         flag = false;
@@ -81,6 +84,7 @@
                         Console.WriteLine("\nGreshka! nevalidna Komanda\n");
                         break;
                 }
+
                 if (isDetonated)
                 {
                     dumpp(bombs);
@@ -88,6 +92,7 @@
                         "Daj si niknejm: ", counter);
                     string niknejm = Console.ReadLine();
                     PointsHolder t = new PointsHolder(niknejm, counter);
+
                     if (topPlayers.Count < 5)
                     {
                         topPlayers.Add(t);
@@ -104,12 +109,12 @@
                             }
                         }
                     }
-                    topPlayers.Sort((PointsHolder r1, PointsHolder r2) => r2.Name.CompareTo(r1.Name));
-                    topPlayers.Sort((PointsHolder r1, PointsHolder r2) => r2.Points.CompareTo(r1.Points));
-                    klasacia(topPlayers);
+                    topPlayers.Sort((PointsHolder firstRang, PointsHolder secondRang) => secondRang.Name.CompareTo(firstRang.Name));
+                    topPlayers.Sort((PointsHolder firstRang, PointsHolder secondRang) => secondRang.Points.CompareTo(firstRang.Points));
+                    RangList(topPlayers);
 
                     field = CreatePlayingField();
-                    bombs = slojibombite();
+                    bombs = SetBombs();
                     counter = 0;
                     isDetonated = false;
                     flag = true;
@@ -122,23 +127,25 @@
                     string imeee = Console.ReadLine();
                     PointsHolder to4kii = new PointsHolder(imeee, counter);
                     topPlayers.Add(to4kii);
-                    klasacia(topPlayers);
+                    RangList(topPlayers);
                     field = CreatePlayingField();
-                    bombs = slojibombite();
+                    bombs = SetBombs();
                     counter = 0;
                     flag2 = false;
                     flag = true;
                 }
             }
+
             while (command != "exit");
             Console.WriteLine("Made in Bulgaria - Uauahahahahaha!");
             Console.WriteLine("AREEEEEEeeeeeee.");
             Console.Read();
         }
 
-        private static void klasacia(List<PointsHolder> to4kii)
+        private static void RangList(List<PointsHolder> to4kii)
         {
             Console.WriteLine("\nTo4KI:");
+
             if (to4kii.Count > 0)
             {
                 for (int i = 0; i < to4kii.Count; i++)
@@ -197,7 +204,7 @@
             return board;
         }
 
-        private static char[,] slojibombite()
+        private static char[,] SetBombs()
         {
             int Редове = 5;
             int Колони = 10;
