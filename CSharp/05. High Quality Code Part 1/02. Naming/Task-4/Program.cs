@@ -46,7 +46,7 @@
                 switch (command)
                 {
                     case "top":
-                        RangList(topPlayers);
+                        RangList.ShowRangList(topPlayers);
                         break;
                     case "restart":
                         field = GetParameters.CreatePlayingField();
@@ -111,7 +111,7 @@
                     }
                     topPlayers.Sort((PointsHolder firstRang, PointsHolder secondRang) => secondRang.Name.CompareTo(firstRang.Name));
                     topPlayers.Sort((PointsHolder firstRang, PointsHolder secondRang) => secondRang.Points.CompareTo(firstRang.Points));
-                    RangList(topPlayers);
+                    RangList.ShowRangList(topPlayers);
 
                     field = GetParameters.CreatePlayingField();
                     bombs = GetParameters.SetBombs();           
@@ -127,7 +127,7 @@
                     string imeee = Console.ReadLine();
                     PointsHolder to4kii = new PointsHolder(imeee, counter);
                     topPlayers.Add(to4kii);
-                    RangList(topPlayers);
+                    RangList.ShowRangList(topPlayers);
                     field = GetParameters.CreatePlayingField();
                     bombs = GetParameters.SetBombs();          
                     counter = 0;
@@ -142,36 +142,13 @@
             Console.Read();
         }
 
-        private static void RangList(List<PointsHolder> points)
+        private static void yourTurn(char[,] field, char[,] bombs, int row, int col)
         {
-            Console.WriteLine("\nTo4KI:");
-
-            if (points.Count > 0)
-            {
-                for (int i = 0; i < points.Count; i++)
-                {
-                    Console.WriteLine("{0}. {1} --> {2} kutii",
-                        i + 1, points[i].Name, points[i].Points);
-                }
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("prazna klasaciq!\n");
-            }
-        }
-
-        private static void yourTurn(char[,] field,
-            char[,] bombs, int row, int col)
-        {
-            char kolkoBombi = BombSetter.PlaceBombsOnTheirPositions(bombs, row, col);
-            bombs[row, col] = kolkoBombi;
-            field[row, col] = kolkoBombi;
+            char bombsCount = BombSetter.PlaceBombsOnTheirPositions(bombs, row, col);
+            bombs[row, col] = bombsCount;
+            field[row, col] = bombsCount;
         }
         
-   
-
-
         private static void smetki(char[,] field)
         {
             int col = field.GetLength(0);
