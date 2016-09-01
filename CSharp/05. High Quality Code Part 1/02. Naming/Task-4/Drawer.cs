@@ -26,5 +26,7 @@ namespace Minesweeper
             }
             Console.WriteLine("   ---------------------\n");
         }
+
+      
     }
 }

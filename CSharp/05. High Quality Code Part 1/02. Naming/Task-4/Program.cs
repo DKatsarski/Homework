@@ -164,7 +164,7 @@
         private static void yourTurn(char[,] field,
             char[,] bombs, int row, int col)
         {
-            char kolkoBombi = kolko(bombs, row, col);
+            char kolkoBombi = BombSetter.PlaceBombsOnTheirPositions(bombs, row, col);
             bombs[row, col] = kolkoBombi;
             field[row, col] = kolkoBombi;
         }
@@ -183,76 +183,11 @@
                 {
                     if (field[i, j] != '*')
                     {
-                        char kolkoo = kolko(field, i, j);
+                        char kolkoo = BombSetter.PlaceBombsOnTheirPositions(field, i, j);
                         field[i, j] = kolkoo;
                     }
                 }
             }
-        }
-
-        private static char kolko(char[,] field, int row, int col)
-        {
-            int count = 0;
-            int rows = field.GetLength(0);
-            int cols = field.GetLength(1);
-
-            if (row - 1 >= 0)
-            {
-                if (field[row - 1, col] == '*')
-                {
-                    count++;
-                }
-            }
-            if (row + 1 < rows)
-            {
-                if (field[row + 1, col] == '*')
-                {
-                    count++;
-                }
-            }
-            if (col - 1 >= 0)
-            {
-                if (field[row, col - 1] == '*')
-                {
-                    count++;
-                }
-            }
-            if (col + 1 < cols)
-            {
-                if (field[row, col + 1] == '*')
-                {
-                    count++;
-                }
-            }
-            if ((row - 1 >= 0) && (col - 1 >= 0))
-            {
-                if (field[row - 1, col - 1] == '*')
-                {
-                    count++;
-                }
-            }
-            if ((row - 1 >= 0) && (col + 1 < cols))
-            {
-                if (field[row - 1, col + 1] == '*')
-                {
-                    count++;
-                }
-            }
-            if ((row + 1 < rows) && (col - 1 >= 0))
-            {
-                if (field[row + 1, col - 1] == '*')
-                {
-                    count++;
-                }
-            }
-            if ((row + 1 < rows) && (col + 1 < cols))
-            {
-                if (field[row + 1, col + 1] == '*')
-                {
-                    count++;
-                }
-            }
-            return char.Parse(count.ToString());
         }
     }
 }

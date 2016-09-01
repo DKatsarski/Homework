@@ -76,6 +76,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BombSetter.cs" />
     <Compile Include="CommandReader.cs" />
     <Compile Include="Contracts\IDrawer.cs" />
     <Compile Include="Contracts\IGetterOfParameters.cs" />

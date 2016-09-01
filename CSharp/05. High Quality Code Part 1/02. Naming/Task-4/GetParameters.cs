@@ -48,11 +48,11 @@ namespace Minesweeper
                 }
             }
 
-            foreach (int bomb in bombsOnField)
+            foreach (int position in bombsOnField)
             {
-                int col = (bomb / cols);
-                int row = (bomb % cols);
-                if (row == 0 && bomb != 0)
+                int col = (position / cols);
+                int row = (position % cols);
+                if (row == 0 && position != 0)
                 {
                     col--;
                     row = cols;
