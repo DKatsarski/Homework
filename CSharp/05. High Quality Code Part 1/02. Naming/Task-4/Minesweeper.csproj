@@ -77,6 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandReader.cs" />
+    <Compile Include="Contracts\IDrawer.cs" />
+    <Compile Include="Contracts\IGetterOfParameters.cs" />
+    <Compile Include="Drawer.cs" />
+    <Compile Include="GetParameters.cs" />
     <Compile Include="PointsHolder.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>

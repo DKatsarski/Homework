@@ -10,8 +10,8 @@
             const int Max = 35;
             
             string command = string.Empty;
-            char[,] field = CreatePlayingField();
-            char[,] bombs = SetBombs();
+            char[,] field = GetParameters.CreatePlayingField();
+            char[,] bombs = GetParameters.SetBombs();
             int counter = 0;
             bool isDetonated = false;
             List<PointsHolder> topPlayers = new List<PointsHolder>(6);
@@ -26,7 +26,7 @@
                 {
                     Console.WriteLine("Hajde da igraem na “Mini4KI”. Probvaj si kasmeta da otkriesh poleteta bez mini4ki." +
                     " Komanda 'top' pokazva klasiraneto, 'restart' po4va nova igra, 'exit' izliza i hajde 4ao!");
-                    dumpp(field);
+                    Drawer.DrawBoard(field);
                     flag = false;
                 }
 
@@ -49,9 +49,9 @@
                         RangList(topPlayers);
                         break;
                     case "restart":
-                        field = CreatePlayingField();
-                        bombs = SetBombs();
-                        dumpp(field);
+                        field = GetParameters.CreatePlayingField();
+                        bombs = GetParameters.SetBombs();
+                        Drawer.DrawBoard(field);
                         isDetonated = false;
                         flag = false;
                         break;
@@ -72,7 +72,7 @@
                             }
                             else
                             {
-                                dumpp(field);
+                                Drawer.DrawBoard(field);
                             }
                         }
                         else
@@ -87,7 +87,7 @@
 
                 if (isDetonated)
                 {
-                    dumpp(bombs);
+                    Drawer.DrawBoard(bombs);
                     Console.Write("\nHrrrrrr! Umria gerojski s {0} to4ki. " +
                         "Daj si niknejm: ", counter);
                     string niknejm = Console.ReadLine();
@@ -113,8 +113,8 @@
                     topPlayers.Sort((PointsHolder firstRang, PointsHolder secondRang) => secondRang.Points.CompareTo(firstRang.Points));
                     RangList(topPlayers);
 
-                    field = CreatePlayingField();
-                    bombs = SetBombs();
+                    field = GetParameters.CreatePlayingField();
+                    bombs = GetParameters.SetBombs();           
                     counter = 0;
                     isDetonated = false;
                     flag = true;
@@ -122,14 +122,14 @@
                 if (flag2)
                 {
                     Console.WriteLine("\nBRAVOOOS! Otvri 35 kletki bez kapka kryv.");
-                    dumpp(bombs);
+                    Drawer.DrawBoard(bombs);
                     Console.WriteLine("Daj si imeto, batka: ");
                     string imeee = Console.ReadLine();
                     PointsHolder to4kii = new PointsHolder(imeee, counter);
                     topPlayers.Add(to4kii);
                     RangList(topPlayers);
-                    field = CreatePlayingField();
-                    bombs = SetBombs();
+                    field = GetParameters.CreatePlayingField();
+                    bombs = GetParameters.SetBombs();          
                     counter = 0;
                     flag2 = false;
                     flag = true;
@@ -168,85 +168,9 @@
             BOMBI[RED, KOLONA] = kolkoBombi;
             POLE[RED, KOLONA] = kolkoBombi;
         }
+        
+   
 
-        private static void dumpp(char[,] board)
-        {
-            int RRR = board.GetLength(0);
-            int KKK = board.GetLength(1);
-            Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
-            Console.WriteLine("   ---------------------");
-            for (int i = 0; i < RRR; i++)
-            {
-                Console.Write("{0} | ", i);
-                for (int j = 0; j < KKK; j++)
-                {
-                    Console.Write(string.Format("{0} ", board[i, j]));
-                }
-                Console.Write("|");
-                Console.WriteLine();
-            }
-            Console.WriteLine("   ---------------------\n");
-        }
-
-        private static char[,] CreatePlayingField()
-        {
-            int boardRows = 5;
-            int boardColumns = 10;
-            char[,] board = new char[boardRows, boardColumns];
-            for (int i = 0; i < boardRows; i++)
-            {
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    board[i, j] = '?';
-                }
-            }
-
-            return board;
-        }
-
-        private static char[,] SetBombs()
-        {
-            int Редове = 5;
-            int Колони = 10;
-            char[,] игрално_поле = new char[Редове, Колони];
-
-            for (int i = 0; i < Редове; i++)
-            {
-                for (int j = 0; j < Колони; j++)
-                {
-                    игрално_поле[i, j] = '-';
-                }
-            }
-
-            List<int> r3 = new List<int>();
-            while (r3.Count < 15)
-            {
-                Random random = new Random();
-                int asfd = random.Next(50);
-                if (!r3.Contains(asfd))
-                {
-                    r3.Add(asfd);
-                }
-            }
-
-            foreach (int i2 in r3)
-            {
-                int kol = (i2 / Колони);
-                int red = (i2 % Колони);
-                if (red == 0 && i2 != 0)
-                {
-                    kol--;
-                    red = Колони;
-                }
-                else
-                {
-                    red++;
-                }
-                игрално_поле[kol, red - 1] = '*';
-            }
-
-            return игрално_поле;
-        }
 
         private static void smetki(char[,] pole)
         {
