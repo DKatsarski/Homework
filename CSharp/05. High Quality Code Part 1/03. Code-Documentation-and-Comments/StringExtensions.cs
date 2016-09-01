@@ -203,23 +203,45 @@
             return input;
         }
 
+        /// <summary>
+        /// Makes a username provided in cyrilic letters valid.
+        /// </summary>
+        /// <param name="input">An input representing a username</param>
+        /// <returns>Valid username.</returns>
         public static string ToValidUsername(this string input)
         {
             input = input.ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.]+", string.Empty);
         }
 
+        /// <summary>
+        /// Makes a username provided in latin letters valid.
+        /// </summary>
+        /// <param name="input">An input representing a username</param>
+        /// <returns>Valid username.</returns>
         public static string ToValidLatinFileName(this string input)
         {
             input = input.Replace(" ", "-").ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.\-]+", string.Empty);
         }
 
+        /// <summary>
+        /// Extracts the first letter of a string.
+        /// </summary>
+        /// <param name="input">A string from which the first letter will be extracted.</param>
+        /// <param name="charsCount"></param>
+        /// <returns>The first letter of a string.</returns>
         public static string GetFirstCharacters(this string input, int charsCount)
         {
             return input.Substring(0, Math.Min(input.Length, charsCount));
         }
 
+        /// <summary>
+        /// Gets an extension of a file. 
+        /// <example>.exe, .cs, .html, .js, .dll, and so on.</example>
+        /// </summary>
+        /// <param name="fileName">A string from which the file extension will be taken.</param>
+        /// <returns>A file extension</returns>
         public static string GetFileExtension(this string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -236,6 +258,11 @@
             return fileParts.Last().Trim().ToLower();
         }
 
+        /// <summary>
+        /// Shows where the file is used and what it is representing.
+        /// </summary>
+        /// <param name="fileExtension">A file type.</param>
+        /// <returns>Where the file is used and what it is representing.</returns>
         public static string ToContentType(this string fileExtension)
         {
             var fileExtensionToContentType = new Dictionary<string, string>
@@ -260,6 +287,11 @@
             return "application/octet-stream";
         }
 
+        /// <summary>
+        /// Converts string to byte array.
+        /// </summary>
+        /// <param name="input">String to be converted to byte array.</param>
+        /// <returns>A byte array from the given string.</returns>
         public static byte[] ToByteArray(this string input)
         {
             var bytesArray = new byte[input.Length * sizeof(char)];
