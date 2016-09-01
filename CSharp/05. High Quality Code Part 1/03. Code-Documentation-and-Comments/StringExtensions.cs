@@ -13,9 +13,15 @@
     /// </summary>
     public static class StringExtensions
     {
-        // TODO: XML Documentation
+        /// <summary>
+        /// Convertes bytes of hash date to heximal string.
+        /// </summary>
+        /// <param name="input">An input for the byte array to be extracted from.</param>
+        /// <returns>Heximal string.</returns>
         public static string ToMd5Hash(this string input)
         {
+            // Creates an instance of the default implementation of the System.Security.Cryptography.MD5
+            // hash algorithm.
             var md5Hash = MD5.Create();
 
             // Convert the input string to a byte array and compute the hash.
@@ -33,13 +39,24 @@
             // Return the hexadecimal string.
             return builder.ToString();
         }
-        // TODO: XML Documentation
+
+        /// <summary>
+        /// Provides a set of string values to compare the given string with 
+        /// and asserts whether it should be considered as true or false, depending on whether there is a match.
+        /// </summary>
+        /// <param name="input">An input to be compared with the values in the string array.</param>
+        /// <returns>True if there is a match, or false if there is none.</returns>
         public static bool ToBoolean(this string input)
         {
             var stringTrueValues = new[] { "true", "ok", "yes", "1", "да" };
             return stringTrueValues.Contains(input.ToLower());
         }
 
+        /// <summary>
+        /// Parses string to short.
+        /// </summary>
+        /// <param name="input">An input to be parsed to short.</param>
+        /// <returns>A parsed string to short.</returns>
         public static short ToShort(this string input)
         {
             short shortValue;
@@ -47,6 +64,11 @@
             return shortValue;
         }
 
+        /// <summary>
+        /// Parses string to integer.
+        /// </summary>
+        /// <param name="input">An input to be parsed to integer.</param>
+        /// <returns>A parsed string to integer.</returns>
         public static int ToInteger(this string input)
         {
             int integerValue;
@@ -54,6 +76,11 @@
             return integerValue;
         }
 
+        /// <summary>
+        /// Parses string to long.
+        /// </summary>
+        /// <param name="input">An input to be parsed to long.</param>
+        /// <returns>A parsed string to long.</returns>
         public static long ToLong(this string input)
         {
             long longValue;
@@ -61,6 +88,11 @@
             return longValue;
         }
 
+        /// <summary>
+        /// Parses string to DateTime.
+        /// </summary>
+        /// <param name="input">An input to be parsed to DateTime.</param>
+        /// <returns>A parsed string to DateTime.</returns>
         public static DateTime ToDateTime(this string input)
         {
             DateTime dateTimeValue;
@@ -68,6 +100,11 @@
             return dateTimeValue;
         }
 
+        /// <summary>
+        /// Capitalizes the first letter.
+        /// </summary>
+        /// <param name="input">An input from which the first letter will be capitalized.</param>
+        /// <returns>A string where the firt letter is always capitalized.</returns>
         public static string CapitalizeFirstLetter(this string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -78,6 +115,14 @@
             return input.Substring(0, 1).ToUpper(CultureInfo.CurrentCulture) + input.Substring(1, input.Length - 1);
         }
 
+        /// <summary>
+        /// Gets a string in between other strings.
+        /// </summary>
+        /// <param name="input">An input where the new string should be included.</param>
+        /// <param name="startString">Is the point which shows where the included string should start from.</param>
+        /// <param name="endString">Is the point which shows where the included string should end.</param>
+        /// <param name="startFrom">Points to the beginning of the initial string.</param>
+        /// <returns>An updated version of the initial string with the new one included inside it.</returns>
         public static string GetStringBetween(this string input, string startString, string endString, int startFrom = 0)
         {
             input = input.Substring(startFrom);
@@ -102,6 +147,11 @@
             return input.Substring(startPosition, endPosition - startPosition);
         }
 
+        /// <summary>
+        /// Converts cyrilic to latin letters.
+        /// </summary>
+        /// <param name="input">An input to be converted to latin letters.</param>
+        /// <returns>A converted string cointaining only latin letters.</returns>
         public static string ConvertCyrillicToLatinLetters(this string input)
         {
             var bulgarianLetters = new[]
@@ -124,6 +174,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Converts latin to cyrilic letters.
+        /// </summary>
+        /// <param name="input">An input to be converted to cyrilic letters.</param>
+        /// <returns>A converted string cointaining only cyrilic letters.</returns>
         public static string ConvertLatinToCyrillicKeyboard(this string input)
         {
             var latinLetters = new[]
