@@ -8,6 +8,9 @@
     using System.Text;
     using System.Text.RegularExpressions;
 
+    /// <summary>
+    /// Provides a wide range of methods for manipulating string content 
+    /// </summary>
     public static class StringExtensions
     {
         // TODO: XML Documentation
@@ -30,7 +33,7 @@
             // Return the hexadecimal string.
             return builder.ToString();
         }
-
+        // TODO: XML Documentation
         public static bool ToBoolean(this string input)
         {
             var stringTrueValues = new[] { "true", "ok", "yes", "1", "да" };
