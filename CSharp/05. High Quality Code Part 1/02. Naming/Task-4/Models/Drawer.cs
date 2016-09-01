@@ -1,11 +1,7 @@
-﻿using Minesweeper.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Minesweeper
+﻿namespace Minesweeper
 {
+    using System;
+
     public static class Drawer
     {
         public static void DrawBoard(char[,] board)
@@ -27,6 +23,11 @@ namespace Minesweeper
             Console.WriteLine("   ---------------------\n");
         }
 
-      
+        public static void UpdateSelectedPoint(char[,] field, char[,] bombs, int row, int col)
+        {
+            char bombsCount = BombSetter.PlaceBombsOnTheirPositions(bombs, row, col);
+            bombs[row, col] = bombsCount;
+            field[row, col] = bombsCount;
+        }
     }
 }

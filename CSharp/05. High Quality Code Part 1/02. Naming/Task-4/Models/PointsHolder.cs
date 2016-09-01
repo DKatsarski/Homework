@@ -1,6 +1,5 @@
 ﻿namespace Minesweeper
 {
-    // TODO: Maybe change name to Ranglist, but if this would be the case, better input some more methods here
     public class PointsHolder
     {
         string name;

@@ -76,15 +76,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BombSetter.cs" />
-    <Compile Include="CommandReader.cs" />
-    <Compile Include="Contracts\IDrawer.cs" />
-    <Compile Include="Contracts\IGetterOfParameters.cs" />
-    <Compile Include="Drawer.cs" />
-    <Compile Include="GetParameters.cs" />
-    <Compile Include="PointsHolder.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="RangList.cs" />
+    <Compile Include="Models\BombSetter.cs" />
+    <Compile Include="Models\Drawer.cs" />
+    <Compile Include="Models\GetParameters.cs" />
+    <Compile Include="Models\MinesweeperEngine.cs" />
+    <Compile Include="Models\PointsHolder.cs" />
+    <Compile Include="StartUp.cs" />
+    <Compile Include="Models\RangList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

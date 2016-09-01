@@ -1,14 +1,14 @@
-﻿namespace Minesweeper
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-    public class minite
+namespace Minesweeper
+{
+    public static class MinesweeperEngine
     {
-        static void Main(string[] аргументи)
+        public static void GameStart()
         {
             const int Max = 35;
-            
+
             string command = string.Empty;
             char[,] field = GetParameters.CreatePlayingField();
             char[,] bombs = GetParameters.SetBombs();
@@ -59,13 +59,16 @@
                         Console.WriteLine("4a0, 4a0, 4a0!");
                         break;
                     case "turn":
+
                         if (bombs[row, col] != '*')
                         {
+
                             if (bombs[row, col] == '-')
                             {
-                                yourTurn(field, bombs, row, col);
+                                Drawer.UpdateSelectedPoint(field, bombs, row, col);
                                 counter++;
                             }
+
                             if (Max == counter)
                             {
                                 gameSolved = true;
@@ -101,6 +104,7 @@
                     {
                         for (int i = 0; i < topPlayers.Count; i++)
                         {
+
                             if (topPlayers[i].Points < t.Points)
                             {
                                 topPlayers.Insert(i, t);
@@ -114,11 +118,12 @@
                     RangList.ShowRangList(topPlayers);
 
                     field = GetParameters.CreatePlayingField();
-                    bombs = GetParameters.SetBombs();           
+                    bombs = GetParameters.SetBombs();
                     counter = 0;
                     isDetonated = false;
                     newGameStarted = true;
                 }
+
                 if (gameSolved)
                 {
                     Console.WriteLine("\nBRAVOOOS! Otvri 35 kletki bez kapka kryv.");
@@ -129,7 +134,7 @@
                     topPlayers.Add(to4kii);
                     RangList.ShowRangList(topPlayers);
                     field = GetParameters.CreatePlayingField();
-                    bombs = GetParameters.SetBombs();          
+                    bombs = GetParameters.SetBombs();
                     counter = 0;
                     gameSolved = false;
                     newGameStarted = true;
@@ -141,14 +146,5 @@
             Console.WriteLine("AREEEEEEeeeeeee.");
             Console.Read();
         }
-
-        private static void yourTurn(char[,] field, char[,] bombs, int row, int col)
-        {
-            char bombsCount = BombSetter.PlaceBombsOnTheirPositions(bombs, row, col);
-            bombs[row, col] = bombsCount;
-            field[row, col] = bombsCount;
-        }
-        
-       
     }
 }
