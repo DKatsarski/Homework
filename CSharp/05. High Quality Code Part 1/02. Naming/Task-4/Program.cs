@@ -30,7 +30,7 @@
                     flag = false;
                 }
 
-                Console.Write("Daj red i kolona : ");
+                Console.Write("Daj red i kolona sys space mejdu tqh: ");
                 command = Console.ReadLine().Trim();
 
                 if (command.Length >= 3)
@@ -63,7 +63,7 @@
                         {
                             if (bombs[row, col] == '-')
                             {
-                                tisinahod(field, bombs, row, col);
+                                yourTurn(field, bombs, row, col);
                                 counter++;
                             }
                             if (Max == counter)
@@ -142,16 +142,16 @@
             Console.Read();
         }
 
-        private static void RangList(List<PointsHolder> to4kii)
+        private static void RangList(List<PointsHolder> points)
         {
             Console.WriteLine("\nTo4KI:");
 
-            if (to4kii.Count > 0)
+            if (points.Count > 0)
             {
-                for (int i = 0; i < to4kii.Count; i++)
+                for (int i = 0; i < points.Count; i++)
                 {
                     Console.WriteLine("{0}. {1} --> {2} kutii",
-                        i + 1, to4kii[i].Name, to4kii[i].Points);
+                        i + 1, points[i].Name, points[i].Points);
                 }
                 Console.WriteLine();
             }
@@ -161,98 +161,98 @@
             }
         }
 
-        private static void tisinahod(char[,] POLE,
-            char[,] BOMBI, int RED, int KOLONA)
+        private static void yourTurn(char[,] field,
+            char[,] bombs, int row, int col)
         {
-            char kolkoBombi = kolko(BOMBI, RED, KOLONA);
-            BOMBI[RED, KOLONA] = kolkoBombi;
-            POLE[RED, KOLONA] = kolkoBombi;
+            char kolkoBombi = kolko(bombs, row, col);
+            bombs[row, col] = kolkoBombi;
+            field[row, col] = kolkoBombi;
         }
         
    
 
 
-        private static void smetki(char[,] pole)
+        private static void smetki(char[,] field)
         {
-            int kol = pole.GetLength(0);
-            int red = pole.GetLength(1);
+            int col = field.GetLength(0);
+            int row = field.GetLength(1);
 
-            for (int i = 0; i < kol; i++)
+            for (int i = 0; i < col; i++)
             {
-                for (int j = 0; j < red; j++)
+                for (int j = 0; j < row; j++)
                 {
-                    if (pole[i, j] != '*')
+                    if (field[i, j] != '*')
                     {
-                        char kolkoo = kolko(pole, i, j);
-                        pole[i, j] = kolkoo;
+                        char kolkoo = kolko(field, i, j);
+                        field[i, j] = kolkoo;
                     }
                 }
             }
         }
 
-        private static char kolko(char[,] r, int rr, int rrr)
+        private static char kolko(char[,] field, int row, int col)
         {
-            int brojkata = 0;
-            int reds = r.GetLength(0);
-            int kols = r.GetLength(1);
+            int count = 0;
+            int rows = field.GetLength(0);
+            int cols = field.GetLength(1);
 
-            if (rr - 1 >= 0)
+            if (row - 1 >= 0)
             {
-                if (r[rr - 1, rrr] == '*')
+                if (field[row - 1, col] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if (rr + 1 < reds)
+            if (row + 1 < rows)
             {
-                if (r[rr + 1, rrr] == '*')
+                if (field[row + 1, col] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if (rrr - 1 >= 0)
+            if (col - 1 >= 0)
             {
-                if (r[rr, rrr - 1] == '*')
+                if (field[row, col - 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if (rrr + 1 < kols)
+            if (col + 1 < cols)
             {
-                if (r[rr, rrr + 1] == '*')
+                if (field[row, col + 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if ((rr - 1 >= 0) && (rrr - 1 >= 0))
+            if ((row - 1 >= 0) && (col - 1 >= 0))
             {
-                if (r[rr - 1, rrr - 1] == '*')
+                if (field[row - 1, col - 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if ((rr - 1 >= 0) && (rrr + 1 < kols))
+            if ((row - 1 >= 0) && (col + 1 < cols))
             {
-                if (r[rr - 1, rrr + 1] == '*')
+                if (field[row - 1, col + 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if ((rr + 1 < reds) && (rrr - 1 >= 0))
+            if ((row + 1 < rows) && (col - 1 >= 0))
             {
-                if (r[rr + 1, rrr - 1] == '*')
+                if (field[row + 1, col - 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            if ((rr + 1 < reds) && (rrr + 1 < kols))
+            if ((row + 1 < rows) && (col + 1 < cols))
             {
-                if (r[rr + 1, rrr + 1] == '*')
+                if (field[row + 1, col + 1] == '*')
                 {
-                    brojkata++;
+                    count++;
                 }
             }
-            return char.Parse(brojkata.ToString());
+            return char.Parse(count.ToString());
         }
     }
 }

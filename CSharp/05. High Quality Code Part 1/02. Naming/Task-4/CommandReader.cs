@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Minesweeper
 {
-    public class CommandReader
+    public static class CommandReader
     {
+    
     }
 }
