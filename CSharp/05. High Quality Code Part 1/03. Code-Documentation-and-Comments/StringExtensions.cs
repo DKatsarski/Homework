@@ -1,4 +1,4 @@
-﻿namespace Telerik.ILS.Common
+﻿ namespace Telerik.ILS.Common
 {
     using System;
     using System.Collections.Generic;
@@ -10,15 +10,14 @@
 
     public static class StringExtensions
     {
+        // TODO: XML Documentation
         public static string ToMd5Hash(this string input)
         {
             var md5Hash = MD5.Create();
 
             // Convert the input string to a byte array and compute the hash.
             var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new StringBuilder to collect the bytes
-            // and create a string.
+            
             var builder = new StringBuilder();
 
             // Loop through each byte of the hashed data 
