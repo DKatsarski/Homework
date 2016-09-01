@@ -25,46 +25,46 @@ namespace Minesweeper
 
         public static char[,] SetBombs()
         {
-            int Редове = 5;
-            int Колони = 10;
-            char[,] игрално_поле = new char[Редове, Колони];
+            int rows = 5;
+            int cols = 10;
+            char[,] playingField = new char[rows, cols];
 
-            for (int i = 0; i < Редове; i++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < Колони; j++)
+                for (int j = 0; j < cols; j++)
                 {
-                    игрално_поле[i, j] = '-';
+                    playingField[i, j] = '-';
                 }
             }
 
-            List<int> r3 = new List<int>();
-            while (r3.Count < 15)
+            List<int> bombsOnField = new List<int>();
+            while (bombsOnField.Count < 15)
             {
                 Random random = new Random();
-                int asfd = random.Next(50);
-                if (!r3.Contains(asfd))
+                int bomb = random.Next(50);
+                if (!bombsOnField.Contains(bomb))
                 {
-                    r3.Add(asfd);
+                    bombsOnField.Add(bomb);
                 }
             }
 
-            foreach (int i2 in r3)
+            foreach (int bomb in bombsOnField)
             {
-                int kol = (i2 / Колони);
-                int red = (i2 % Колони);
-                if (red == 0 && i2 != 0)
+                int col = (bomb / cols);
+                int row = (bomb % cols);
+                if (row == 0 && bomb != 0)
                 {
-                    kol--;
-                    red = Колони;
+                    col--;
+                    row = cols;
                 }
                 else
                 {
-                    red++;
+                    row++;
                 }
-                игрално_поле[kol, red - 1] = '*';
+                playingField[col, row - 1] = '*';
             }
 
-            return игрално_поле;
+            return playingField;
         }
     }
 }
