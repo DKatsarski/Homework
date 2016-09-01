@@ -17,17 +17,17 @@
             List<PointsHolder> topPlayers = new List<PointsHolder>(6);
             int row = 0;
             int col = 0;
-            bool flag = true;
-            bool flag2 = false;
+            bool newGameStarted = true;
+            bool gameSolved = false;
 
             do
             {
-                if (flag)
+                if (newGameStarted)
                 {
                     Console.WriteLine("Hajde da igraem na “Mini4KI”. Probvaj si kasmeta da otkriesh poleteta bez mini4ki." +
                     " Komanda 'top' pokazva klasiraneto, 'restart' po4va nova igra, 'exit' izliza i hajde 4ao!");
                     Drawer.DrawBoard(field);
-                    flag = false;
+                    newGameStarted = false;
                 }
 
                 Console.Write("Daj red i kolona sys space mejdu tqh: ");
@@ -37,7 +37,7 @@
                 {
                     if (int.TryParse(command[0].ToString(), out row) &&
                     int.TryParse(command[2].ToString(), out col) &&
-                        row <= field.GetLength(0) && col <= field.GetLength(1))
+                        row < field.GetLength(0) && col < field.GetLength(1))
                     {
                         command = "turn";
                     }
@@ -53,7 +53,7 @@
                         bombs = GetParameters.SetBombs();
                         Drawer.DrawBoard(field);
                         isDetonated = false;
-                        flag = false;
+                        newGameStarted = false;
                         break;
                     case "exit":
                         Console.WriteLine("4a0, 4a0, 4a0!");
@@ -68,7 +68,7 @@
                             }
                             if (Max == counter)
                             {
-                                flag2 = true;
+                                gameSolved = true;
                             }
                             else
                             {
@@ -117,9 +117,9 @@
                     bombs = GetParameters.SetBombs();           
                     counter = 0;
                     isDetonated = false;
-                    flag = true;
+                    newGameStarted = true;
                 }
-                if (flag2)
+                if (gameSolved)
                 {
                     Console.WriteLine("\nBRAVOOOS! Otvri 35 kletki bez kapka kryv.");
                     Drawer.DrawBoard(bombs);
@@ -131,8 +131,8 @@
                     field = GetParameters.CreatePlayingField();
                     bombs = GetParameters.SetBombs();          
                     counter = 0;
-                    flag2 = false;
-                    flag = true;
+                    gameSolved = false;
+                    newGameStarted = true;
                 }
             }
 
@@ -149,22 +149,6 @@
             field[row, col] = bombsCount;
         }
         
-        private static void smetki(char[,] field)
-        {
-            int col = field.GetLength(0);
-            int row = field.GetLength(1);
-
-            for (int i = 0; i < col; i++)
-            {
-                for (int j = 0; j < row; j++)
-                {
-                    if (field[i, j] != '*')
-                    {
-                        char kolkoo = BombSetter.PlaceBombsOnTheirPositions(field, i, j);
-                        field[i, j] = kolkoo;
-                    }
-                }
-            }
-        }
+       
     }
 }
