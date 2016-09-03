@@ -8,8 +8,13 @@ namespace PritnStats
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            double[] array = { 1, 2, 3, 4};
+            var index = 4;
+
+            var printer = new StatisticsOperator();
+            printer.PrintStatistics(array, index);
         }
     }
 }

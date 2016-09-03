@@ -8,34 +8,61 @@ namespace PritnStats
 {
     public class StatisticsOperator
     {
-        public void PrintStatistics(double[] arr, int count)
+        public void PrintStatistics(double[] array, int indexInArray)
         {
-            double max, tmp;
-            for (int i = 0; i < count; i++)
-            {
-                if (arr[i] > max)
-                {
-                    max = arr[i];
-                }
-            }
-            PrintMax(max);
-            tmp = 0;
-            max = 0;
-            for (int i = 0; i < count; i++)
-            {
-                if (arr[i] < max)
-                {
-                    max = arr[i];
-                }
-            }
-            PrintMin(max);
+            // StringBuilder is created so that the printing option could be changed easily. 
+            // Instead of Console it could be changed to Printer, File, etc. 
+            StringBuilder dataToPrint = new StringBuilder();
 
-            tmp = 0;
-            for (int i = 0; i < count; i++)
+            dataToPrint.AppendLine(PrintMax(array, indexInArray));
+            dataToPrint.AppendLine(PrintMin(array, indexInArray));
+            dataToPrint.AppendLine(PrintAvg(array, indexInArray));
+
+            Console.WriteLine(dataToPrint);            
+        }
+
+        private static string PrintMax(double[] array, int indexInArray)
+        {
+            double greatestNumber = double.MinValue;
+
+            for (int i = 0; i < indexInArray; i++)
             {
-                tmp += arr[i];
+                if (array[i] > greatestNumber)
+                {
+                    greatestNumber = array[i];
+                }
             }
-            PrintAvg(tmp / count);
+
+            return greatestNumber.ToString();
+        }
+
+        private static string PrintMin(double[] array, int indexInArray)
+        {
+            double lowestNumber = double.MaxValue;
+
+            for (int i = 0; i < indexInArray; i++)
+            {
+                if (array[i] < lowestNumber)
+                {
+                    lowestNumber = array[i];
+                }
+            }
+
+            return lowestNumber.ToString();
+        }
+
+        private static string PrintAvg(double[] array, int indexInArray)
+        {
+            double sumOfNumbers = 0;
+
+            for (int i = 0; i < indexInArray; i++)
+            {
+                sumOfNumbers += array[i];
+            }
+
+            double averageValueInArray = sumOfNumbers / indexInArray;
+
+            return averageValueInArray.ToString();
         }
     }
 }
