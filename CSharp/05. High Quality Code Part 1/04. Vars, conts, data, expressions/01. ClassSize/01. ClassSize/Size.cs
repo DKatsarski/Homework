@@ -1,7 +1,11 @@
-﻿namespace _01.ClassSize
-{
-    using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace _01.ClassSize
+{
     public class Size
     {
         public double wIdTh, Viso4ina;
