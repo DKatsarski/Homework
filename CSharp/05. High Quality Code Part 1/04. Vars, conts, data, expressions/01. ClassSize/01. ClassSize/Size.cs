@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _01.ClassSize
+﻿namespace _01.ClassSize
 {
+    using System;
+
     public class Size
     {
-        public double wIdTh, Viso4ina;
-        public Size(double w, double h)
+        private double width;
+        private double height;
+
+        public Size(double width, double height)
         {
-            this.wIdTh = w;
-            this.Viso4ina = h;
+            this.width = width;
+            this.height = height;
         }
 
-        public static Size GetRotatedSize(
-            Size s, double angleOfTheFigureThatWillBeRotaed)
+        public static Size GetRotatedSize(Size size, double angleOfTheFigure)
         {
-            return new Size(
-                Math.Abs(Math.Cos(angleOfTheFigureThatWillBeRotaed)) * s.wIdTh +
-                    Math.Abs(Math.Sin(angleOfTheFigureThatWillBeRotaed)) * s.Viso4ina,
-                Math.Abs(Math.Sin(angleOfTheFigureThatWillBeRotaed)) * s.wIdTh +
-                    Math.Abs(Math.Cos(angleOfTheFigureThatWillBeRotaed)) * s.Viso4ina);
+            var sineOfFigureHeight = Math.Sin(angleOfTheFigure) * size.height;
+            var sineOfFigureWidth = Math.Sin(angleOfTheFigure) * size.width;
+            
+            var cosineOfFigureHeight = Math.Cos(angleOfTheFigure) * size.height;
+            var cosineOfFigureWidth = Math.Cos(angleOfTheFigure) * size.width;
+            
+            var findWidth = Math.Abs(cosineOfFigureWidth) + Math.Abs(sineOfFigureHeight);
+            var findHeight = Math.Abs(sineOfFigureWidth) + Math.Abs(cosineOfFigureHeight);
+
+            var figureWithRotaedAngle = new Size(findWidth, findHeight);
+
+            return figureWithRotaedAngle;
         }
     }
 }
