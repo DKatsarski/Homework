@@ -7,87 +7,66 @@ namespace _2.Speeds
         static void Main(string[] args)
         {
             //find the sum of initials speeds of the longest group (the goup with most cars)
-            int c = int.Parse(Console.ReadLine());  // number of cars
+            int numberOfCars = int.Parse(Console.ReadLine()); 
 
-            int[] helper = new int[c];
-            int firstGroup = 0;
+            int[] cars = new int[numberOfCars];
+            int firstGroupOfCars = 0;
             int duuuuCount = 0;
-        
-            int counter = 0;
-            int counterGroups = 0;
+            int result = 0;
+            int counterOfGroups = 0;
             int counterEqual = 0;
             int counterBigger = 0;
-            int bigger = 0;
+            int highestNumber = 0;
 
-             
-
-            for (int i = 0; i < c; i++) // pylnq si masiwa 
+            for (int i = 0; i < cars.Length; i++) 
             {
+                int numberInArray = int.Parse(Console.ReadLine());
 
-                int a = int.Parse(Console.ReadLine());
-
-                helper[i] = a;
-
+                cars[i] = numberInArray;
             }
-
-
-
-
-            for (int j = 0; j < helper.Length - 1; j++) //obhojdam go
+            
+            for (int j = 0; j < cars.Length - 1; j++)
             {
-
-                if (helper[j] < helper[j + 1])
+                if (cars[j] < cars[j + 1])
                 {
-                    if (helper[j] == helper[0] || helper[j] < helper[j - 1])
+                    if (cars[j] == cars[0] || cars[j] < cars[j - 1])
                     {
-                        counter = helper[j] + helper[j + 1];
-                        counterGroups++;
+                        result = cars[j] + cars[j + 1];
+                        counterOfGroups++;
                     }
                     else
                     {
-                        counter += helper[j + 1];
-                        counterGroups++;
+                        result += cars[j + 1];
+                        counterOfGroups++;
                     }
-
                 }
-                else if (helper[j] == helper[j + 1])
+                else if (cars[j] == cars[j + 1])
                 {
-                    counter = helper[j];
+                    result = cars[j];
                     counterEqual++;
                 }
-                else if (helper[j] > helper[j + 1])
+                else if (cars[j] > cars[j + 1])
                 {
-                    
-                        bigger = helper[j];
+                    highestNumber = cars[j];
 
-                    if (bigger > helper[j])
+                    if (highestNumber > cars[j])
                     {
-                        counter = bigger;
+                        result = highestNumber;
                     }
 
                     counterBigger++;
-                  
-                    
-                    
                 }
-                if (counter > firstGroup && counterGroups > duuuuCount && counterGroups > counterBigger)
+
+                if (result > firstGroupOfCars && counterOfGroups > duuuuCount && counterOfGroups > counterBigger)
                 {
+                    firstGroupOfCars = result;
+                    duuuuCount = counterOfGroups;
 
-                    firstGroup = counter;
-                    duuuuCount = counterGroups;
-
-                    counterGroups = 0;
+                    counterOfGroups = 0;
                 }
-
-
             }
-            Console.WriteLine(counter);
 
-
-
-
-
-
+            Console.WriteLine(result);
         }
     }
 }
