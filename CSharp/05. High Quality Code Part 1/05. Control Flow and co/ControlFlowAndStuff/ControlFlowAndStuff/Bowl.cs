@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace ControlFlowAndStuff
+﻿namespace ControlFlowAndStuff
 {
+    using System.Collections.Generic;
+
     internal class Bowl
     {
         ICollection<Vegetable> content;

@@ -1,12 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControlFlowAndStuff.Task_2
 {
-    class RefactorIfStatement
+    public class RefactorIfStatement
     {
+        internal void Task2(Potato potato)
+        {
+            //should implement more code here. This method is not working completely well.
+            if (potato == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (potato.isPeeled || !potato.isRotten)
+            {
+                Cook(potato);
+            }
+        }
+
+        internal bool Cook(Potato potato)
+        {
+            bool isCoocked = false;
+
+            while (!isCoocked)
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    if (potato.CookingTimeNeeded == i)
+                    {
+                        isCoocked = true;
+                        break;
+                    }
+                }
+            }
+
+            return isCoocked;
+        }
     }
 }

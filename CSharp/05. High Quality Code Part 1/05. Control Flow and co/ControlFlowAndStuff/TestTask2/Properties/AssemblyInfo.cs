@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ControlFlowAndStuff")]
+[assembly: AssemblyTitle("TestTask2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ControlFlowAndStuff")]
+[assembly: AssemblyProduct("TestTask2")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cb075c01-9a01-4d5c-9754-865dc78b1c0b")]
+[assembly: Guid("23e8ee89-da46-4123-96b1-5b6469f7b375")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,6 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("ControlFlowAndStuff")]
-[assembly: InternalsVisibleTo("TestTask2")]
-
