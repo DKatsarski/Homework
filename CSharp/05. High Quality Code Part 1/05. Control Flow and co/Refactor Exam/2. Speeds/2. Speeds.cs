@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace _2.Speeds
+﻿namespace _2.Speeds
 {
+    using System;
+
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //find the sum of initials speeds of the longest group (the goup with most cars)
             int numberOfCars = int.Parse(Console.ReadLine()); 

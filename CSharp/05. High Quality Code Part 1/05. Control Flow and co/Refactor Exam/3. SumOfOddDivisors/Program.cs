@@ -1,39 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _3.SumOfOddDivisors
+﻿namespace _3.SumOfOddDivisors
 {
+    using System;
+
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int result = 0;
+            int startInterval = int.Parse(Console.ReadLine());
+            int endInterval = int.Parse(Console.ReadLine());
+            int sumOfOdDevisors = 0;
 
-
-            for (int i = a; i <= b; i++)
+            for (int i = startInterval; i <= endInterval; i++)
             {
                 for (int j = 1; j < 1000; j++)
                 {
                     if (i % j == 0 && j % 2 != 0)
                     {
-                        
-                            result += j;
-                        
-
+                        sumOfOdDevisors += j;
                     }
-                 
-                    
-
-
-
                 }
             }
-            Console.WriteLine(result);
+
+            Console.WriteLine(sumOfOdDevisors);
         }
     }
 }
