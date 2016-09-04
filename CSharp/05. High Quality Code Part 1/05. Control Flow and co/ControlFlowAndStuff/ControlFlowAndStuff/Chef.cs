@@ -1,43 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ControlFlowAndStuff
+﻿namespace ControlFlowAndStuff
 {
     public class Chef
     {
-        private Bowl GetBowl()
-        {
-            //... 
-        }
-        private Carrot GetCarrot()
-        {
-            //...
-        }
-        private void Cut(Vegetable potato)
-        {
-            //...
-        }
         public void Cook()
         {
             Potato potato = GetPotato();
             Carrot carrot = GetCarrot();
-            Bowl bowl;
+            Bowl bowl = GetBowl();
+
             Peel(potato);
+            Cut(potato);
+            bowl.Add(potato);
 
             Peel(carrot);
-            bowl = GetBowl();
-            Cut(potato);
             Cut(carrot);
             bowl.Add(carrot);
+        }
 
-            bowl.Add(potato);
+        private Bowl GetBowl()
+        {
+            Bowl bowl = new Bowl();
+
+            bowl.SizeInMl = 500;
+
+            return bowl;
+        }
+
+        private Carrot GetCarrot()
+        {
+            Carrot carrot = new Carrot();
+
+            carrot.CountryOfOrigin = "Bulgarian";
+            carrot.isPeeled = false;
+            carrot.isCut = false;
+
+            return carrot;
         }
         private Potato GetPotato()
         {
-            //...
+            Potato sweetPotato = new Potato();
+
+            sweetPotato.Type = "Samokovski";
+            sweetPotato.isPeeled = false;
+            sweetPotato.isCut = false;
+
+            return sweetPotato;
+        }
+
+        private void Cut(Vegetable vegetable)
+        {
+            if (!vegetable.isCut)
+            {
+                vegetable.isCut = true;
+            }
+        }
+        
+        private void Peel(Vegetable vegetable)
+        {
+            if (!vegetable.isPeeled)
+            {
+                vegetable.isPeeled = true;
+            }
         }
     }
 }
