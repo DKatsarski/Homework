@@ -12,7 +12,7 @@ namespace ControlFlowAndStuff.Task_2
                 throw new ArgumentNullException();
             }
 
-            if (potato.isPeeled || !potato.isRotten)
+            if (potato.IsPeeled || !potato.IsRotten)
             {
                 Cook(potato);
             }

@@ -49,9 +49,9 @@
             Carrot carrot = new Carrot();
 
             carrot.CountryOfOrigin = "Bulgarian";
-            carrot.isPeeled = false;
-            carrot.isCut = false;
-            carrot.isRotten = false;
+            carrot.IsPeeled = false;
+            carrot.IsCut = false;
+            carrot.IsRotten = false;
 
             return carrot;
         }
@@ -60,26 +60,26 @@
             Potato sweetPotato = new Potato();
 
             sweetPotato.Type = "Samokovski";
-            sweetPotato.isPeeled = false;
-            sweetPotato.isCut = false;
-            sweetPotato.isRotten = false;
+            sweetPotato.IsPeeled = false;
+            sweetPotato.IsCut = false;
+            sweetPotato.IsRotten = false;
 
             return sweetPotato;
         }
 
         private void Cut(Vegetable vegetable)
         {
-            if (!vegetable.isCut)
+            if (!vegetable.IsCut)
             {
-                vegetable.isCut = true;
+                vegetable.IsCut = true;
             }
         }
         
         private void Peel(Vegetable vegetable)
         {
-            if (!vegetable.isPeeled)
+            if (!vegetable.IsPeeled)
             {
-                vegetable.isPeeled = true;
+                vegetable.IsPeeled = true;
             }
         }
     }

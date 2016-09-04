@@ -2,10 +2,10 @@
 {
     internal abstract class Vegetable
     {
-        public bool isCut { get; set; }
+        public bool IsCut { get; set; }
 
-        public bool isPeeled { get; set; }
+        public bool IsPeeled { get; set; }
 
-        public bool isRotten { get; set; }
+        public bool IsRotten { get; set; }
     }
 }
