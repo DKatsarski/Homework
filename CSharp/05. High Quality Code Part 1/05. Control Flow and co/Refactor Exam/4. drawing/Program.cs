@@ -1,102 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _4.drawing
+﻿namespace _4.DrawingCat
 {
+    using System;
+
     class Program
     {
         static void Main(string[] args)
         {
-            int input = int.Parse(Console.ReadLine());
-            char symbol = char.Parse(Console.ReadLine());
+            int catSize = int.Parse(Console.ReadLine());
+            char drawingSymbol = char.Parse(Console.ReadLine());
             char space = ' ';
-            int height = input;
-            int width = input - 1;
-           
-            
-            // ushi
-                        
+            int catHeight = catSize;
+            int catWidth = catSize - 1;
 
-
-       
+            // Draw ears
             Console.Write(space);
-            Console.Write(symbol);
-            Console.Write(new string(space, (input / 4) - 1));
-            Console.Write(symbol);
-           
+            Console.Write(drawingSymbol);
+            Console.Write(new string(space, (catSize / 4) - 1));
+            Console.Write(drawingSymbol);
             Console.WriteLine();
 
-
-
-            // glawa
-
-            for (int row = 0; row < ((input / 4) - 1); row++)
+            // Draw head
+            for (int row = 0; row < ((catSize / 4) - 1); row++)
             {
-              
-                    Console.Write(space);
-                    Console.Write(new string(symbol, (input / 4) - 1  + 2));
-                 
-
-                Console.WriteLine();
-
-            }
-
-            //wrat
-
-            for (int row = 0; row < (input / 4) - 1; row++)
-            {
-                Console.Write(new string(space, 2));
-                Console.Write(new string(symbol, (input / 4) - 1));
-                Console.WriteLine();
-            }
-
-            //tqlo
-
-            for (int row = 0; row < ((input / 4) - 1); row++)
-            {
-
                 Console.Write(space);
-                Console.Write(new string(symbol, (input / 4) - 1 + 2));
+                Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 2));
                 Console.WriteLine();
-
             }
 
-
-            //tqlo i opashka
-
-            Console.Write(space);
-            Console.Write(new string(symbol, (input / 4) - 1 + 2));
-            Console.Write(new string(space, 3));
-            Console.Write(new string(symbol, (input / 4) - 1 + 1));    // TUK MOJE DA IMAM PROBLEM !!!
-            Console.WriteLine();
-
-
-            // predposledna chast 
-
-            for (int row = 0; row < (input / 4) - 1 + 2; row++)
+            // Draw Neck
+            for (int row = 0; row < (catSize / 4) - 1; row++)
             {
-                Console.Write(new string(symbol, (input / 4) - 1 + 4));
                 Console.Write(new string(space, 2));
-                Console.Write(symbol);
+                Console.Write(new string(drawingSymbol, (catSize / 4) - 1));
                 Console.WriteLine();
             }
 
-
-            // poredposleden red 
-
-            Console.Write(new string(symbol, (input / 4) - 1 + 4));
+            // Draw body
+            for (int row = 0; row < ((catSize / 4) - 1); row++)
+            {
+                Console.Write(space);
+                Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 2));
+                Console.WriteLine();
+            }
+            
+            // Draw body and tale
             Console.Write(space);
-            Console.Write(new string(symbol, 2));
+            Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 2));
+            Console.Write(new string(space, 3));
+            Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 1)); 
+            Console.WriteLine();
+            
+            // Draw bottom  
+            for (int row = 0; row < (catSize / 4) - 1 + 2; row++)
+            {
+                Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 4));
+                Console.Write(new string(space, 2));
+                Console.Write(drawingSymbol);
+                Console.WriteLine();
+            }
+            
+            // Draw last two lines of the cat
+            Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 4));
+            Console.Write(space);
+            Console.Write(new string(drawingSymbol, 2));
             Console.WriteLine();
 
-            // posleden red
+            // Draw last part
             Console.Write(space);
-            Console.Write(new string(symbol, (input / 4) - 1 + 5));
+            Console.Write(new string(drawingSymbol, (catSize / 4) - 1 + 5));
             Console.WriteLine();
-
         }
     }
 }

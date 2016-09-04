@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Mutant Squirrels", "Exam\1. Mutant Squirrels.csproj", "{7943A913-CC43-414C-BBD8-BFF07CDFD7F0}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Speeds", "2. Speeds\2. S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. SumOfOddDivisors", "3. SumOfOddDivisors\3. SumOfOddDivisors.csproj", "{6167EF9B-D363-4552-AD15-184D980413B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. drawing", "4. drawing\4. drawing.csproj", "{625BC2CD-511D-4CAF-9D16-A897B705857E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. DrawingCat", "4. drawing\4. DrawingCat.csproj", "{625BC2CD-511D-4CAF-9D16-A897B705857E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratory", "Laboratory\Laboratory.csproj", "{D5C3AA11-048E-448E-9F66-74F91CAC453F}"
 EndProject
