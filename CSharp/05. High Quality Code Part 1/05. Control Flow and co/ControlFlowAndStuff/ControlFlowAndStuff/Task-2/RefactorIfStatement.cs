@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlFlowAndStuff
+namespace ControlFlowAndStuff.Task_2
 {
-    class Program
+    class RefactorIfStatement
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
