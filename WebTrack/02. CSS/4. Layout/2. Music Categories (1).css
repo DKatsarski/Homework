@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+body div.background {
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  width: 421px;
+  height: 538px;
+}
+
+body div.background h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  padding-top: 10px;
+  padding-left: 12px;
+  letter-spacing: -0.05em;
+  margin-top: 0px;
+}
+
+body div.background div.item-wrapper{
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  width: 94.7%;
+  margin-left: 3%;
+  padding: 3.4%;
+  margin-top: 37px;
+  padding-bottom: 2.1%;
+}
+
+body div.background div.item-wrapper img{
+  float: left;
+  margin-right: 16px;
+}
+
+body div.background div.item-wrapper div.item-text{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  padding-top:0px;
+  margin-top: 0px;
+  line-height: 14px
+}
+
+body div.background div.item-wrapper div.item-text span.text-bold {
+  font-weight: bold;
+}
+
+body div.background div.item-wrapper div.item-buttons{
+  margin-top: 10px;
+  text-align: right;
+}
+
+body div.background div.item-wrapper div.item-buttons input.button-wide,
+body div.background div.item-wrapper div.item-buttons input.button-narrow
+{
+  margin-top: 10px;
+  text-align: right;
+  margin-bottom: 7px;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+body div.background div.item-wrapper div.item-buttons input.button-wide{
+  height: 25px;
+  width: 76px;
+  background: url(./Assets/btn1.png);
+}
+
+body div.background div.item-wrapper div.item-buttons input.button-narrow{
+  height: 25px;
+  width: 63px;
+  background: url(./Assets/btn-nrw.png);
+}

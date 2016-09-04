@@ -53,4 +53,4 @@ function numbersInArrayValidator(args) {
        } 
    }
 }
-//module.exports = sum;
+module.exports = sum;
