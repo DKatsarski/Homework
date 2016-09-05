@@ -20,5 +20,6 @@ namespace Methods.Contracts
 
         string Score { get; set; }
 
+        bool IsOlderThan(IStudent other);
     }
 }

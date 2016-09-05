@@ -2,17 +2,20 @@
 
 namespace Methods
 {
-    class Methods
+    public class Methods
     {
-        static double CalcTriangleArea(double a, double b, double c)
+        static double CalculateTriangleArea(double a, double b, double c)
         {
             if (a <= 0 || b <= 0 || c <= 0)
             {
-                Console.Error.WriteLine("Sides should be positive.");
-                return -1;
+                throw new ArgumentException("Sides should be positive.");
             }
-            double s = (a + b + c) / 2;
-            double area = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
+
+            double semiperimeter = (a + b + c) / 2;
+
+            // Using Heron's formula for extracting the area
+            double area = Math.Sqrt(semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c));
+
             return area;
         }
 
@@ -39,17 +42,19 @@ namespace Methods
         {
             if (elements == null || elements.Length == 0)
             {
-                return -1;
+                throw new ArgumentException("Array is null or empty");
             }
+
+            int maxNumber = elements[0];
 
             for (int i = 1; i < elements.Length; i++)
             {
-                if (elements[i] > elements[0])
+                if (elements[i] > maxNumber)
                 {
-                    elements[0] = elements[i];
+                    maxNumber = elements[i];
                 }
             }
-            return elements[0];
+            return maxNumber;
         }
 
         static void PrintAsNumber(object number, string format)
@@ -81,7 +86,7 @@ namespace Methods
 
         static void Main()
         {
-            Console.WriteLine(CalcTriangleArea(3, 4, 5));
+            Console.WriteLine(CalculateTriangleArea(3, 4, 5));
             
             Console.WriteLine(NumberToDigit(5));
             
