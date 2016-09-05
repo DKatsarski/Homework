@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Methods.Contracts
 {
-    interface IStudent
+    public interface IStudent
     {
+        string FirstName { get; set; }
+        
+        string LastName { get; set; }
+        
+        string DateOfBirth { get; set; }
+
+        string HomeTown { get; set; }
+
+        string Hobby { get; set; }
+
+        string Score { get; set; }
+
     }
 }

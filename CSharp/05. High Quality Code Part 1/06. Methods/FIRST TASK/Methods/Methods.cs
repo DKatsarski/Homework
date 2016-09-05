@@ -96,11 +96,9 @@ namespace Methods
             Console.WriteLine("Horizontal? " + horizontal);
             Console.WriteLine("Vertical? " + vertical);
 
-            Student peter = new Student() { FirstName = "Peter", LastName = "Ivanov" };
-            peter.DateOfBirth = "From Sofia, born at 17.03.1992";
+            Student peter = new Student() { FirstName = "Peter", LastName = "Ivanov", DateOfBirth = "17.03.1992", HomeTown = "Sofia" };
 
-            Student stella = new Student() { FirstName = "Stella", LastName = "Markova" };
-            stella.DateOfBirth = "From Vidin, gamer, high results, born at 03.11.1993";
+            Student stella = new Student() { FirstName = "Stella", LastName = "Markova", DateOfBirth = "03.11.1993", HomeTown = "Vidin", Hobby = "gamer", Score = "high results" };
 
             Console.WriteLine("{0} older than {1} -> {2}",
                 peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
