@@ -97,10 +97,10 @@ namespace Methods
             Console.WriteLine("Vertical? " + vertical);
 
             Student peter = new Student() { FirstName = "Peter", LastName = "Ivanov" };
-            peter.OtherInfo = "From Sofia, born at 17.03.1992";
+            peter.DateOfBirth = "From Sofia, born at 17.03.1992";
 
             Student stella = new Student() { FirstName = "Stella", LastName = "Markova" };
-            stella.OtherInfo = "From Vidin, gamer, high results, born at 03.11.1993";
+            stella.DateOfBirth = "From Vidin, gamer, high results, born at 03.11.1993";
 
             Console.WriteLine("{0} older than {1} -> {2}",
                 peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
