@@ -57,24 +57,28 @@ namespace Methods
             return maxNumber;
         }
 
-        static void PrintAsNumber(object number, string format)
+        static string PrintAsNumber(object number, string format)
         {
+            string numberToPrint = string.Empty;
+
             if (format == "f")
             {
-                Console.WriteLine("{0:f2}", number);
+                numberToPrint = string.Format("{0:f2}", number);
             }
             if (format == "%")
             {
-                Console.WriteLine("{0:p0}", number);
+                numberToPrint = string.Format("{0:p0}", number);
             }
             if (format == "r")
             {
-                Console.WriteLine("{0,8}", number);
+                numberToPrint = string.Format("{0,8}", number);
             }
+
+            return numberToPrint;
         }
 
 
-        static double CalcDistance(double x1, double y1, double x2, double y2, 
+        static double CalculateDistance(double x1, double y1, double x2, double y2, 
             out bool isHorizontal, out bool isVertical)
         {
             isHorizontal = (y1 == y2);
@@ -91,13 +95,13 @@ namespace Methods
             Console.WriteLine(NumberToDigit(5));
             
             Console.WriteLine(FindMax(5, -1, 3, 2, 14, 2, 3));
-            
-            PrintAsNumber(1.3, "f");
-            PrintAsNumber(0.75, "%");
-            PrintAsNumber(2.30, "r");
+
+            Console.WriteLine(PrintAsNumber(1.3, "f"));
+            Console.WriteLine(PrintAsNumber(0.75, "%"));
+            Console.WriteLine(PrintAsNumber(2.30, "r"));
 
             bool horizontal, vertical;
-            Console.WriteLine(CalcDistance(3, -1, 3, 2.5, out horizontal, out vertical));
+            Console.WriteLine(CalculateDistance(3, -1, 3, 2.5, out horizontal, out vertical));
             Console.WriteLine("Horizontal? " + horizontal);
             Console.WriteLine("Vertical? " + vertical);
 
