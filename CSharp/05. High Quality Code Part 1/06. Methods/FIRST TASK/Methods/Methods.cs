@@ -78,32 +78,44 @@ namespace Methods
         }
 
 
-        static double CalculateDistance(double x1, double y1, double x2, double y2, 
-            out bool isHorizontal, out bool isVertical)
+        static double CalculateDistance(
+            double x1, double y1, double x2, double y2)
         {
-            isHorizontal = (y1 == y2);
-            isVertical = (x1 == x2);
-
             double distance = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
             return distance;
+        }
+
+        static bool IsHorizontal(double y1, double y2)
+        {
+            bool isHorizontal = (y1 == y2);
+
+            return isHorizontal;
+        }
+
+        static bool IsVertical(
+          double x1, double x2)
+        {
+            bool isVertical = (x1 == x2);
+
+            return isVertical;
         }
 
         static void Main()
         {
             Console.WriteLine(CalculateTriangleArea(3, 4, 5));
-            
+
             Console.WriteLine(NumberToDigit(5));
-            
+
             Console.WriteLine(FindMax(5, -1, 3, 2, 14, 2, 3));
 
             Console.WriteLine(PrintAsNumber(1.3, "f"));
             Console.WriteLine(PrintAsNumber(0.75, "%"));
             Console.WriteLine(PrintAsNumber(2.30, "r"));
-
-            bool horizontal, vertical;
-            Console.WriteLine(CalculateDistance(3, -1, 3, 2.5, out horizontal, out vertical));
-            Console.WriteLine("Horizontal? " + horizontal);
-            Console.WriteLine("Vertical? " + vertical);
+            
+            Console.WriteLine(CalculateDistance(3, -1, 3, 2.5));
+            Console.WriteLine("Horizontal? " + IsHorizontal(-1, 2.5));
+            Console.WriteLine("Vertical? " + IsVertical(3, 3));
 
             Student peter = new Student() { FirstName = "Peter", LastName = "Ivanov", DateOfBirth = "17.03.1992", HomeTown = "Sofia" };
 
