@@ -54,6 +54,7 @@ namespace Methods
                     maxNumber = elements[i];
                 }
             }
+
             return maxNumber;
         }
 
@@ -93,8 +94,7 @@ namespace Methods
             return isHorizontal;
         }
 
-        static bool IsVertical(
-          double x1, double x2)
+        static bool IsVertical(double x1, double x2)
         {
             bool isVertical = (x1 == x2);
 
