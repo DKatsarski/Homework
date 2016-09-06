@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="Contracts\IFigure.cs" />
-    <Compile Include="Figure.cs" />
     <Compile Include="FiguresExample.cs" />
     <Compile Include="Rectangle.cs" />
   </ItemGroup>

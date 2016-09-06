@@ -1,25 +1,28 @@
-﻿using System;
-
-namespace Abstraction
+﻿namespace Abstraction
 {
-    public class Rectangle : Figure
+    using Abstraction.Contracts;
+
+    public class Rectangle : IFigure
     {
-        
+        private double width;
+        private double height;
+
         public Rectangle(double width, double height)
-            : base(width, height)
         {
+            this.width = width;
+            this.height = height;
         }
         
-        public override double CalculateSurface()
+        public double CalculateSurface()
         {
-            double surface = this.Width * this.Height;
+            double surface = this.width * this.height;
 
             return surface;
         }
 
-        public override double CalculatePerimeter()
+        public double CalculatePerimeter()
         {
-            double perimeter = 2 * (this.Width + this.Height);
+            double perimeter = 2 * (this.width + this.height);
 
             return perimeter;
         }

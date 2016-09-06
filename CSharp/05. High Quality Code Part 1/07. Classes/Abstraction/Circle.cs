@@ -1,24 +1,28 @@
-﻿using System;
-
-namespace Abstraction
+﻿namespace Abstraction
 {
-    public class Circle : Figure
-    {
-        public Circle(double radius)
-            : base(radius)
-        {
-        }
+    using System;
 
-        public override double CalculateSurface()
+    using Abstraction.Contracts;
+
+    public class Circle : IFigure
+    {
+        private double radius;
+
+        public Circle(double radius)
         {
-            double surface = Math.PI * this.Radius * this.Radius;
+            this.radius = radius;
+        }
+        
+        public double CalculateSurface()
+        {
+            double surface = Math.PI * this.radius * this.radius;
 
             return surface;
         }
 
-        public override double CalculatePerimeter()
+        public double CalculatePerimeter()
         {
-            double perimeter = 2 * Math.PI * this.Radius;
+            double perimeter = 2 * Math.PI * this.radius;
 
             return perimeter;
         }
