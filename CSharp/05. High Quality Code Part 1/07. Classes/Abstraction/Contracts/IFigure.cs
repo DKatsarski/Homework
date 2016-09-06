@@ -8,11 +8,11 @@ namespace Abstraction.Contracts
 {
     public interface IFigure
     {
-        double Width { get; set; }
+        double Width { get; }
 
-        double Height { get; set; }
+        double Height { get; }
 
-        double Radius { get; set; }
+        double Radius { get; }
 
         double CalculatePerimeter();
 

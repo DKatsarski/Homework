@@ -5,18 +5,18 @@ namespace Abstraction
 {
     public abstract class Figure : IFigure
     {
-        public double Width { get; set; }
+        public double Width { get; private set; }
 
-        public double Height { get; set; }
+        public double Height { get; private set; }
 
-        public double Radius { get; set; }
+        public double Radius { get; private set; }
               
-        public Figure(double radius)
+        protected Figure(double radius)
         {
             this.Radius = radius;
         }
 
-        public Figure(double width, double height)
+        protected Figure(double width, double height)
         {
             this.Width = width;
             this.Height = height;
