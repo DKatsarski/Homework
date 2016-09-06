@@ -1,8 +1,8 @@
 ﻿namespace InheritanceAndPolymorphism
 {
-    using System;
     using System.Collections.Generic;
     using System.Text;
+
     public class OffsiteCourse : Course
     {
         public OffsiteCourse(string name) 
