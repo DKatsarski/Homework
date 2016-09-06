@@ -11,25 +11,19 @@ namespace InheritanceAndPolymorphism
         public OffsiteCourse(string name)
         {
             this.Name = name;
-            this.TeacherName = null;
-            this.Students = new List<string>();
             this.Town = null;
         }
 
         public OffsiteCourse(string courseName, string teacherName)
+            : this(teacherName)
         {
-            this.Name = courseName;
             this.TeacherName = teacherName;
-            this.Students = new List<string>();
-            this.Town = null;
         }
 
         public OffsiteCourse(string courseName, string teacherName, IList<string> students)
+            : this(courseName, teacherName)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
             this.Students = students;
-            this.Town = null;
         }
 
         private string GetStudentsAsString()
