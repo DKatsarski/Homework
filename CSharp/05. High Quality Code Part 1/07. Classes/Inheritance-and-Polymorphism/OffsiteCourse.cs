@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     public class OffsiteCourse : Course
     {
-        public string Town { get; set; }
-
-        public OffsiteCourse(string name)
+        public OffsiteCourse(string name) 
+            : base(name)
         {
-            this.Name = name;
             this.Town = null;
         }
 
         public OffsiteCourse(string courseName, string teacherName)
-            : this(teacherName)
+            : base(courseName, teacherName)
         {
-            this.TeacherName = teacherName;
+            this.Town = null;
         }
 
         public OffsiteCourse(string courseName, string teacherName, IList<string> students)
-            : this(courseName, teacherName)
+            : base(courseName, teacherName, students)
         {
-            this.Students = students;
+            this.Town = null;
         }
 
-
-
+        public string Town { get; set; }
+        
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

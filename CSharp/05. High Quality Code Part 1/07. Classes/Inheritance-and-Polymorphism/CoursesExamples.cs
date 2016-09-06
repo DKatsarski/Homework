@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
+    using System;
+    using System.Collections.Generic;
+
     class CoursesExamples
     {
         static void Main()

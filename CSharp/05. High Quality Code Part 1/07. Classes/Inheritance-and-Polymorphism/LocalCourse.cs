@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
+    using System.Collections.Generic;
+    using System.Text;
+
     public class LocalCourse : Course
     {
-        
         public LocalCourse(string name)
+            : base(name)
         {
-            this.Name = name;
             this.Lab = null;
         }
 
-        public LocalCourse(string courseName, string teacherName)
-            : this(courseName)
+        public LocalCourse(string courseName, string teacherName) 
+            : base(courseName, teacherName)
         {
-            this.TeacherName = teacherName;
+            this.Lab = null;
         }
 
-        public LocalCourse(string courseName, string teacherName, IList<string> students)
-            : this(courseName, teacherName)
+        public LocalCourse(string courseName, string teacherName, IList<string> students) 
+            : base(courseName, teacherName, students)
         {
-            this.Students = students;
+            this.Lab = null;
         }
 
         public string Lab { get; set; }
-
-
+        
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
