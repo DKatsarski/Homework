@@ -26,17 +26,7 @@ namespace InheritanceAndPolymorphism
             this.Students = students;
         }
 
-        private string GetStudentsAsString()
-        {
-            if (this.Students == null || this.Students.Count == 0)
-            {
-                return "{ }";
-            }
-            else
-            {
-                return "{ " + string.Join(", ", this.Students) + " }";
-            }
-        }
+
 
         public override string ToString()
         {
