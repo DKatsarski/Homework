@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Abstraction.Contracts;
+using System;
 
 namespace Abstraction
 {
-    abstract class Figure
+    public abstract class Figure : IFigure
     {
-        public virtual double Width { get; set; }
-        public virtual double Height { get; set; }
-        public virtual double Radius { get; set; }
+        public double Width { get; set; }
 
-        public Figure()
-        {
-        }
+        public double Height { get; set; }
 
+        public double Radius { get; set; }
+              
         public Figure(double radius)
         {
             this.Radius = radius;
@@ -22,5 +21,9 @@ namespace Abstraction
             this.Width = width;
             this.Height = height;
         }
+
+        public abstract double CalculatePerimeter();
+        
+        public abstract double CalculateSurface();
     }
 }
