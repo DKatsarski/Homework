@@ -6,32 +6,27 @@ namespace InheritanceAndPolymorphism
 {
     public class LocalCourse : Course
     {
-        public string Lab { get; set; }
         
         public LocalCourse(string name)
         {
             this.Name = name;
-            this.TeacherName = null;
-            this.Students = new List<string>();
             this.Lab = null;
         }
 
         public LocalCourse(string courseName, string teacherName)
+            : this(courseName)
         {
-            this.Name = courseName;
             this.TeacherName = teacherName;
-            this.Students = new List<string>();
-            this.Lab = null;
         }
 
         public LocalCourse(string courseName, string teacherName, IList<string> students)
+            : this(courseName, teacherName)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
             this.Students = students;
-            this.Lab = null;
         }
 
+        public string Lab { get; set; }
+        
         private string GetStudentsAsString()
         {
             if (this.Students == null || this.Students.Count == 0)

@@ -8,6 +8,7 @@ namespace InheritanceAndPolymorphism
         static void Main()
         {
             LocalCourse localCourse = new LocalCourse("Databases");
+
             Console.WriteLine(localCourse);
 
             localCourse.Lab = "Enterprise";
@@ -24,6 +25,7 @@ namespace InheritanceAndPolymorphism
             OffsiteCourse offsiteCourse = new OffsiteCourse(
                 "PHP and WordPress Development", "Mario Peshev", 
                 new List<string>() { "Thomas", "Ani", "Steve" });
+
             Console.WriteLine(offsiteCourse);
         }
     }
