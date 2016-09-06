@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DistanceCalculator.cs" />
+    <Compile Include="FileNameManipulator.cs" />
     <Compile Include="UtilsExamples.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
