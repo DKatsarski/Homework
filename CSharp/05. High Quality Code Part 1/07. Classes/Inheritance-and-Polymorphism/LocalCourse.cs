@@ -4,13 +4,10 @@ using System.Text;
 
 namespace InheritanceAndPolymorphism
 {
-    public class LocalCourse
+    public class LocalCourse : Course
     {
-        public string Name { get; set; }
-        public string TeacherName { get; set; }
-        public IList<string> Students { get; set; }
         public string Lab { get; set; }
-
+        
         public LocalCourse(string name)
         {
             this.Name = name;

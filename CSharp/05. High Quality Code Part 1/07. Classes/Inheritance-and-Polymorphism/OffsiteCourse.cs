@@ -4,11 +4,8 @@ using System.Text;
 
 namespace InheritanceAndPolymorphism
 {
-    public class OffsiteCourse
+    public class OffsiteCourse : Course
     {
-        public string Name { get; set; }
-        public string TeacherName { get; set; }
-        public IList<string> Students { get; set; }
         public string Town { get; set; }
 
         public OffsiteCourse(string name)
@@ -50,6 +47,7 @@ namespace InheritanceAndPolymorphism
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
+
             result.Append("OffsiteCourse { Name = ");
             result.Append(this.Name);
             if (this.TeacherName != null)
