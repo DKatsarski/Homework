@@ -2,14 +2,13 @@
 
 public class SimpleMathExam : Exam
 {
-    public int ProblemsSolved { get; private set; }
-
     public SimpleMathExam(int problemsSolved)
     {
         if (problemsSolved < 0)
         {
             problemsSolved = 0;
         }
+
         if (problemsSolved > 10)
         {
             problemsSolved = 10;
@@ -18,6 +17,8 @@ public class SimpleMathExam : Exam
         this.ProblemsSolved = problemsSolved;
     }
 
+    public int ProblemsSolved { get; private set; }
+    
     public override ExamResult Check()
     {
         if (ProblemsSolved == 0)
