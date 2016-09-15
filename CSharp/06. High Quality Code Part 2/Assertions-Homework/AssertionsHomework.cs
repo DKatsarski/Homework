@@ -9,9 +9,8 @@ class AssertionsHomework
         // Preconditions here. They are implemented by using Assert
         // (although it should be done with Exceptions)due to the specifics of the task in the HW.
         Debug.Assert(arr != null, "arr can't be null!");
-        Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
-
-
+       // Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
+        
         for (int index = 0; index < arr.Length - 1; index++)
         {
             int minElementIndex = FindMinElementIndex(arr, index, arr.Length - 1);
@@ -36,6 +35,7 @@ class AssertionsHomework
                 minElementIndex = i;
             }
         }
+        
         return minElementIndex;
     }
 
@@ -85,8 +85,11 @@ class AssertionsHomework
         Console.WriteLine("sorted = [{0}]", string.Join(", ", arr));
 
         // These two lines are commented, so that the code could be run.
-        //SelectionSort(new int[0]); // Test sorting empty array
-        //SelectionSort(new int[1]); // Test sorting single element array
+        var arrZero = new int[] { };
+        var arrOne = new int[] { 1 };
+
+        SelectionSort(arrZero); // Test sorting empty array
+        SelectionSort(arrOne); // Test sorting single element array
 
         Console.WriteLine(BinarySearch(arr, -1000));
         Console.WriteLine(BinarySearch(arr, 0));
