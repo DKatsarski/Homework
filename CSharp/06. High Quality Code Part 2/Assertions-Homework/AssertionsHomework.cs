@@ -9,6 +9,7 @@ class AssertionsHomework
         // Preconditions here. They are implemented by using Assert
         // (although it should be done with Exceptions)due to the specifics of the task in the HW.
         Debug.Assert(arr != null, "arr can't be null!");
+        // the following line is commented, so the the app could run, but could be used if a different logic is needed
        // Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
         
         for (int index = 0; index < arr.Length - 1; index++)
@@ -41,6 +42,9 @@ class AssertionsHomework
 
     private static void Swap<T>(ref T x, ref T y)
     {
+        Debug.Assert(x.GetType() == typeof(T));
+        Debug.Assert(y.GetType() == typeof(T));
+
         T oldX = x;
         x = y;
         y = oldX;
@@ -84,12 +88,13 @@ class AssertionsHomework
         SelectionSort(arr);
         Console.WriteLine("sorted = [{0}]", string.Join(", ", arr));
 
-        // These two lines are commented, so that the code could be run.
+        // sample arrays for testing the SelectionSort method
         var arrZero = new int[] { };
         var arrOne = new int[] { 1 };
 
         SelectionSort(arrZero); // Test sorting empty array
         SelectionSort(arrOne); // Test sorting single element array
+
         Debug.Assert(arrZero.Length == 0, "SelectionSort didn't work");
         Debug.Assert(arrOne.Length == 1, "SelectionSort didn't work");
 
