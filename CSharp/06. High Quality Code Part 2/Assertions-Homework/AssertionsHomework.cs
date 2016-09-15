@@ -90,6 +90,8 @@ class AssertionsHomework
 
         SelectionSort(arrZero); // Test sorting empty array
         SelectionSort(arrOne); // Test sorting single element array
+        Debug.Assert(arrZero.Length == 0, "SelectionSort didn't work");
+        Debug.Assert(arrOne.Length == 1, "SelectionSort didn't work");
 
         Console.WriteLine(BinarySearch(arr, -1000));
         Console.WriteLine(BinarySearch(arr, 0));
