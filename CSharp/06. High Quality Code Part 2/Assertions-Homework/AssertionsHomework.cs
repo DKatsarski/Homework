@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Diagnostics;
 
 class AssertionsHomework
@@ -10,8 +9,7 @@ class AssertionsHomework
         // (although it should be done with Exceptions)due to the specifics of the task in the HW.
         Debug.Assert(arr != null, "arr can't be null!");
         // the following line is commented, so the the app could run, but could be used if a different logic is needed
-
-       // Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
+        // Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
         
         for (int index = 0; index < arr.Length - 1; index++)
         {
@@ -116,10 +114,50 @@ class AssertionsHomework
         Debug.Assert(arrZero.Length == 0, "SelectionSort didn't work");
         Debug.Assert(arrOne.Length == 1, "SelectionSort didn't work");
 
+        // test binarySearch
+        var testArrayLimits = TestArrayLimitsMinNum(arr);
+        var numberOutSideBounderisOfArr = testArrayLimits - 200;
+        var testBinarySearch = (BinarySearch(arr, numberOutSideBounderisOfArr));
+        Debug.Assert(testBinarySearch == -1, "No such number in array!");
+
+        var testArrayLimitsOverMaxNum = TestArrayLimitsMaxNum(arr);
+        var numberOverArrayBounderies = testArrayLimitsOverMaxNum + 223;
+        testBinarySearch = (BinarySearch(arr, numberOverArrayBounderies));
+        Debug.Assert(testBinarySearch == -1, "No such number in array!");
+
+
         Console.WriteLine(BinarySearch(arr, -1000));
         Console.WriteLine(BinarySearch(arr, 0));
         Console.WriteLine(BinarySearch(arr, 17));
         Console.WriteLine(BinarySearch(arr, 10));
         Console.WriteLine(BinarySearch(arr, 1000));
+    }
+
+    public static int TestArrayLimitsMinNum(int[] arr)
+    {
+        var minElementIndex = int.MinValue;
+        for (int i = 0 + 1; i < arr.Length; i++)
+        {
+            if (minElementIndex > arr[i])
+            {
+                minElementIndex = arr[i];
+            }
+        }
+
+        return minElementIndex;
+    }
+
+    public static int TestArrayLimitsMaxNum(int[] arr)
+    {
+        var maxElementIndex = arr[0];
+        for (int i = 0 + 1; i < arr.Length; i++)
+        {
+            if (maxElementIndex < arr[i])
+            {
+                maxElementIndex = arr[i];
+            }
+        }
+
+        return maxElementIndex;
     }
 }
