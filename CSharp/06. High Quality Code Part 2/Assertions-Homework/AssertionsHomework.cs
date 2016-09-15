@@ -10,6 +10,7 @@ class AssertionsHomework
         // (although it should be done with Exceptions)due to the specifics of the task in the HW.
         Debug.Assert(arr != null, "arr can't be null!");
         // the following line is commented, so the the app could run, but could be used if a different logic is needed
+
        // Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
         
         for (int index = 0; index < arr.Length - 1; index++)
@@ -20,9 +21,10 @@ class AssertionsHomework
             var testSwapingSecondNumber = arr[minElementIndex];
 
             Swap(ref arr[index], ref arr[minElementIndex]);
+
+            // Test Swap method
             Debug.Assert(testSwapingFirstNumber.Equals( arr[minElementIndex]), "Swat method doesn's work!");
             Debug.Assert(testSwapingSecondNumber.Equals(arr[index]), "Swat method doesn's work!");
-
         }
     }
 
@@ -65,6 +67,15 @@ class AssertionsHomework
     private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex)
         where T : IComparable<T>
     {
+        Debug.Assert(value.GetType() == typeof(T));
+        Debug.Assert(arr != null, "arr can't be null!");
+        Debug.Assert(arr.Length > 1, "arr should contain at least 2 elements in order to be sorted!");
+        Debug.Assert(startIndex >= 0 && startIndex < arr.Length - 1, "startIndex cannot be lower than 0 or bigger then arr.length");
+        Debug.Assert(startIndex <= endIndex, "startIndex cannot be bigger than endIndex");
+        Debug.Assert(endIndex >= startIndex, "endInex cannot be lower then startIndex");
+        Debug.Assert(endIndex <= arr.Length - 1, "endInex cannot be bigger then arr lenght");
+
+
         while (startIndex <= endIndex)
         {
             int midIndex = (startIndex + endIndex) / 2;
