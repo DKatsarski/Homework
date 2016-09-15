@@ -15,7 +15,14 @@ class AssertionsHomework
         for (int index = 0; index < arr.Length - 1; index++)
         {
             int minElementIndex = FindMinElementIndex(arr, index, arr.Length - 1);
+
+            var testSwapingFirstNumber = arr[index];
+            var testSwapingSecondNumber = arr[minElementIndex];
+
             Swap(ref arr[index], ref arr[minElementIndex]);
+            Debug.Assert(testSwapingFirstNumber.Equals( arr[minElementIndex]), "Swat method doesn's work!");
+            Debug.Assert(testSwapingSecondNumber.Equals(arr[index]), "Swat method doesn's work!");
+
         }
     }
 
