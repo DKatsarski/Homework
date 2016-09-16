@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exceptions_Homework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -50,7 +51,7 @@ class ExceptionsHomework
         {
             if (number % divisor == 0)
             {
-                throw new Exception("The number is not prime!");
+                throw new NumberIsNotPrime();
             }
         }
     }
@@ -79,9 +80,9 @@ class ExceptionsHomework
             CheckPrime(23);
             Console.WriteLine("23 is prime.");
         }
-        catch (Exception ex)
+        catch (NumberIsNotPrime ex)
         {
-            Console.WriteLine("23 is not prime");
+            Console.WriteLine("The given number is not prime!", ex);
         }
 
         try
@@ -89,9 +90,9 @@ class ExceptionsHomework
             CheckPrime(33);
             Console.WriteLine("33 is prime.");
         }
-        catch (Exception ex)
+        catch (NumberIsNotPrime ex)
         {
-            Console.WriteLine("33 is not prime");
+            Console.WriteLine("33 is not prime", ex);
         }
 
         List<Exam> peterExams = new List<Exam>()

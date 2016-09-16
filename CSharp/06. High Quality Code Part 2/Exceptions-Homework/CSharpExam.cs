@@ -8,7 +8,7 @@ public class CSharpExam : Exam
     {
         if (score < 0)
         {
-            throw new NullReferenceException();
+            throw new ArgumentOutOfRangeException("score cannot be lower then zero!");
         }
 
         this.Score = score;
@@ -18,7 +18,7 @@ public class CSharpExam : Exam
     {
         if (Score < 0 || Score > 100)
         {
-            throw new InvalidOperationException();
+            throw new ArgumentOutOfRangeException("Score cannot be lower then zero and bigger then hundred!");
         }
         else
         {
