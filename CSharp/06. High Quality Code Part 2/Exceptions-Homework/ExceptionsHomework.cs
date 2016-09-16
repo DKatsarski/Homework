@@ -6,6 +6,16 @@ class ExceptionsHomework
 {
     public static T[] Subsequence<T>(T[] arr, int startIndex, int count)
     {
+        if (arr.GetType() != typeof(T))
+        {
+            throw new ArgumentException("Array should have the type of T.");
+        }
+
+        if (startIndex < 0)
+        {
+            throw new ArgumentOutOfRangeException("startIndex cannot be lower then zero");
+        }
+
         List<T> result = new List<T>();
         for (int i = startIndex; i < startIndex + count; i++)
         {
@@ -16,9 +26,14 @@ class ExceptionsHomework
 
     public static string ExtractEnding(string str, int count)
     {
+        if (str == null)
+        {
+            throw new ArgumentNullException("String cannot be null!");
+        }
+
         if (count > str.Length)
         {
-            return "Invalid count!";
+            throw new ArgumentException("Invalid count! Count cannot be bigger then the string length!");
         }
 
         StringBuilder result = new StringBuilder();
