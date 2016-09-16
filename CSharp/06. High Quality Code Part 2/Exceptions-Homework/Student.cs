@@ -50,14 +50,12 @@ public class Student
     {
         if (this.Exams == null)
         {
-            // Cannot calculate average on missing exams
-            throw new Exception();
+            throw new ArgumentNullException("Exams cannnot be null");
         }
 
         if (this.Exams.Count == 0)
         {
-            // No exams --> return -1;
-            return -1;
+            throw new ArgumentException("There are no excams added!");
         }
 
         double[] examScore = new double[this.Exams.Count];
