@@ -27,7 +27,7 @@ var data = (function () {
   }
 
   function threadsAdd(title) {
-    
+
   }
 
   function threadById(id) {
@@ -36,13 +36,27 @@ var data = (function () {
 
   function threadsAddMessage(threadId, content) {
 
+    return new Promise((resolve, reject) => {
+      let username = userGetCurrent()
+        .then((username) => {
+          let body = { title, username };
+
+          $.ajax({
+            type: 'POST',
+            url: 'api/threads',
+            data: JSON.stringify(body),
+            contentType: 'aplication/json',
+          }).done((data) => resolve(data))
+            .fail((err) => reject(err));
+        })
+    });
   }
   // end threads
 
   // start gallery
   function galleryGet() {
     const REDDIT_URL = `https://www.reddit.com/r/aww.json?jsonp=?`;
-    
+
   }
   // end gallery
 
