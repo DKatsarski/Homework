@@ -27,7 +27,17 @@ var data = (function () {
   }
 
   function threadsAdd(title) {
-
+    $.ajax({
+      url: 'GET',
+      method: '/users',
+      dataType: 'application/json',
+      success: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
   function threadById(id) {
