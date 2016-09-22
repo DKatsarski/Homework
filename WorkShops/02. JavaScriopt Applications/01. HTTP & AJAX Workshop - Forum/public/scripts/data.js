@@ -27,17 +27,23 @@ var data = (function () {
   }
 
   function threadsAdd(title) {
-    $.ajax({
-      url: 'GET',
-      method: '/users',
-      dataType: 'application/json',
-      success: (data) => {
-        console.log(data);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    var p = new Promise(function (resolve, reject) {
+      var body = {
+        title
+      };
+
+
+      $.ajax({
+        url: 'api/threads',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        success: function (res) {
+          resolve(res);
+        }
+      })
+    });
+    return p;
   }
 
   function threadById(id) {
