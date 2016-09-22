@@ -1,5 +1,6 @@
 var data = (function () {
-  const USERNAME_STORAGE_KEY = 'username-key';
+  const USERNAME_STORAGE_KEY = 'username-key',
+   AUTH_KEY_STORAGE_KEY = 'auth-key-key';
 
   // start users
   function userLogin(user) {
@@ -56,23 +57,21 @@ var data = (function () {
   }
 
   function threadsAddMessage(threadId, content) {
-
-    return new Promise((resolve, reject) => {
-      return new Promise((resolve, reject) => {
-        userGetCurrent()
-          .then(username => {
-            return { username, content };
-          }).then(body => {
-            $.ajax({
-              url: `api/threads/${threadId}/messages`,
-              method: 'POST',
-              contentType: 'application/json',
-              data: JSON.stringify(body)
-            })
-              .done(resolve)
-              .fail(reject);
-          });
+  var qpromise = new Promise(function(resolve, reject) {
+      $.ajax({
+        url: `api/threads/${threadId}/messages`,
+        method: 'POST',
+        data: JSON.stringify(message),
+        contentType: 'application/json',
+        headers: {
+          'x-authkey': localStorage.getItem(AUTH_KEY_STORAGE_KEY)
+        },
+        success: function(res) {
+          resolve(res);
+        }
       });
+    });
+    return qpromise
     }
   // end threads
 
