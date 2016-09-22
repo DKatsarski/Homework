@@ -47,49 +47,56 @@ var data = (function () {
   }
 
   function threadById(id) {
-
+    var q = new Promise(function (resolve, reject) {
+      $.getJSON(`api/threads/${id}`, function (res) {
+        resolve(res);
+      });
+    });
+    return q;
   }
 
   function threadsAddMessage(threadId, content) {
 
     return new Promise((resolve, reject) => {
-      let username = userGetCurrent()
-        .then((username) => {
-          let body = { title, username };
-
-          $.ajax({
-            type: 'POST',
-            url: 'api/threads',
-            data: JSON.stringify(body),
-            contentType: 'aplication/json',
-          }).done((data) => resolve(data))
-            .fail((err) => reject(err));
-        })
-    });
-  }
+      return new Promise((resolve, reject) => {
+        userGetCurrent()
+          .then(username => {
+            return { username, content };
+          }).then(body => {
+            $.ajax({
+              url: `api/threads/${threadId}/messages`,
+              method: 'POST',
+              contentType: 'application/json',
+              data: JSON.stringify(body)
+            })
+              .done(resolve)
+              .fail(reject);
+          });
+      });
+    }
   // end threads
 
   // start gallery
   function galleryGet() {
-    const REDDIT_URL = `https://www.reddit.com/r/aww.json?jsonp=?`;
+        const REDDIT_URL = `https://www.reddit.com/r/aww.json?jsonp=?`;
 
-  }
+      }
   // end gallery
 
   return {
-    users: {
-      login: userLogin,
-      logout: userLogout,
-      current: userGetCurrent
-    },
-    threads: {
-      get: threadsGet,
-      add: threadsAdd,
-      getById: threadById,
-      addMessage: threadsAddMessage
-    },
-    gallery: {
-      get: galleryGet,
+      users: {
+        login: userLogin,
+        logout: userLogout,
+        current: userGetCurrent
+      },
+      threads: {
+        get: threadsGet,
+        add: threadsAdd,
+        getById: threadById,
+        addMessage: threadsAddMessage
+      },
+      gallery: {
+        get: galleryGet,
+      }
     }
-  }
-})();
+  })();
