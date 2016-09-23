@@ -42,7 +42,7 @@ var data = (function () {
         success: function (res) {
           resolve(res);
         }
-      })
+      });
     });
     return p;
   }
