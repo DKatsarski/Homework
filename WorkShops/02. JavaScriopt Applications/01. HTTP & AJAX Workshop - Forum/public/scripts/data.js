@@ -39,6 +39,9 @@ var data = (function () {
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(body),
+        headers: {
+          'x-authkey': localStorage.getItem(AUTH_KEY_STORAGE_KEY)
+        },
         success: function (res) {
           resolve(res);
         }
