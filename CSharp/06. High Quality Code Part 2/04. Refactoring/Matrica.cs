@@ -4,44 +4,46 @@ namespace Task3
 {
     class WalkInMatrica
     {
-        static void Change(ref int dx, ref int dy)
+        static void ChangeDirection(ref int dx, ref int dy)
         {
             int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
-            int cd = 0;
+            int currentDirection = 0;
+            int len = dirX.Length;
 
-            for (int count = 0; count < 8; count++)
+            for (int i = 0; i < len; i++)
             {
-                if (dirX[count] == dx && dirY[count] == dy)
+                if (dirX[i] == dx && dirY[i] == dy)
                 {
-                    cd = count;
+
+                    currentDirection = i;
                     break;
                 }
             }
 
-            if (cd == 7)
+            if (currentDirection == 7)
             {
                 dx = dirX[0]; dy = dirY[0];
                 return;
             }
 
-            dx = dirX[cd + 1];
-            dy = dirY[cd + 1];
+            dx = dirX[currentDirection + 1];
+            dy = dirY[currentDirection + 1];
         }
 
-        static bool CHeck(int[,] arr, int x, int y)
+        static bool CheckIfNextCellIsEmpty(int[,] matrix, int row, int col)
         {
             int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
 
             for (int i = 0; i < 8; i++)
             {
-                if (x + dirX[i] >= arr.GetLength(0) || x + dirX[i] < 0)
+                if (row + dirX[i] >= matrix.GetLength(0) || row + dirX[i] < 0)
                 {
                     dirX[i] = 0;
                 }
 
-                if (y + dirY[i] >= arr.GetLength(0) || y + dirY[i] < 0)
+                if (col + dirY[i] >= matrix.GetLength(0) || col + dirY[i] < 0)
                 {
                     dirY[i] = 0;
                 }
@@ -49,7 +51,7 @@ namespace Task3
 
             for (int i = 0; i < 8; i++)
             {
-                if (arr[x + dirX[i], y + dirY[i]] == 0)
+                if (matrix[row + dirX[i], col + dirY[i]] == 0)
                 {
                     return true;
                 }
@@ -59,18 +61,18 @@ namespace Task3
         }
 
         // Tuk nai weroqtno shte trqbwa da naprawq matricata w masiw. ne wijdam na pryw pogled, che trqbwa da e matrica. 
-        static void find_cell(int[,] arr, out int x, out int y)
+        static void FindEmptyCell(int[,] matrix, out int row, out int col)
         {
-            x = 0;
-            y = 0;
+            row = 0;
+            col = 0;
 
-            for (int i = 0; i < arr.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < arr.GetLength(0); j++)
+                for (int j = 0; j < matrix.GetLength(0); j++)
                 {
-                    if (arr[i, j] == 0)
+                    if (matrix[i, j] == 0)
                     {
-                        x = i; y = j;
+                        row = i; col = j;
                         return;
                     }
                 }
@@ -88,23 +90,23 @@ namespace Task3
             //    input = Console.ReadLine(  );
             //}
             int n = 3;
-            int[,] matrica = new int[n, n];
+            int[,] matrix = new int[n, n];
             int step = n, k = 1, i = 0, j = 0, dx = 1, dy = 1;
 
             while (true)
             { //malko e kofti tova uslovie, no break-a raboti 100% : )
-                matrica[i, j] = k;
+                matrix[i, j] = k;
 
-                if (!CHeck(matrica, i, j))
+                if (!CheckIfNextCellIsEmpty(matrix, i, j))
                 {
                     break;
                 } // prekusvame ako sme se zadunili
 
-                if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
+                if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrix[i + dx, j + dy] != 0)
                 {
-                    while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0))
+                    while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrix[i + dx, j + dy] != 0))
                     {
-                        Change(ref dx, ref dy);
+                        ChangeDirection(ref dx, ref dy);
                     }
                 }
 
@@ -115,30 +117,30 @@ namespace Task3
             {
                 for (int q = 0; q < n; q++)
                 {
-                    Console.Write("{0,3}", matrica[p, q]);
+                    Console.Write("{0,3}", matrix[p, q]);
                 }
 
                 Console.WriteLine();
             }
 
-            find_cell(matrica, out i, out j);
+            FindEmptyCell(matrix, out i, out j);
             if (i != 0 && j != 0)
             { // taka go napravih, zashtoto funkciqta ne mi davashe da ne si definiram out parametrite
                 dx = 1; dy = 1;
 
                 while (true)
                 { //malko e kofti tova uslovie, no break-a raboti 100% : )
-                    matrica[i, j] = k;
+                    matrix[i, j] = k;
 
-                    if (!CHeck(matrica, i, j))
+                    if (!CheckIfNextCellIsEmpty(matrix, i, j))
                     {
                         break;
                     }// prekusvame ako sme se zadunili
 
-                    if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
+                    if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrix[i + dx, j + dy] != 0)
                     {
 
-                        while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) Change(ref dx, ref dy);
+                        while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrix[i + dx, j + dy] != 0)) ChangeDirection(ref dx, ref dy);
                         i += dx; j += dy; k++;
                     }
                 }
@@ -148,7 +150,7 @@ namespace Task3
             {
                 for (int qq = 0; qq < n; qq++)
                 {
-                    Console.Write("{0,3}", matrica[pp, qq]);
+                    Console.Write("{0,3}", matrix[pp, qq]);
                 }
 
                 Console.WriteLine();
