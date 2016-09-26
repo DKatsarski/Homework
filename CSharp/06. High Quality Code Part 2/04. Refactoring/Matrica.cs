@@ -56,15 +56,23 @@ namespace Task3
             return false;
         }
 
+        // Tuk nai weroqtno shte trqbwa da naprawq matricata w masiw. ne wijdam na pryw pogled, che trqbwa da e matrica. 
         static void find_cell(int[,] arr, out int x, out int y)
         {
             x = 0;
             y = 0;
+
             for (int i = 0; i < arr.GetLength(0); i++)
-
+            {
                 for (int j = 0; j < arr.GetLength(0); j++)
-                    if (arr[i, j] == 0) { x = i; y = j; return; }
-
+                {
+                    if (arr[i, j] == 0)
+                    {
+                        x = i; y = j;
+                        return;
+                    }
+                }
+            }
         }
 
         static void Main(string[] args)
