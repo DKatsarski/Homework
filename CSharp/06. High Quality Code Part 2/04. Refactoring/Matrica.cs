@@ -4,18 +4,20 @@ namespace Task3
 {
     class WalkInMatrica
     {
-        static void change(ref int dx, ref int dy)
+        static void Change(ref int dx, ref int dy)
         {
             int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
             int cd = 0;
 
             for (int count = 0; count < 8; count++)
+            {
                 if (dirX[count] == dx && dirY[count] == dy)
                 {
                     cd = count;
                     break;
                 }
+            }
 
             if (cd == 7)
             {
@@ -27,7 +29,7 @@ namespace Task3
             dy = dirY[cd + 1];
         }
 
-        static bool proverka(int[,] arr, int x, int y)
+        static bool CHeck(int[,] arr, int x, int y)
         {
             int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
@@ -93,7 +95,7 @@ namespace Task3
             { //malko e kofti tova uslovie, no break-a raboti 100% : )
                 matrica[i, j] = k;
 
-                if (!proverka(matrica, i, j))
+                if (!CHeck(matrica, i, j))
                 {
                     break;
                 } // prekusvame ako sme se zadunili
@@ -102,10 +104,10 @@ namespace Task3
                 {
                     while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0))
                     {
-                        change(ref dx, ref dy);
+                        Change(ref dx, ref dy);
                     }
                 }
-                
+
                 i += dx; j += dy; k++;
             }
 
@@ -124,12 +126,11 @@ namespace Task3
             { // taka go napravih, zashtoto funkciqta ne mi davashe da ne si definiram out parametrite
                 dx = 1; dy = 1;
 
-
                 while (true)
                 { //malko e kofti tova uslovie, no break-a raboti 100% : )
                     matrica[i, j] = k;
 
-                    if (!proverka(matrica, i, j))
+                    if (!CHeck(matrica, i, j))
                     {
                         break;
                     }// prekusvame ako sme se zadunili
@@ -137,7 +138,7 @@ namespace Task3
                     if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
                     {
 
-                        while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) change(ref dx, ref dy);
+                        while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) Change(ref dx, ref dy);
                         i += dx; j += dy; k++;
                     }
                 }
