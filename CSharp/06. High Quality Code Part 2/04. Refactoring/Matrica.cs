@@ -93,17 +93,29 @@ namespace Task3
             { //malko e kofti tova uslovie, no break-a raboti 100% : )
                 matrica[i, j] = k;
 
-                if (!proverka(matrica, i, j)) { break; } // prekusvame ako sme se zadunili
+                if (!proverka(matrica, i, j))
+                {
+                    break;
+                } // prekusvame ako sme se zadunili
+
                 if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
-
-
-                    while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) { change(ref dx, ref dy); }
+                {
+                    while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0))
+                    {
+                        change(ref dx, ref dy);
+                    }
+                }
+                
                 i += dx; j += dy; k++;
             }
 
             for (int p = 0; p < n; p++)
             {
-                for (int q = 0; q < n; q++) Console.Write("{0,3}", matrica[p, q]);
+                for (int q = 0; q < n; q++)
+                {
+                    Console.Write("{0,3}", matrica[p, q]);
+                }
+
                 Console.WriteLine();
             }
 
@@ -116,18 +128,27 @@ namespace Task3
                 while (true)
                 { //malko e kofti tova uslovie, no break-a raboti 100% : )
                     matrica[i, j] = k;
-                    if (!proverka(matrica, i, j)) { break; }// prekusvame ako sme se zadunili
-                    if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
 
+                    if (!proverka(matrica, i, j))
+                    {
+                        break;
+                    }// prekusvame ako sme se zadunili
+
+                    if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
+                    {
 
                         while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) change(ref dx, ref dy);
-                    i += dx; j += dy; k++;
+                        i += dx; j += dy; k++;
+                    }
                 }
             }
 
             for (int pp = 0; pp < n; pp++)
             {
-                for (int qq = 0; qq < n; qq++) Console.Write("{0,3}", matrica[pp, qq]);
+                for (int qq = 0; qq < n; qq++)
+                {
+                    Console.Write("{0,3}", matrica[pp, qq]);
+                }
 
                 Console.WriteLine();
             }
