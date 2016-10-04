@@ -1,3 +1,0 @@
-$(() => {
-    appRouter.start('#content');
-});
