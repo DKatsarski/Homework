@@ -84,7 +84,7 @@ var ram1 = new Rammstein(Eight * Eight);
                 if (cn == "Charge") laptop.ChargeBattery(ca);
                 else if (cn == "Process") server.Process(ca);
                 else if (cn == "Play") pc.Play(ca);;
-                continue;Console.WriteLine("Invalid command!");
+                continue;
             }
 
             end:
