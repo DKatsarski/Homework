@@ -21,5 +21,29 @@
       </song>
     </songs>
   </album>
-
+  <album>
+    <name>Ticket To Ride</name>
+    <artist>The Beatles</artist>
+    <year>1967</year>
+    <producer>Jack Daugherty</producer>
+    <price>10</price>
+    <songs>
+      <song>
+        <title>Ticket To Ride</title>
+        <duration>3:34</duration>
+      </song>
+      <song>
+        <title>I Feel Fine</title>
+        <duration>4:33</duration>
+      </song>
+      <song>
+        <title>She Loves You</title>
+        <duration>5:21</duration>
+      </song>
+      <song>
+        <title>Can't Buy Me Love</title>
+        <duration>3:21</duration>
+      </song>
+    </songs>
+  </album>
 </catalogues>
