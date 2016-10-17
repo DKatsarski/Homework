@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <catalogues xmlns="http://Some.url.here">
   <album>
-    <name></name>
-    <artist></artist>
-    <year></year>
-    <producer></producer>
-    <price></price>
+    <name>Ride The Lightning</name>
+    <artist>Metallica</artist>
+    <year>1984</year>
+    <producer>Metallica</producer>
+    <price>10</price>
     <songs>
-      <title></title>
-      <duration></duration>
+      <song>
+        <title>Creeping Death</title>
+        <duration>3:34</duration>
+      </song>
+      <song>
+        <title>Fade To Black</title>
+        <duration>4:33</duration>
+      </song>
+      <song>
+        <title>Ride The Lightning</title>
+        <duration>5:21</duration>
+      </song>
     </songs>
   </album>
+
 </catalogues>
