@@ -1,16 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<students xmlns="htt://Some.url.here">
-  <name>Pesho Goshov</name>
-  <sex>M</sex>
-  <birthDate>01.01.2000</birthDate>
-  <phone>0888888888</phone>
-  <email>pesho.goshev@gmail.com</email>
-  <course>Math</course>
-  <specialty>Combinatorics</specialty>
-  <facultyNumber>654654</facultyNumber>
-  <takenExams>
-    <examName>Catalan numbers</examName>
-    <tutor>Catalankov</tutor>
-    <score>56</score>
-  </takenExams>
+<students xmlns="http://Some.url.here">
+  <student>
+    <name>Pesho Goshov</name>
+    <sex>M</sex>
+    <birthDate>01.01.2000</birthDate>
+    <phone>0888888888</phone>
+    <email>pesho.goshev@gmail.com</email>
+    <course>Math</course>
+    <specialty>Combinatorics</specialty>
+    <facultyNumber>654654</facultyNumber>
+    <takenExams>
+      <examName>Catalan numbers</examName>
+      <tutor>Catalankov</tutor>
+      <score>56</score>
+    </takenExams>
+  </student>
+  <student>
+       <name>Pesho Toshov</name>
+    <sex>M</sex>
+    <birthDate>01.01.2000</birthDate>
+    <phone>0888888888</phone>
+    <email>pesho.goshev@gmail.com</email>
+    <course>Math</course>
+    <specialty>Combinatorics</specialty>
+    <facultyNumber>654654</facultyNumber>
+    <takenExams>
+      <examName>Catalan numbers</examName>
+      <tutor>Catalankov</tutor>
+      <score>56</score>
+    </takenExams>
+  </student>
+  <student>
+    <name>string</name>
+    <sex>string</sex>
+    <birthDate>string</birthDate>
+    <phone>unsignedInt</phone>
+    <email>string</email>
+    <course>string</course>
+    <specialty>string</specialty>
+    <facultyNumber>unsignedInt</facultyNumber>
+    <takenExams>
+      <examName>string</examName>
+      <tutor>string</tutor>
+      <score>unsignedByte</score>
+    </takenExams>
+  </student>
 </students>
