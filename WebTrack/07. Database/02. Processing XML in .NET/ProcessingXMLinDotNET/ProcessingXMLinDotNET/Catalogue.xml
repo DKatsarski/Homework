@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<catalogues xmlns="http://Some.url.here">
+<catalogue xmlns="http://Some.url.here">
   <album>
     <name>Ride The Lightning</name>
     <artist>Metallica</artist>
@@ -17,6 +17,27 @@
       </song>
       <song>
         <title>Ride The Lightning</title>
+        <duration>5:21</duration>
+      </song>
+    </songs>
+  </album>
+    <album>
+    <name>And Justice For All</name>
+    <artist>Metallica</artist>
+    <year>1988</year>
+    <producer>Metallica</producer>
+    <price>10</price>
+    <songs>
+      <song>
+        <title>One</title>
+        <duration>6:34</duration>
+      </song>
+      <song>
+        <title>Blackened</title>
+        <duration>4:33</duration>
+      </song>
+      <song>
+        <title>Eye Of The Beholder</title>
         <duration>5:21</duration>
       </song>
     </songs>
@@ -46,4 +67,4 @@
       </song>
     </songs>
   </album>
-</catalogues>
+</catalogue>
