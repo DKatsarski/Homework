@@ -11,9 +11,7 @@
             XmlDocument doc = new XmlDocument();
             doc.Load("../../Catalogue.xml");
             XmlNode rootNode = doc.DocumentElement;
-
-
-
+            
             AlbumCounter(rootNode);
             DeleteAlbumsWithHighPrice(rootNode);
         }
@@ -62,8 +60,7 @@
 
                 if (priceOfTheAlbum > 20)
                 {
-                    Console.WriteLine(rootNode.FirstChild.Name);
-                    // TODO: Delete the album from the file.
+                    rootNode.FirstChild.RemoveAll();
                 }
             }
         }
