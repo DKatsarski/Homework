@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<student>
-  <name></name>
-  <sex></sex>
-  <birthDate></birthDate>
-  <phone></phone>
-  <email></email>
-  <course></course>
-  <specialty></specialty>
-  <facultyNumber></facultyNumber>
+<student xmlns="htt://Some.url.here">
+  <name>Pesho Goshov</name>
+  <sex>M</sex>
+  <birthDate>01.01.2000</birthDate>
+  <phone>0888888888</phone>
+  <email>pesho.goshev@gmail.com</email>
+  <course>Math</course>
+  <specialty>Combinatorics</specialty>
+  <facultyNumber>654654</facultyNumber>
   <takenExams>
-    <examName></examName>
-    <tutor></tutor>
-    <score></score>
+    <examName>Catalan numbers</examName>
+    <tutor>Catalan</tutor>
+    <score>56</score>
   </takenExams>
 </student>
