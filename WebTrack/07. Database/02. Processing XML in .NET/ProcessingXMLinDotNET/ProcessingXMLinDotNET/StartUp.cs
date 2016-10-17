@@ -13,7 +13,7 @@
             // Use the DOM parser and a hash - table.
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"D:\Google Drive\Programirane\TELERIK Academy\Homework\WebTrack\07. Database\02. Processing XML in .NET\ProcessingXMLinDotNET\ProcessingXMLinDotNET\catalogue.xml");
+            doc.Load("../../Catalogue.xml");
             XmlNode rootNode = doc.DocumentElement;
             var listOfArtists = new Hashtable();
             var key = 1;
