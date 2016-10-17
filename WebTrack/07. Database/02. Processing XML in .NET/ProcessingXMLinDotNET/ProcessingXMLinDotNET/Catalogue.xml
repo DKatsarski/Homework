@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<catalogue>
+  <name></name>
+  <artist></artist>
+  <year></year>
+  <producer></producer>
+  <price></price>
+  <songs>
+    <title></title>
+    <duration></duration>
+  </songs>
+</catalogue>
