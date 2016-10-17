@@ -1,12 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<catalogue>
-  <name></name>
-  <artist></artist>
-  <year></year>
-  <producer></producer>
-  <price></price>
-  <songs>
-    <title></title>
-    <duration></duration>
-  </songs>
-</catalogue>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<catalogues xmlns="http://Some.url.here">
+  <album>
+    <name></name>
+    <artist></artist>
+    <year></year>
+    <producer></producer>
+    <price></price>
+    <songs>
+      <title></title>
+      <duration></duration>
+    </songs>
+  </album>
+</catalogues>
