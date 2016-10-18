@@ -11,18 +11,16 @@
             XmlDocument doc = new XmlDocument();
             doc.Load("../../Catalogue.xml");
             XmlNode rootNode = doc.DocumentElement;
-            
+
             AlbumCounter(rootNode);
             DeleteAlbumsWithHighPrice(rootNode);
+            ExtractSongNames();
+
+
         }
 
         private static void AlbumCounter(XmlNode rootNode)
         {
-            // Write program that extracts all different artists which are found in the catalog.xml.
-            // For each author you should print the number of albums in the catalogue.
-            // Use the DOM parser and a hash - table.
-
-
             var listOfArtists = new Hashtable();
             var key = 1;
 
@@ -61,6 +59,20 @@
                 if (priceOfTheAlbum > 20)
                 {
                     rootNode.FirstChild.RemoveAll();
+                }
+            }
+        }
+
+        private static void ExtractSongNames()
+        {
+            using (XmlReader reader = XmlReader.Create("../../Catalogue.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.Name == "title")
+                    {
+                        Console.WriteLine(reader.ReadString());
+                    }
                 }
             }
         }
