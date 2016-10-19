@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using HWJSON.Contracts;
 
 namespace HWJSON
 {
-    public class FileCreator : IFileCreator
+    public class ExtractXMLFile : IFileCreator
     {
         public void ExtractFile(string url, string fileName)
         {

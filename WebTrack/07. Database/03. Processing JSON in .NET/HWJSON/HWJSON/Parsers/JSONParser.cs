@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Xml;
+using HWJSON.Contracts;
+using Newtonsoft.Json;
 
 namespace HWJSON
 {
-    class Parser
+    public class JSONParser : IParser
     {
+        public string ParseXMLToJSON(string xmlAsString)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xmlAsString);
+            string jsonText = JsonConvert.SerializeXmlNode(doc);
+            return jsonText;
+        }
     }
 }

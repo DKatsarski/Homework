@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HWJSON.Contracts
+﻿namespace HWJSON.Contracts
 {
-    interface IParser
+    public interface IParser
     {
+        string ParseXMLToJSON(string xmlAsString);
     }
 }
