@@ -6,6 +6,7 @@ namespace ProcessingXMLinDotNET
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Xml;
 
     public class StartUp
@@ -24,42 +25,64 @@ namespace ProcessingXMLinDotNET
 
 
 
-            string filename = "../../Catalogue.xml";
-            Encoding encoding = Encoding.GetEncoding("windows-1251");
 
 
 
-            XDocument xmlDoc = XDocument.Load("../../Catalogue.xml");
-            var albums = xmlDoc.Descendants("album")
-                .OrderByDescending(album => album.Element("name").Value)
-                .Select(x => new
-                {
-                    Name = x.Element("name").Value + " "
-                })
-                .Take(2);
-
-            foreach (var r in albums)
-            {
-                Console.WriteLine(r.Name);
-            }
-            
-
-
-
-            //using (XmlReader reader = XmlReader.Create("../../Catalogue.xml"))
-            //{
-            //    while (reader.Read())
+            //XDocument xmlDoc = XDocument.Load("../../Catalogue.xml");
+            //var albums = xmlDoc.Descendants("album")
+            //    .OrderByDescending(album => album.Element("name").Value)
+            //    .Select(x => new
             //    {
-            //        if (reader.Name == "title")
-            //        {
-            //            Console.WriteLine(reader.ReadString());
-            //        }
-            //    }
+            //        Name = x.Element("name").Value + " "
+            //    })
+            //    .Take(2);
+
+
+
+            //string fileName = "../../album.xml";
+            //Encoding encoding = Encoding.GetEncoding("windows-1251");
+            //using (XmlTextWriter writer = new XmlTextWriter(fileName, encoding))
+            //{
+            //    writer.Formatting = Formatting.Indented;
+            //    writer.IndentChar = '\t';
+            //    writer.Indentation = 1;
+
+            //    writer.WriteStartDocument();
+            //    writer.WriteStartElement("library");
+            //    writer.WriteAttributeString("name", "My Library");
+            //    WriteAlbum(writer, "Code Complete",
+            //        "Steve McConnell", "155-615-484-4");
+            //    WriteAlbum(writer, "Въведение в програмирането със C#",
+            //        "Светлин Наков и колектив", "954-775-305-3");
+            //    WriteAlbum(writer, "Writing Solid Code",
+            //        "Steve Maguire", "155-615-551-4");
+            //    writer.WriteEndDocument();
             //}
+            //Console.WriteLine("Document {0} created.", fileName);
 
 
 
 
+            StringBuilder sb = new StringBuilder();
+
+            using (XmlReader reader = XmlReader.Create("../../Catalogue.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.Name == "name")
+                    {
+                        sb.AppendLine(reader.ReadString());
+                    }
+                }
+            }
+
+            List<string> albumsNames = new List<string>(sb.ToString().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+
+            albumsNames.Sort();
+
+            sb = new StringBuilder(string.Join("\r\n", albumsNames.ToArray()));
+
+            Console.WriteLine(sb);
 
 
 
@@ -69,12 +92,16 @@ namespace ProcessingXMLinDotNET
         }
 
 
-        private static void WriteBook(XmlWriter writer, string title, string author, string isbn)
+        private static void WriteAlbum(XmlWriter writer, string artist, string year, string producer, string title, string duration)
         {
-            writer.WriteStartElement("book");
-            writer.WriteElementString("title", title);
-            writer.WriteElementString("author", author);
-            writer.WriteElementString("isbn", isbn);
+            writer.WriteStartElement("name");
+            writer.WriteElementString("artist", artist);
+            writer.WriteElementString("year", year);
+            writer.WriteElementString("producer", producer);
+              writer.WriteStartElement("songs");
+                 writer.WriteElementString("title", title);
+                 writer.WriteElementString("duration", duration);
+              writer.WriteEndElement();
             writer.WriteEndElement();
         }
 
