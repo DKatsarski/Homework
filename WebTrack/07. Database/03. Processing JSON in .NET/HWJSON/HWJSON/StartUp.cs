@@ -11,9 +11,10 @@ namespace HWJSON
     {
         static void Main()
         {
-            var url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLC-vbm7OWvpbqzXaoAMGGw";
-            var fileName = "../../youtubeRSS.xml";
-            var xmlFileToBeExtracted = new ExtractXMLFile();
+            string url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLC-vbm7OWvpbqzXaoAMGGw";
+            string fileName = "../../youtubeRSS.xml";
+
+            ExtractXMLFile xmlFileToBeExtracted = new ExtractXMLFile();
             xmlFileToBeExtracted.ExtractFile(url, fileName);
         }
 
