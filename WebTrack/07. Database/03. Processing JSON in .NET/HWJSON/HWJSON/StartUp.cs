@@ -12,7 +12,7 @@ namespace HWJSON
         static void Main(string[] args)
         {
             var url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLC-vbm7OWvpbqzXaoAMGGw";
-            var fileName = "youtubeRSS";
+            var fileName = "../../youtubeRSS.xml";
             WebClient myClient = new WebClient();
             myClient.DownloadFile(url, fileName);
 
