@@ -13,8 +13,10 @@ namespace HWJSON
         {
             var url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLC-vbm7OWvpbqzXaoAMGGw";
             var fileName = "../../youtubeRSS.xml";
-            WebClient myClient = new WebClient();
-            myClient.DownloadFile(url, fileName);
+            var xmlFileToBeExtracted = new FileCreator();
+            xmlFileToBeExtracted.ExtractFile(url, fileName);
         }
+
+
     }
 }
