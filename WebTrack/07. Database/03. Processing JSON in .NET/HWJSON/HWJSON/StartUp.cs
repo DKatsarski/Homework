@@ -24,15 +24,17 @@ namespace HWJSON
             var parseXMLToJSON = new JSONParser();
             var jsonFile = parseXMLToJSON.ParseXMLToJSON(xmlAsString);
 
-            var titles = JObject.Parse(jsonFile)
-                .Children();
+            var titles = JObject.Parse(jsonFile);
 
-            foreach (var item in titles)
-            {
-                Console.WriteLine(item.Path);
-            }
 
-            //Console.WriteLine(titles);
+            var wtf = titles["feed"]
+                .Select(x => string.Format("{0}", x["title"]));
+
+
+
+            Console.WriteLine(wtf);
+
+            
         }
     }
 }
