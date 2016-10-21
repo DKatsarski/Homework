@@ -49,8 +49,10 @@
   <ItemGroup>
     <Compile Include="Contracts\IFileCreator.cs" />
     <Compile Include="Contracts\IParser.cs" />
+    <Compile Include="Contracts\IPrinter.cs" />
     <Compile Include="Manufacture\ExtractXMLFile.cs" />
     <Compile Include="Parsers\JSONParser.cs" />
+    <Compile Include="Printers\JsonPrinter.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

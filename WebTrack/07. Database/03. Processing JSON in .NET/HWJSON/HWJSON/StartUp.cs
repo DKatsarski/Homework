@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using HWJSON.Printers;
 using Newtonsoft.Json.Linq;
 
 namespace HWJSON
@@ -24,17 +25,19 @@ namespace HWJSON
             var parseXMLToJSON = new JSONParser();
             var jsonFile = parseXMLToJSON.ParseXMLToJSON(xmlAsString);
 
-            var titles = JObject.Parse(jsonFile);
+            var parsedJson = JObject.Parse(jsonFile);
+
+            var titles = parsedJson["feed"]["entry"]
+                .Select(x => x["title"]);
+
+            var printer = new JsonPrinter();
+
+            printer.Print(titles);
 
 
-            var wtf = titles["feed"]
-                .Select(x => string.Format("{0}", x["title"]));
+            //Console.WriteLine(wtf);
 
 
-
-            Console.WriteLine(wtf);
-
-            
         }
     }
 }
