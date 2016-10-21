@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using HWJSON.Printers;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace HWJSON
@@ -27,16 +28,15 @@ namespace HWJSON
 
             var parsedJson = JObject.Parse(jsonFile);
 
+            // Using LINQ-to-JSON select all video titles and print them on the console
             var titles = parsedJson["feed"]["entry"]
                 .Select(x => x["title"]);
 
             var printer = new JsonPrinter();
-
             printer.Print(titles);
 
-
-            //Console.WriteLine(wtf);
-
+            var pocoObject = JsonConvert.DeserializeObject(jsonFile);
+            Console.WriteLine(pocoObject);
 
         }
     }
