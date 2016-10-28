@@ -1,0 +1,234 @@
+{
+  "users": [
+    {
+      "username": "Minkov",
+      "passHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "usernameToLower": "minkov",
+      "id": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+      "authKey": "16655985-e510-43d4-ad1c-2388c76d1ef6FwHCPd*bP:.;Fu&:evl)RPGg"
+    },
+    {
+      "username": "Minkov3",
+      "passHash": "1234567890123456789012345678901234567890",
+      "usernameToLower": "minkov3",
+      "id": "bd04b3b8-5586-47ad-bf8f-db6c531dbb73",
+      "authKey": "bd04b3b8-5586-47ad-bf8f-db6c531dbb73erxSIAJyVOzIEIrpMFbanscO"
+    },
+    {
+      "username": "asd",
+      "passHash": "123",
+      "usernameToLower": "asd",
+      "id": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+      "authKey": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8KFJlIJqKjRNYGVIpucMLoyqd",
+      "myCookies": [
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "May the Force with you",
+          "category": "WOrk",
+          "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+          "likes": 26,
+          "dislikes": 3,
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "shareDate": "2015-09-09T14:53:56.482Z",
+          "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+          "hours": 14
+        },
+        {
+          "text": "new cookie",
+          "category": "",
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 1,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:45:27.628Z",
+          "id": "61254456-729e-4687-9ca0-102a0dea70db",
+          "hours": 16
+        },
+        {
+          "text": "new cookie",
+          "category": "",
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 1,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:45:27.628Z",
+          "id": "61254456-729e-4687-9ca0-102a0dea70db",
+          "hours": 16
+        },
+        {
+          "text": "new cookie",
+          "category": "",
+          "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 1,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:45:27.628Z",
+          "id": "61254456-729e-4687-9ca0-102a0dea70db",
+          "hours": 16
+        },
+        {
+          "text": "car ",
+          "category": "cars",
+          "img": "https://www.enterprise.ca/content/dam/global-vehicle-images/cars/CHRY_200_2015.png",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 31,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:46:17.872Z",
+          "id": "7d86cc5c-dcab-4793-8c0d-f845fd3095eb",
+          "hours": 18
+        },
+        {
+          "text": "car ",
+          "category": "cars",
+          "img": "https://www.enterprise.ca/content/dam/global-vehicle-images/cars/CHRY_200_2015.png",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 31,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:46:17.872Z",
+          "id": "7d86cc5c-dcab-4793-8c0d-f845fd3095eb",
+          "hours": 18
+        },
+        {
+          "text": "car ",
+          "category": "cars",
+          "img": "https://www.enterprise.ca/content/dam/global-vehicle-images/cars/CHRY_200_2015.png",
+          "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+          "likes": 31,
+          "dislikes": 0,
+          "shareDate": "2016-09-30T11:46:17.872Z",
+          "id": "7d86cc5c-dcab-4793-8c0d-f845fd3095eb",
+          "hours": 18
+        }
+      ]
+    }
+  ],
+  "cookies": [
+    {
+      "text": "Test",
+      "category": "Home",
+      "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+      "likes": 11,
+      "dislikes": 15,
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "shareDate": "2015-09-09T14:53:30.290Z",
+      "id": "2dae28aa-ee64-4bc1-8591-29284d88c9e9"
+    },
+    {
+      "text": "May the Force with you",
+      "category": "WOrk",
+      "userId": "16655985-e510-43d4-ad1c-2388c76d1ef6",
+      "likes": 26,
+      "dislikes": 3,
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "shareDate": "2015-09-09T14:53:56.482Z",
+      "id": "e2fdbf82-54c3-488f-add4-9af3262c2572",
+      "hours": 14
+    },
+    {
+      "text": "Hello!",
+      "category": "Home",
+      "userId": "bd04b3b8-5586-47ad-bf8f-db6c531dbb73",
+      "likes": 21,
+      "dislikes": 9,
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "shareDate": "2015-09-10T06:24:18.743Z",
+      "id": "ea91a233-bcf3-48b6-933f-05857f4aea87"
+    },
+    {
+      "text": "asd",
+      "category": "",
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+      "likes": 1,
+      "dislikes": 0,
+      "shareDate": "2016-09-30T11:43:05.519Z",
+      "id": "9840d62b-dfc3-463c-8639-8bb0d4e8bdd9"
+    },
+    {
+      "text": "new cookie",
+      "category": "",
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+      "likes": 1,
+      "dislikes": 0,
+      "shareDate": "2016-09-30T11:45:27.628Z",
+      "id": "61254456-729e-4687-9ca0-102a0dea70db",
+      "hours": 16
+    },
+    {
+      "text": "new cookie",
+      "category": "my category",
+      "img": "https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg",
+      "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+      "likes": 0,
+      "dislikes": 0,
+      "shareDate": "2016-09-30T11:46:05.095Z",
+      "id": "05c72ca5-3c71-420f-b845-ad29fa641340"
+    },
+    {
+      "text": "car ",
+      "category": "cars",
+      "img": "https://www.enterprise.ca/content/dam/global-vehicle-images/cars/CHRY_200_2015.png",
+      "userId": "81cd45b0-ad0f-4a9e-a81d-b5a03fe143b8",
+      "likes": 32,
+      "dislikes": 0,
+      "shareDate": "2016-09-30T11:46:17.872Z",
+      "id": "7d86cc5c-dcab-4793-8c0d-f845fd3095eb",
+      "hours": 18
+    }
+  ]
+}

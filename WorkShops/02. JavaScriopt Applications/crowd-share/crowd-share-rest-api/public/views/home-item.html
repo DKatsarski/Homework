@@ -1,0 +1,18 @@
+{{#each this}}
+<li class="list-group-item" data-id="{{this.id}}">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1>{{this.title}}</h1>
+        </div>
+        <div class="panel-body">
+            <p>
+                {{this.body}}
+            </p>
+        </div>
+        <div class="panel-footer">
+            <p>{{this.postDate}}</p>
+            <p data-id="{{this.user.id}}">{{this.user.username}}</p>
+        </div>
+    </div>
+</li>
+{{/each}}
