@@ -10,11 +10,12 @@ namespace EntityFrameworkHW
     {
         static void Main()
         {
+
             using (var db = new NorthwindEntities())
             {
-                var project = db.Regions
-                    .ToList();
-                Console.WriteLine(project.Count);
+                var project = db.Categories
+                    .FirstOrDefault(c => c.CategoryID == 1);
+                Console.WriteLine(project.CategoryName);             
             }
         }
     }
