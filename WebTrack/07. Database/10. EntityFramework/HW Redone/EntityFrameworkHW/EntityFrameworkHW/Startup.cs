@@ -13,9 +13,13 @@ namespace EntityFrameworkHW
 
             using (var db = new NorthwindEntities())
             {
-                var project = db.Categories
-                    .FirstOrDefault(c => c.CategoryID == 1);
-                Console.WriteLine(project.CategoryName);             
+                var customerOrders = db
+                    .Orders
+                    .Where(o => o.OrderDate.Value.Year == 1997 && o.ShipCountry == "Canada")
+                   .Select(o => o.Customer)
+                   .Distinct()
+                    .ToList();
+                Console.WriteLine(customerOrders); 
             }
         }
     }

@@ -63,6 +63,7 @@
     <Compile Include="CustomerDemographic.cs">
       <DependentUpon>NorthwindEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>NorthwindEntities.tt</DependentUpon>
     </Compile>
