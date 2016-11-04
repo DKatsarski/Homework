@@ -46,7 +46,7 @@ namespace EntitiyFramework.Tasks
         {
             if (customer == null)
             {
-                throw new ArgumentNullException(nameof(customer));
+                throw new ArgumentNullException("customer cannot be null!");
             }
 
             var context = DAO.GetContext();
