@@ -27,7 +27,16 @@ namespace EntityFrameworkHW
 
         public static void DeleteCustomer(Customer customer)
         {
-            Console.WriteLine("omg");
+            if (customer == null)
+            {
+                throw new ArgumentException(nameof(customer));
+            }
+
+            var context = new NorthwindEntities();
+            var matchingCustomer = context
+                .Customers.FirstOrDefault(c => c.CustomerID == customer.CustomerID);
+            context.Customers.Remove(matchingCustomer);
+            context.SaveChanges();
         }
 
     }
