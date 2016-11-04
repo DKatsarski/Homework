@@ -16,10 +16,10 @@ namespace EntityFrameworkHW
                 var customerOrders = db
                     .Orders
                     .Where(o => o.OrderDate.Value.Year == 1997 && o.ShipCountry == "Canada")
-                   .Select(o => o.Customer)
-                   .Distinct()
+                    .Select(o => o.Customer)
+                    .Distinct()
                     .ToList();
-                Console.WriteLine(customerOrders); 
+                Console.WriteLine(customerOrders);
             }
         }
     }

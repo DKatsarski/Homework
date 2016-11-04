@@ -8,19 +8,26 @@ namespace EntityFrameworkHW
 {
     public static class DAO
     {
-        public static Customer InsertCustomer(Customer customer)
+        public static void InsertCustomer(Customer customer)
         {
-            return customer;
+            if (customer == null)
+            {
+                throw new ArgumentException(nameof(customer));
+            }
+
+            var context = new NorthwindEntities();
+            context.Customers.Add(customer);
+            context.SaveChanges();
         }
 
-        public static Customer ModifyCustomer(Customer customer)
+        public static void ModifyCustomer(Customer customer)
         {
-            return customer;
+
         }
 
-        public static Customer DeleteCustomer(Customer customer)
+        public static void DeleteCustomer(Customer customer)
         {
-            return customer;
+            Console.WriteLine("omg");
         }
 
     }
