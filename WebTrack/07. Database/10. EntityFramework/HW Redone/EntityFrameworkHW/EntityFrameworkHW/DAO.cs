@@ -22,6 +22,24 @@ namespace EntityFrameworkHW
 
         public static void ModifyCustomer(Customer customer)
         {
+            if (customer == null)
+            {
+                throw new ArgumentException(nameof(customer));
+            }
+
+            var context = new NorthwindEntities();
+            var customerWithId = context
+                .Customers
+                .FirstOrDefault(c => c.CustomerID == customer.CustomerID);
+
+            if (customerWithId == null)
+            {
+                throw new ArgumentException("Customer does not exist.");
+            }
+
+            var values = context.Entry(customerWithId).CurrentValues;
+            values.SetValues(customer);
+            context.SaveChanges();
 
         }
 
