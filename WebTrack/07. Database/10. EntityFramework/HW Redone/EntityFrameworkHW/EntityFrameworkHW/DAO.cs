@@ -40,7 +40,6 @@ namespace EntityFrameworkHW
             var values = context.Entry(customerWithId).CurrentValues;
             values.SetValues(customer);
             context.SaveChanges();
-
         }
 
         public static void DeleteCustomer(Customer customer)
