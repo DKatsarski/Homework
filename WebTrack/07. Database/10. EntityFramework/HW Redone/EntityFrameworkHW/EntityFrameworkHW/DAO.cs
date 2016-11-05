@@ -74,5 +74,15 @@ namespace EntityFrameworkHW
             context.Database.CreateIfNotExists();
         }
 
+        public static Customer GetById(string id)
+        {
+            
+            var context = new NorthwindEntities();
+            var customer = context
+                .Customers
+                .FirstOrDefault(c => c.CustomerID == id);
+            return customer;
+        }
+
     }
 }
