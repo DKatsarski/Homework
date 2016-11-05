@@ -82,6 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthwindEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NorthwindEntitiesExtended.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>NorthwindEntities.tt</DependentUpon>
     </Compile>

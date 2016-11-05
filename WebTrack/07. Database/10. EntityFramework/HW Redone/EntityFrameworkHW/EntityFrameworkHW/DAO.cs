@@ -84,5 +84,25 @@ namespace EntityFrameworkHW
             return customer;
         }
 
+        public static void TransferServer()
+        {
+            ServerConnection conn = new ServerConnection("Server=.;Database=Northwind;Integrated Security = true");
+            Server server = new Server(conn);
+
+            Database newdb = new Database(server, "NorthwindTwin");
+            newdb.Create();
+
+            Transfer transfer = new Transfer(server.Databases["Northwind"]);
+            transfer.CopyAllObjects = true;
+            transfer.CopyAllUsers = true;
+            transfer.Options.WithDependencies = true;
+            transfer.DestinationDatabase = newdb.Name;
+            transfer.DestinationServer = server.Name;
+            transfer.DestinationLoginSecure = true;
+            transfer.CopySchema = true;
+            transfer.CopyData = true;
+            transfer.Options.ContinueScriptingOnError = true;
+            transfer.TransferData();
+        }
     }
 }
