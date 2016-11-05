@@ -49,11 +49,29 @@ namespace EntityFrameworkHW
                 throw new ArgumentException(nameof(customer));
             }
 
-            var context = new NorthwindEntities();
+            var context = new NorthwindEntities(); 
             var matchingCustomer = context
                 .Customers.FirstOrDefault(c => c.CustomerID == customer.CustomerID);
             context.Customers.Remove(matchingCustomer);
             context.SaveChanges();
+        }
+
+        public static IEnumerable<Order> FindsAllSalesByregionAndPeriod(string shipReagion, DateTime start, DateTime end)
+        {
+            var context = new NorthwindEntities();
+            var orders = context.Orders
+                .Where(o => o.OrderDate.HasValue && start <= o.OrderDate && o.OrderDate <= end)
+                .Where(o => o.ShipRegion != null)
+                .Where(o => o.ShipRegion == shipReagion)
+                .ToList();
+            return orders;
+        }
+
+        public static void CreateATwinConnectionString()
+        {
+            var northwidndTwinConnectionString = "northwindTwin";
+            var context = new NorthwindEntities(northwidndTwinConnectionString);
+            context.Database.CreateIfNotExists();
         }
 
     }
