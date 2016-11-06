@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentSystem.Models
 {
-    class Homework
+    public class Homework
     {
+        public string Content { get; set; }
+
+        public DateTime TimeSent { get; set; }
     }
 }
