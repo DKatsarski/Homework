@@ -16,8 +16,15 @@ namespace StudentSystem.Client
 
             var student = new Student
             {
-                Name = "Pesho Peshov",
+                Name = "Traicho Peshov",
                 Number = 1234,
+                Homework = new Homework()
+                {
+                    Content = "Math",
+                    TimeSent = new DateTime(2016, 1, 12)
+                }
+
+
 
             };
 
@@ -25,6 +32,13 @@ namespace StudentSystem.Client
             db.SaveChanges();
 
             Console.WriteLine(db.Students.Count());
+
+            Console.WriteLine(db.Homeworks.Count( ));
+
+            //var homework = new Homework()
+            //{
+                
+            //}
         }
     }
 }
