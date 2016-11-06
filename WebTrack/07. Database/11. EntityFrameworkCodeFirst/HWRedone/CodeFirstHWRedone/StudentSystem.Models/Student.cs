@@ -27,5 +27,5 @@ namespace StudentSystem.Models
 
         public virtual Homework Homework { get; set; }
     }
-}
+} 
 
