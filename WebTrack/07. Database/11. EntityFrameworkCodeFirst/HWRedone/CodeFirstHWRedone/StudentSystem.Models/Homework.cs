@@ -12,7 +12,7 @@ namespace StudentSystem.Models
 
         public Homework()
         {
-            this.StudentHW = new HashSet<Student>();
+            this.studentHW = new HashSet<Student>();
         }
 
         public int Id { get; set; }
@@ -30,7 +30,7 @@ namespace StudentSystem.Models
 
             set
             {
-                value = this.studentHW;
+                this.studentHW = value;
             }
         }
     }

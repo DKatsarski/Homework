@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentSystem.Models
 {
-    class CoursesStatus
+    public enum CoursesStatus
     {
+        Trending,
+        SoSo,
+        NotPopular
     }
 }
