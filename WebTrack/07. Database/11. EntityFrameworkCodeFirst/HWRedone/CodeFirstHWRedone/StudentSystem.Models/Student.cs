@@ -20,6 +20,7 @@ namespace StudentSystem.Models
 
         [Index(IsClustered = false, IsUnique = true)]
         [StringLength(10, MinimumLength = 10)]
+        [Range(0, int.MaxValue)]
         public int Number { get; set; }
 
         public Guid HomeworkId { get; set; }
