@@ -1,7 +1,9 @@
 ﻿using StudentSystem.Data;
+using StudentSystem.Data.Migrations;
 using StudentSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,9 @@ namespace StudentSystem.Client
     {
         public static void Main()
         {
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion<StudentDbContext, Configuration>());
+
             var db = new StudentDbContext();
 
             var student = new Student
