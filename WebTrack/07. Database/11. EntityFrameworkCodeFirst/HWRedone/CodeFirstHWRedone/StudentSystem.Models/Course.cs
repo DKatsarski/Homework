@@ -8,9 +8,12 @@ namespace StudentSystem.Models
 {
     public class Course
     {
+        private ICollection<Student> student;
+
         public Course()
         {
             this.Id = Guid.NewGuid();
+            this.student = new HashSet<Student>();
         }
 
         public Guid Id { get; set; }
@@ -22,5 +25,13 @@ namespace StudentSystem.Models
         public string Materials { get; set; }
 
         public CoursesStatus Status { get; set; }
+
+        public virtual ICollection<Student> Student
+        {
+            get { return this.student; }
+            set { this.student = value; }
+        }
+
+
     }
 }
