@@ -33,8 +33,8 @@ namespace CompanySampleDataImporter.Importer
 
         public static DateTime GetRandomDate(DateTime? after = null, DateTime? before = null)
         {
-            var minDate = after ?? DateTime.MinValue;
-            var maxDate = before ?? DateTime.MaxValue;
+            var minDate = after ?? new DateTime(1990, 1, 1, 0, 0, 0);
+            var maxDate = before ?? new DateTime(2050, 12, 31, 23, 59, 59);
 
             var second = GetRandomNumber(minDate.Second, maxDate.Second);
             var minute = GetRandomNumber(minDate.Minute, maxDate.Minute);
