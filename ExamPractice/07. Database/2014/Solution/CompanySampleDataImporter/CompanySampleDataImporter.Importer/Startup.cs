@@ -10,6 +10,8 @@ namespace CompanySampleDataImporter.Importer
     {
         static void Main()
         {
+            var date = RandomGenerator.GetRandomDate();
+
             SampleDataImporter.Create(Console.Out).Import(); 
         }
     }

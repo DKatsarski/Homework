@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassLibrary1;
+using CompanySampleDataImporter.Importer.Importers;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,8 +26,20 @@ namespace CompanySampleDataImporter.Importer
 
         public void Import()
         {
-            var types = Assembly.GetExecutingAssembly()
-                .GetTypes();
+                Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(t => typeof(IImporter).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+                .Select(t => (IImporter)Activator.CreateInstance(t))
+                .OfType<IImporter>()
+                .OrderBy(i => i.Order)
+                .ToList()
+                .ForEach(i =>
+                {
+                    textWriter.WriteLine(i.Message);
+
+                    var db = new CompanyEntities();
+                    i.Get(db, this.textWriter); // towa ni izwikwa towa, koeto napisahme klasowete (DepartmentsImporter primerno; Realno i-to predstawlqwa wseki otdelen klas.
+                });
         }
     }
 }

@@ -6,7 +6,45 @@ using System.Threading.Tasks;
 
 namespace CompanySampleDataImporter.Importer
 {
-    class RandomGenerator
+    public static class RandomGenerator
     {
+        private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        private static Random random = new Random();
+
+        // Metod za random chisla
+        public static int GetRandomNumber(int min = int.MinValue, int max = int.MaxValue / 2)
+        {
+            return random.Next(min, max + 1);
+        }
+
+        public static string GetRandomString(int minLength = 0, int maxLength = int.MaxValue / 2)
+        {
+            var length = random.Next(minLength, maxLength);
+
+            var result = new StringBuilder();
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(Alphabet[random.Next(0, Alphabet.Length - 1)]);
+
+            }
+
+            return result.ToString();
+        }
+
+        public static DateTime GetRandomDate(DateTime? after = null, DateTime? before = null)
+        {
+            var minDate = after ?? DateTime.MinValue;
+            var maxDate = before ?? DateTime.MaxValue;
+
+            var second = GetRandomNumber(minDate.Second, maxDate.Second);
+            var minute = GetRandomNumber(minDate.Minute, maxDate.Minute);
+            var hour = GetRandomNumber(minDate.Hour, maxDate.Hour);
+            var day = GetRandomNumber(minDate.Day, maxDate.Day);
+            var month = GetRandomNumber(minDate.Month, maxDate.Month);
+            var year = GetRandomNumber(minDate.Year, maxDate.Year);
+
+
+            return new DateTime(year, month, day, hour, minute, second);
+        }
     }
 }
