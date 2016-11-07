@@ -1,0 +1,13 @@
+Connection string for "Company" database: 
+
+metadata=res://*/CompanyEntites.csdl|res://*/CompanyEntites.ssdl|res://*/CompanyEntites.msl;provider=System.Data.SqlClient;provider connection string="data source=.\SQLEXPRESS;initial catalog=Company;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"
+
+(location)
+Connection string for "Cars" database: (location)
+Relationships for "Company" database: 
+(Employees-Empoloyees - one - many;
+Departments-Employees - one to many;
+etc. 
+)
+Relationships for "Cars" database: (first-table : second-table - type of relationship)
+Query files: (file location in solution)
