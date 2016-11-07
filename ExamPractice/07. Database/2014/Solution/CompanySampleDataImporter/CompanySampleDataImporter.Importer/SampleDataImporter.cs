@@ -39,6 +39,7 @@ namespace CompanySampleDataImporter.Importer
 
                 var db = new CompanyEntities();
                 i.Get(db, this.textWriter); // towa ni izwikwa towa, koeto napisahme klasowete (DepartmentsImporter primerno; Realno i-to predstawlqwa wseki otdelen klas.
+                textWriter.WriteLine();
                 });
         }
     }

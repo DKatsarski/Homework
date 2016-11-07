@@ -10,7 +10,7 @@ namespace CompanySampleDataImporter.Importer.Importers
 {
     public class DepartmentsImporter : IImporter
     {
-        private const int NumberOfDepartments = 10; // should be 100
+        private const int NumberOfDepartments = 100; // should be 100
 
         public Action<CompanyEntities, TextWriter> Get
         {
