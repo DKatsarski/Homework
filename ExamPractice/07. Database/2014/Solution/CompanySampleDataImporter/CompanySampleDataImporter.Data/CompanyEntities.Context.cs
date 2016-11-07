@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary1
+namespace CompanySampleDataImporter.Data
 {
     using System;
     using System.Data.Entity;
@@ -25,10 +25,11 @@ namespace ClassLibrary1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Departments> Departments { get; set; }
-        public virtual DbSet<Employees> Employees { get; set; }
-        public virtual DbSet<Projects> Projects { get; set; }
-        public virtual DbSet<ProjectsEmployees> ProjectsEmployees { get; set; }
-        public virtual DbSet<Reports> Reports { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<ProjectsEmployee> ProjectsEmployees { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

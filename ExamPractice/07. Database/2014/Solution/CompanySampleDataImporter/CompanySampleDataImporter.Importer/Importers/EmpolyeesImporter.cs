@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary1;
+using CompanySampleDataImporter.Data;
 
 namespace CompanySampleDataImporter.Importer.Importers
 {
@@ -14,7 +14,10 @@ namespace CompanySampleDataImporter.Importer.Importers
         {
             get
             {
-                throw new NotImplementedException();
+                return (db, tr) =>
+                {
+
+                };
             }
         }
 

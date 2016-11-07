@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary1
+namespace CompanySampleDataImporter.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Employees
+    public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employees()
+        public Employee()
         {
-            this.Employees1 = new HashSet<Employees>();
-            this.ProjectsEmployees = new HashSet<ProjectsEmployees>();
-            this.Reports = new HashSet<Reports>();
+            this.Employees1 = new HashSet<Employee>();
+            this.ProjectsEmployees = new HashSet<ProjectsEmployee>();
+            this.Reports = new HashSet<Report>();
         }
     
         public int Id { get; set; }
@@ -29,13 +29,13 @@ namespace ClassLibrary1
         public Nullable<int> ManagerId { get; set; }
         public int DepartmentId { get; set; }
     
-        public virtual Departments Departments { get; set; }
+        public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employees> Employees1 { get; set; }
-        public virtual Employees Employees2 { get; set; }
+        public virtual ICollection<Employee> Employees1 { get; set; }
+        public virtual Employee Employee1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProjectsEmployees> ProjectsEmployees { get; set; }
+        public virtual ICollection<ProjectsEmployee> ProjectsEmployees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reports> Reports { get; set; }
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }

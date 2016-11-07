@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿using CompanySampleDataImporter.Data;
 using CompanySampleDataImporter.Importer.Importers;
 using System;
 using System.Collections.Generic;
@@ -26,19 +26,19 @@ namespace CompanySampleDataImporter.Importer
 
         public void Import()
         {
-                Assembly.GetExecutingAssembly()
-                .GetTypes()
-                .Where(t => typeof(IImporter).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
-                .Select(t => (IImporter)Activator.CreateInstance(t))
-                .OfType<IImporter>()
-                .OrderBy(i => i.Order)
-                .ToList()
-                .ForEach(i =>
-                {
-                    textWriter.WriteLine(i.Message);
+            Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(t => typeof(IImporter).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+            .Select(t => (IImporter)Activator.CreateInstance(t))
+            .OfType<IImporter>()
+            .OrderBy(i => i.Order)
+            .ToList()
+            .ForEach(i =>
+            {
+                textWriter.Write(i.Message);
 
-                    var db = new CompanyEntities();
-                    i.Get(db, this.textWriter); // towa ni izwikwa towa, koeto napisahme klasowete (DepartmentsImporter primerno; Realno i-to predstawlqwa wseki otdelen klas.
+                var db = new CompanyEntities();
+                i.Get(db, this.textWriter); // towa ni izwikwa towa, koeto napisahme klasowete (DepartmentsImporter primerno; Realno i-to predstawlqwa wseki otdelen klas.
                 });
         }
     }

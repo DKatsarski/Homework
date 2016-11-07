@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿using CompanySampleDataImporter.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CompanySampleDataImporter.Importer.Importers
 {
     public interface IImporter
-    {   
+    {
         string Message { get; }
 
         int Order { get; }

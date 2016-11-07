@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17ED3866-7D2D-44E1-AF9A-249E787D8DFC}</ProjectGuid>
+    <ProjectGuid>{7FEBC943-0A1D-4C96-A178-30D19D4AD815}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CompanySampleDataImporter.Importer</RootNamespace>
@@ -57,7 +57,7 @@
     <Compile Include="Importers\IImporter.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Compile Include="SampleDataImporter.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Sartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,8 +65,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\CompanySampleDataImporter.Data.csproj">
-      <Project>{81e0ff1f-4859-40a1-8486-deb756864520}</Project>
+    <ProjectReference Include="..\CompanySampleDataImporter.Data\CompanySampleDataImporter.Data.csproj">
+      <Project>{ac59372e-09b1-4bc7-ba11-ad621d181a25}</Project>
       <Name>CompanySampleDataImporter.Data</Name>
     </ProjectReference>
   </ItemGroup>

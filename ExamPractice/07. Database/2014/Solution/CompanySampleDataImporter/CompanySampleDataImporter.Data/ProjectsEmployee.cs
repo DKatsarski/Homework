@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary1
+namespace CompanySampleDataImporter.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProjectsEmployees
+    public partial class ProjectsEmployee
     {
         public int EmployeeId { get; set; }
         public int ProjectId { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
     
-        public virtual Employees Employees { get; set; }
-        public virtual Projects Projects { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace CompanySampleDataImporter.Importer
         {
             var date = RandomGenerator.GetRandomDate();
 
-            SampleDataImporter.Create(Console.Out).Import(); 
+            SampleDataImporter.Create(Console.Out).Import();
         }
     }
 }

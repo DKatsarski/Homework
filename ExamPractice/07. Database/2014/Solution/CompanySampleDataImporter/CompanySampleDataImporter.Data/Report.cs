@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary1
+namespace CompanySampleDataImporter.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Reports
+    public partial class Report
     {
         public int Id { get; set; }
         public System.DateTime Time { get; set; }
         public int EmployeeId { get; set; }
     
-        public virtual Employees Employees { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

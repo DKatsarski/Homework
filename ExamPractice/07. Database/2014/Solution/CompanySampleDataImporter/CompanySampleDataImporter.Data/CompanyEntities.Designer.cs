@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\dkats\Desktop\Homework\ExamPractice\07. Database\2014\Solution\CompanySampleDataImporter\ClassLibrary1\CompanyEntites.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\dkats\Desktop\Bad News\CompanySampleDataImporter\CompanySampleDataImporter.Data\CompanyEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

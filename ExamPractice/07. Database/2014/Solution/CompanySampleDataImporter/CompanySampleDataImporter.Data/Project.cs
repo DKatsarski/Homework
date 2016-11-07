@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClassLibrary1
+namespace CompanySampleDataImporter.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Projects
+    public partial class Project
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Projects()
+        public Project()
         {
-            this.ProjectsEmployees = new HashSet<ProjectsEmployees>();
+            this.ProjectsEmployees = new HashSet<ProjectsEmployee>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProjectsEmployees> ProjectsEmployees { get; set; }
+        public virtual ICollection<ProjectsEmployee> ProjectsEmployees { get; set; }
     }
 }
