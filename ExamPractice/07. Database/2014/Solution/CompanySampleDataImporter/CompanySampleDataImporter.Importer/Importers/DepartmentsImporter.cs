@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompanySampleDataImporter.Importer.Importers
 {
-    public interface IImporter
+    public class DepartmentsImporter : IImporter
     {
     }
 }

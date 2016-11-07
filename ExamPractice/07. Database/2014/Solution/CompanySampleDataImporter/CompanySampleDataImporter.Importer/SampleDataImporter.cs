@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,8 @@ namespace CompanySampleDataImporter.Importer
 
         public void Import()
         {
-
+            var types = Assembly.GetExecutingAssembly()
+                .GetTypes();
         }
     }
 }
