@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace CompanySampleDataImporter.Importer
 {
-    class Program
+    public class Startup
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            SampleDataImporter.Create(Console.Out).Import(); 
         }
     }
 }
