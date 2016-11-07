@@ -43,6 +43,11 @@ namespace CompanySampleDataImporter.Importer
             var month = GetRandomNumber(minDate.Month, maxDate.Month);
             var year = GetRandomNumber(minDate.Year, maxDate.Year);
 
+            if (day > 28) // this fixes the problem, but the days after 28? 
+            {
+                day = 28;
+            }
+            
 
             return new DateTime(year, month, day, hour, minute, second);
         }
