@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace CarsSystem.Models
 
         [Required]
         [MaxLength(10)]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
 
         public virtual ICollection<Car> Cars
