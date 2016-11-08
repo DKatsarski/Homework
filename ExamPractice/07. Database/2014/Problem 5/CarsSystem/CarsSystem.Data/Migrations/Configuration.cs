@@ -5,11 +5,12 @@ namespace CarsSystem.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CarsSystem.Data.CarsSystemDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<CarsSystem.Data.CarsSystemDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(CarsSystem.Data.CarsSystemDbContext context)
