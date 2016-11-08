@@ -10,10 +10,14 @@ namespace CarsSystem.Models
     public class Dealer
     {
         private ICollection<City> cities;
+        private ICollection<Car> cars;
+
 
         public Dealer()
         {
             this.cities = new HashSet<City>();
+            this.cars = new HashSet<Car>();
+
         }
 
         public int Id { get; set; }
@@ -25,7 +29,13 @@ namespace CarsSystem.Models
         public virtual ICollection<City> Cities
         {
             get { return this.cities; }
-            set { this.cities = value}
+            set { this.cities = value; }
+        }
+
+        public virtual ICollection<Car> Cars
+        {
+            get { return this.cars; }
+            set { this.cars = value; }
         }
     }
 }
