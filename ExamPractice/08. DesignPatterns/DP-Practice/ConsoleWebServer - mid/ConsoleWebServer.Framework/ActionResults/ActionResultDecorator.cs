@@ -1,4 +1,4 @@
-﻿namespace ConsoleWebServer.Framework.ActionResults
+﻿ namespace ConsoleWebServer.Framework.ActionResults
 {
     public abstract class ActionResultDecorator : IActionResult
     {
@@ -15,7 +15,7 @@
             this.UpdateResponse(response);
             return response;
         }
-
+         
         protected abstract void UpdateResponse(HttpResponse response);
     }
 }
