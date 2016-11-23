@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _04.LongestSequence
 {
@@ -51,7 +48,7 @@ namespace _04.LongestSequence
         static void Main()
         {
             var list = new List<int>
-            { 2, 1, 3, 3, 3, 8, 7, 7, 8, 8, 8, 8, 8, 8};
+            {1, 1, 1, 1, 2, 1, 3, 3, 3, 8, 7, 7, 8, 8, 8, 8, 8, 8};
             var result = FindLongestSequenceOfEqualNumbers(list);
 
             Console.WriteLine(string.Join(" ", result));
