@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{7228111E-8C4B-4285-84B5-1BBA5D5DAEC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. LinearSumAndAverage", "ConsoleApplication1\01. LinearSumAndAverage.csproj", "{7228111E-8C4B-4285-84B5-1BBA5D5DAEC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
