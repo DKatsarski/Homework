@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Stack", "12. Stack\12. 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Labyrinth", "14. Labyrinth\14. Labyrinth.csproj", "{14A42CF7-B930-44C8-B654-C37C3EBCB721}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. FindOccurances", "07. FindOccurances\07. FindOccurances.csproj", "{FBE083F0-C803-4136-A98B-11A7BBE68356}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{14A42CF7-B930-44C8-B654-C37C3EBCB721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A42CF7-B930-44C8-B654-C37C3EBCB721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14A42CF7-B930-44C8-B654-C37C3EBCB721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE083F0-C803-4136-A98B-11A7BBE68356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE083F0-C803-4136-A98B-11A7BBE68356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE083F0-C803-4136-A98B-11A7BBE68356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE083F0-C803-4136-A98B-11A7BBE68356}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
