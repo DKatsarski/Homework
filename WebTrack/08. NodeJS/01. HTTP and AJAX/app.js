@@ -7,6 +7,15 @@ const genres = ["fantasy", "horror", "comedy", "action", "sci-fi"];
 
 const request = require("request");
 
+const jsdom = require("jsdom").jsdom,
+    myWindow = jsdom().createWindow()
+$ = require("jquery").create(myWindow);
+
+const $ = require("jquery");
+
 request(listMoviesUrl, (err, res, body) => {
     console.log(body);
 });
+
+$("body").html(body);
+console.log($("body"));
