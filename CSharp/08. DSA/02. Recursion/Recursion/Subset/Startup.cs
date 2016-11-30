@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Subset
 {
-    class Startup
+    public class Startup
     {
         private static IList<string> elementsToDisplay;
 
