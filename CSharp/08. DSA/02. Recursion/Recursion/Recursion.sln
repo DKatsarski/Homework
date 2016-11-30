@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. NesetedLoops", "Recursi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. CombinationsWithDuplicants", "02. CombinationsWithDuplicants\02. CombinationsWithDuplicants.csproj", "{7A15A4C1-7111-4AE7-8D51-5765DC7EE9E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. CombinationsWithNoDuplications", "03. CombinationsWithNoDuplications\03. CombinationsWithNoDuplications.csproj", "{40E02397-AB8D-40D0-97DB-27811FDE4F04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7A15A4C1-7111-4AE7-8D51-5765DC7EE9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A15A4C1-7111-4AE7-8D51-5765DC7EE9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A15A4C1-7111-4AE7-8D51-5765DC7EE9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E02397-AB8D-40D0-97DB-27811FDE4F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E02397-AB8D-40D0-97DB-27811FDE4F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E02397-AB8D-40D0-97DB-27811FDE4F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E02397-AB8D-40D0-97DB-27811FDE4F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
