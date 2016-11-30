@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. CombinationsWithNoDupli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Permutations", "04. Permutations\04. Permutations.csproj", "{0C79066A-BE6F-45BD-9110-87BA89217314}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subset", "Subset\Subset.csproj", "{4BCD65EB-6073-4ED9-82B5-ED9A7785B78E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0C79066A-BE6F-45BD-9110-87BA89217314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C79066A-BE6F-45BD-9110-87BA89217314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C79066A-BE6F-45BD-9110-87BA89217314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BCD65EB-6073-4ED9-82B5-ED9A7785B78E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BCD65EB-6073-4ED9-82B5-ED9A7785B78E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BCD65EB-6073-4ED9-82B5-ED9A7785B78E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BCD65EB-6073-4ED9-82B5-ED9A7785B78E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
