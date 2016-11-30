@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace _02.CombinationsWithDuplicants
@@ -18,17 +17,18 @@ namespace _02.CombinationsWithDuplicants
         {
             if (n == 0)
             {
-                string p = string.Empty;
-                p = Regex.Replace(vector, @"\s+", "");
-                
+                string temporaryString = string.Empty;
 
-                for (int i = 0; i < p.Length - 1; i++)
+                temporaryString = Regex.Replace(vector, @"\s+", "");
+                
+                for (int i = 0; i < temporaryString.Length - 1; i++)
                 {
-                    if (p[i] >= p[i + 1])
+                    if (temporaryString[i] >= temporaryString[i + 1])
                     {
                         return;
                     }
                 }
+
                 Console.Write("(" + vector.Trim() + "), ");
                 return;
             }
