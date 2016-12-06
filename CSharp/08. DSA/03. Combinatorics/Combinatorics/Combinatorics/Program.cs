@@ -5,7 +5,7 @@ namespace Combinatorics
 {
     public class Program
     {
-        static void CountingCombinations(int n, List<int> list, string vector = "")
+        static void CountingCombinations(int n, List<int> list)
         {
             if (n == 0)
             {
@@ -13,21 +13,20 @@ namespace Combinatorics
                 list.Add(1);
                 return;
             }
+            
 
-            var counter = 1;
+            CountingCombinations(n - 1, list);
 
-            CountingCombinations(n - 1, list, vector + counter);
-
-            CountingCombinations(n - 1, list, vector + (counter += 1));
+            CountingCombinations(n - 1, list);
 
         }
         static void Main()
         {
             string input = Console.ReadLine();
-            var counter = 1;
+            var counter = 0;
             char ch = '*';
 
-            for (int i = 1; i < input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] == ch)
                 {
