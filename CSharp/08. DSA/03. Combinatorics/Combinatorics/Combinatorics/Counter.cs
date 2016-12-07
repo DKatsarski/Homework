@@ -8,15 +8,9 @@ namespace Combinatorics
 {
     public static class Counter
     {
-        public static List<int> CountMe(int number)
+        public static void CountMe(int number)
         {
-            List<int> list = new List<int>();
-
-
-            list.Add(number);
-
-
-            return list;
+            number++;
         }
     }
 }
