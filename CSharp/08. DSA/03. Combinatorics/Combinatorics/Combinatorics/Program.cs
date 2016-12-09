@@ -23,29 +23,25 @@ namespace Combinatorics
         static void Main()
         {
             string input = Console.ReadLine();
-            var counter = 0;
+            int counter = 0;
             char ch = '*';
 
-            for (int i = 0; i < input.Length; i++)
+            foreach (var item in input)
             {
-                if (input[i] == ch)
+                if (item == ch)
                 {
                     counter++;
                 }
             }
-            
-            if (counter == 1)
-            {
-                Console.WriteLine(counter);
-            }
-            else
-            {
-                int number = counter;
-                var list = new List<int>();
 
-                CountingCombinations(number, list);
-                Console.WriteLine(list.Count);
+            long result = 1;
+
+            for (double i = 0; i < counter; i++)
+            {
+                result += (long)Math.Pow(2.0, i);
             }
+
+            Console.WriteLine(result);
         }
     }
 }
