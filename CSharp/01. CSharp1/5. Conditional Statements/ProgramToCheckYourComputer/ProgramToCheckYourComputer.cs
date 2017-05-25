@@ -8,19 +8,23 @@ namespace ConsoleApplication2
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             DateTime startTime = DateTime.Now;
-            decimal sum = 0;
+            decimal operationsToCalculate = 0;
+
             for (int i = 0; i < 80000000; i++)
             {
-                sum += i;
+                operationsToCalculate += i;
             }
-            Console.WriteLine(sum);
+
+            Console.WriteLine(operationsToCalculate);
 
             DateTime finishTime = DateTime.Now;
 
-            Console.WriteLine(finishTime - startTime);
+            TimeSpan usedTimeForTheOperation = finishTime - startTime;
+
+            Console.WriteLine(usedTimeForTheOperation);
 
         }
     }
