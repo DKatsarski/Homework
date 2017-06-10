@@ -20,6 +20,7 @@ namespace _11.BinaryToDecimal
                     
             }
             Console.WriteLine(hex);
+            Console.WriteLine("op");
 
 
         }
