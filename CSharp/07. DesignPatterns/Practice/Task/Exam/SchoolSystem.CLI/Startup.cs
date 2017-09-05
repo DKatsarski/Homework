@@ -14,6 +14,7 @@ namespace SchoolSystem.Cli
             var engine = kernel.Get<Engine>();
 
             engine.Start();
+            System.Console.WriteLine("hshsh");
         }
     }
 }
