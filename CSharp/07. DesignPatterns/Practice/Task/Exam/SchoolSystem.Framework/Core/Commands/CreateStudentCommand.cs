@@ -2,6 +2,7 @@
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Models;
 using SchoolSystem.Framework.Models.Enums;
+using SchoolSystem.Framework.Models.Contracts;
 
 namespace SchoolSystem.Framework.Core.Commands
 {
@@ -20,5 +21,14 @@ namespace SchoolSystem.Framework.Core.Commands
 
             return $"A new student with name {firstName} {lastName}, grade {grade} and ID {currentStudentId++} was created.";
         }
+    }
+
+    public interface IStudent
+    {
+        IStudent CreateStudent(string firstName, string lastName, Grade grade);
+
+        ITeacher CreateTeacher(string firstName, string lastName, Subject subject);
+
+        IMark CreateMark(Subject subject, float value);
     }
 }

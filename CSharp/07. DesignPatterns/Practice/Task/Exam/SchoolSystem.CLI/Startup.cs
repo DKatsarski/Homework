@@ -14,8 +14,6 @@ namespace SchoolSystem.Cli
             var engine = kernel.Get<Engine>();
 
             engine.Start();
-
-            // 1:20:40
         }
     }
 }
