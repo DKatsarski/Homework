@@ -1,4 +1,5 @@
 ﻿using SchoolSystem.Framework.Core.Commands;
+using SchoolSystem.Framework.Models.Contracts;
 using SchoolSystem.Framework.Models.Enums;
 using System;
 using System.Collections.Generic;
