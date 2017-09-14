@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SchoolSystem.Framework.Models
 {
-    public class School
+    public class School : ISchool
     {
         private readonly IDictionary<int, IStudent> students;
         private readonly IDictionary<int, ITeacher> teachers;
@@ -40,7 +40,7 @@ namespace SchoolSystem.Framework.Models
 
         public  void RemoveStudent(int studentId)
         {
-            if (!this.students.ContainsKey(studentId)
+            if (!this.students.ContainsKey(studentId))
             {
                 throw new ArgumentException("This given key was not present in the dictionary");
             }
