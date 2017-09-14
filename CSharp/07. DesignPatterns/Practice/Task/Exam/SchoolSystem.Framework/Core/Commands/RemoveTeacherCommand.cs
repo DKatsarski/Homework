@@ -25,7 +25,7 @@ namespace SchoolSystem.Framework.Core.Commands
                 throw new ArgumentException("The given key was not present in the dictionary.");
             }
 
-            removeTeacher.RemoveTeacher(teacherId);
+            this.removeTeacher.RemoveTeacher(teacherId);
 
             return $"Teacher with ID {teacherId} was sucessfully removed.";
         }

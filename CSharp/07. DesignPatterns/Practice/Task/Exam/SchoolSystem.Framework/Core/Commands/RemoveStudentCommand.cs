@@ -17,7 +17,7 @@ namespace SchoolSystem.Framework.Core.Commands
         public string Execute(IList<string> parameters)
         {
             var studentId = int.Parse(parameters[0]);
-            removeStudent.RemoveStudent(studentId);
+            this.removeStudent.RemoveStudent(studentId);
 
             return $"Student with ID {studentId} was sucessfully removed.";
         }
