@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
 
@@ -10,11 +9,18 @@ namespace SchoolSystem.Framework.Core.Providers
 {
     public class CommandParserProvider : IParser
     {
+        private readonly ICommandFactory commandFactory;
+
+        public CommandParserProvider(ICommandFactory commandFactory)
+        {
+            this.commandFactory = commandFactory;
+        }
+
         public ICommand ParseCommand(string fullCommand)
         {
             var commandName = fullCommand.Split(' ')[0];
             var commandTypeInfo = this.FindCommand(commandName);
-            var command = Activator.CreateInstance(commandTypeInfo) as ICommand;
+            var command = this.commandFactory.GetCommand(commandTypeInfo); // Activator.CreateInstance(commandTypeInfo) as ICommand;
 
             return command;
         }
