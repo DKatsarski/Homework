@@ -10,10 +10,11 @@ namespace SchoolSystem.Cli
         {
             var kernel = new StandardKernel(new SchoolSystemModule());
 
-  
+
             var engine = kernel.Get<Engine>();
 
             engine.Start();
-            // 2:58:1
+            // 3:30:00
+        }
     }
 }

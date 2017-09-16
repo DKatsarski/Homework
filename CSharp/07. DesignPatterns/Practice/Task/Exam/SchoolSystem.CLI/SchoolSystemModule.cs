@@ -1,5 +1,6 @@
 ﻿using Ninject;
 using Ninject.Extensions.Conventions;
+using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using SchoolSystem.Cli.Configuration;
 using SchoolSystem.Framework.Core;
@@ -24,10 +25,16 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IParser>().To<CommandParserProvider>();
             Kernel.Bind<IStudent>().To<Student>();
 
+            Kernel.Bind<Engine>().ToSelf();
+
+
             Kernel.Bind<CreateStudentCommand>().ToSelf().InSingletonScope();
 
+            Kernel.Bind<CreateTeacherCommand>().ToSelf().InSingletonScope();
 
-            Kernel.Bind<Engine>().ToSelf();
+
+            Kernel.Bind<ICommandFactory>().ToFactory();
+
 
 
             IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
