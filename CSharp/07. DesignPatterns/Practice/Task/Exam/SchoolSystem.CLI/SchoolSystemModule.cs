@@ -29,7 +29,13 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IReader>().To<ConsoleReaderProvider>();
             Kernel.Bind<IWriter>().To<ConsoleWriterProvider>();
             Kernel.Bind<IParser>().To<CommandParserProvider>();
+
             Kernel.Bind<IStudent>().To<Student>();
+            Kernel.Bind<ITeacher>().To<Teacher>();
+            Kernel.Bind<IMark>().To<Mark>();
+
+
+
             Kernel.Bind<IStudentFactory>().ToFactory();
             Kernel.Bind<ITeacherFactory>().ToFactory();
             Kernel.Bind<IMarkFactory>().ToFactory();
@@ -37,12 +43,31 @@ namespace SchoolSystem.Cli
 
             Kernel.Bind<IAddStudent>().To<School>();
 
+            Bind(typeof(IAddStudent), typeof(IAddTeacher), typeof(IRemoveStudent), typeof(IRemoveTeacher), typeof(IGetStudent),
+                typeof(IGetTeacher), typeof(IGetStudentAndTeacher))
+                .To<School>().InSingletonScope(); //twa e bindinga za school-a 
+
+            
+            
+
             Kernel.Bind<Engine>().ToSelf();
 
 
             Kernel.Bind<CreateStudentCommand>().ToSelf().InSingletonScope();
 
             Kernel.Bind<CreateTeacherCommand>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<RemoveStudentCommand>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<RemoveTeacherCommand>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<StudentListMarksCommand>().ToSelf().InSingletonScope();
+
+            Kernel.Bind<TeacherAddMarkCommand>().ToSelf().InSingletonScope();
+
+
+
+
 
 
             Kernel.Bind<ICommandFactory>().ToFactory();
