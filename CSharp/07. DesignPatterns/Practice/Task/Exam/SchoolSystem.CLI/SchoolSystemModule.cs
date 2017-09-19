@@ -2,6 +2,7 @@
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
+using Ninject.Parameters;
 using SchoolSystem.Cli.Configuration;
 using SchoolSystem.Framework.Core;
 using SchoolSystem.Framework.Core.Commands;
@@ -10,7 +11,10 @@ using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
 using SchoolSystem.Framework.Models;
 using SchoolSystem.Framework.Models.Contracts;
+using System;
+using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 
@@ -39,7 +43,10 @@ namespace SchoolSystem.Cli
 
             Kernel.Bind<ICommand>().ToMethod(context =>
             {
-                return null;
+                IParameter typeParameters = context.Parameters.Single();
+                Type type = (Type)typeParameters.GetValue(context, null);
+
+                return (ICommand)context.Kernel.Get(type);
             }).NamedLikeFactoryMethod((ICommandFactory commandFactory) => commandFactory.GetCommand(null)) ;
 
 
