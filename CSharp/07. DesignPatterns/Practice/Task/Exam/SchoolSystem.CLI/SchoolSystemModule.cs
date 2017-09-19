@@ -41,7 +41,7 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IMarkFactory>().ToFactory();
 
 
-            Kernel.Bind<IAddStudent>().To<School>();
+        
 
             Bind(typeof(IAddStudent), typeof(IAddTeacher), typeof(IRemoveStudent), typeof(IRemoveTeacher), typeof(IGetStudent),
                 typeof(IGetTeacher), typeof(IGetStudentAndTeacher))
