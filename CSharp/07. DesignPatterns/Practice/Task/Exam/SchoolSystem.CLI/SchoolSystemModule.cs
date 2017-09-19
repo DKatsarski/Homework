@@ -30,6 +30,12 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IWriter>().To<ConsoleWriterProvider>();
             Kernel.Bind<IParser>().To<CommandParserProvider>();
             Kernel.Bind<IStudent>().To<Student>();
+            Kernel.Bind<IStudentFactory>().ToFactory();
+            Kernel.Bind<ITeacherFactory>().ToFactory();
+            Kernel.Bind<IMarkFactory>().ToFactory();
+
+
+            Kernel.Bind<IAddStudent>().To<School>();
 
             Kernel.Bind<Engine>().ToSelf();
 
