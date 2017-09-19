@@ -26,9 +26,9 @@ namespace SchoolSystem.Cli
         {
             Kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>();
 
-            Kernel.Bind<IReader>().To<ConsoleReaderProvider>();
-            Kernel.Bind<IWriter>().To<ConsoleWriterProvider>();
-            Kernel.Bind<IParser>().To<CommandParserProvider>();
+            Kernel.Bind<IReader>().To<ConsoleReaderProvider>().InSingletonScope();
+            Kernel.Bind<IWriter>().To<ConsoleWriterProvider>().InSingletonScope();
+            Kernel.Bind<IParser>().To<CommandParserProvider>().InSingletonScope();
 
             Kernel.Bind<IStudent>().To<Student>();
             Kernel.Bind<ITeacher>().To<Teacher>();
@@ -36,12 +36,12 @@ namespace SchoolSystem.Cli
 
 
 
-            Kernel.Bind<IStudentFactory>().ToFactory();
-            Kernel.Bind<ITeacherFactory>().ToFactory();
-            Kernel.Bind<IMarkFactory>().ToFactory();
+            Kernel.Bind<IStudentFactory>().ToFactory().InSingletonScope();
+            Kernel.Bind<ITeacherFactory>().ToFactory().InSingletonScope();
+            Kernel.Bind<IMarkFactory>().ToFactory().InSingletonScope();
 
 
-        
+
 
             Bind(typeof(IAddStudent), typeof(IAddTeacher), typeof(IRemoveStudent), typeof(IRemoveTeacher), typeof(IGetStudent),
                 typeof(IGetTeacher), typeof(IGetStudentAndTeacher))
