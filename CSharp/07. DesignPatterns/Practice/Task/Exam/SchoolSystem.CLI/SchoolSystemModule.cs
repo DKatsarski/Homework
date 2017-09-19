@@ -5,12 +5,14 @@ using Ninject.Modules;
 using SchoolSystem.Cli.Configuration;
 using SchoolSystem.Framework.Core;
 using SchoolSystem.Framework.Core.Commands;
+using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
 using SchoolSystem.Framework.Models;
 using SchoolSystem.Framework.Models.Contracts;
 using System.IO;
 using System.Reflection;
+
 
 namespace SchoolSystem.Cli
 {
@@ -35,6 +37,10 @@ namespace SchoolSystem.Cli
 
             Kernel.Bind<ICommandFactory>().ToFactory();
 
+            Kernel.Bind<ICommand>().ToMethod(context =>
+            {
+                return null;
+            }).NamedLikeFactoryMethod((ICommandFactory commandFactory) => commandFactory.GetCommand(null)) ;
 
 
             IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
