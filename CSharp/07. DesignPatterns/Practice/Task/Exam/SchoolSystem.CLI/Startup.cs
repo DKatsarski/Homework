@@ -14,7 +14,7 @@ namespace SchoolSystem.Cli
             var engine = kernel.Get<Engine>();
 
             engine.Start();
-            // 5:02;00 - the measurmens are starting 
+            // 5:51;00 - interceptors
         }
     }
 }
