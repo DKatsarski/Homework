@@ -1,6 +1,11 @@
 ﻿using Ninject;
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
+using Ninject.Extensions.Interception;
+using Ninject.Extensions.Interception.Infrastructure.Language;
+
+
+
 using Ninject.Modules;
 using Ninject.Parameters;
 using SchoolSystem.Cli.Configuration;
@@ -13,6 +18,7 @@ using SchoolSystem.Framework.Models;
 using SchoolSystem.Framework.Models.Contracts;
 using System;
 using System.Collections;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -36,9 +42,7 @@ namespace SchoolSystem.Cli
 
 
 
-            Kernel.Bind<IStudentFactory>().ToFactory().InSingletonScope();
             Kernel.Bind<ITeacherFactory>().ToFactory().InSingletonScope();
-            Kernel.Bind<IMarkFactory>().ToFactory().InSingletonScope();
 
 
 
@@ -47,8 +51,8 @@ namespace SchoolSystem.Cli
                 typeof(IGetTeacher), typeof(IGetStudentAndTeacher))
                 .To<School>().InSingletonScope(); //twa e bindinga za school-a 
 
-            
-            
+
+
 
             Kernel.Bind<Engine>().ToSelf();
 
@@ -69,8 +73,10 @@ namespace SchoolSystem.Cli
 
 
 
+            var studentFacotoryBinding = Kernel.Bind<IStudentFactory>().ToFactory().InSingletonScope();
+            var commandFacotyrBinding = Kernel.Bind<ICommandFactory>().ToFactory();
+            var markFactoryBinding = Kernel.Bind<IMarkFactory>().ToFactory().InSingletonScope();
 
-            Kernel.Bind<ICommandFactory>().ToFactory();
 
             Kernel.Bind<ICommand>().ToMethod(context =>
             {
@@ -78,15 +84,35 @@ namespace SchoolSystem.Cli
                 Type type = (Type)typeParameters.GetValue(context, null);
 
                 return (ICommand)context.Kernel.Get(type);
-            }).NamedLikeFactoryMethod((ICommandFactory commandFactory) => commandFactory.GetCommand(null)) ;
+            }).NamedLikeFactoryMethod((ICommandFactory commandFactory) => commandFactory.GetCommand(null));
 
 
             IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
             if (configurationProvider.IsTestEnvironment)
             {
+                commandFacotyrBinding.Intercept().With<StopwatchInterceptor>();
+                studentFacotoryBinding.Intercept().With<StopwatchInterceptor>();
+                markFactoryBinding.Intercept().With<StopwatchInterceptor>();
+
             }
 
 
+        }
+    }
+
+    public class StopwatchInterceptor : IInterceptor
+    {
+        public void Intercept(IInvocation invocation)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+
+            Console.WriteLine($"Calling method {invocation.Request.Method.Name} GetCommand of type {invocation.Request.Method.DeclaringType.Name}...");
+
+            stopwatch.Start();
+            invocation.Proceed();
+            stopwatch.Stop();
+
+            Console.WriteLine($"Total execution time for method {invocation.Request.Method.Name} of type {invocation.Request.Method.DeclaringType.Name} is {stopwatch.Elapsed.Milliseconds}.");
         }
     }
 }
