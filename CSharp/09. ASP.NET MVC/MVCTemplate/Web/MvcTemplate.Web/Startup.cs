@@ -11,4 +11,4 @@ namespace MvcTemplate.Web
             ConfigureAuth(app);
         }
     }
-}
+} 
