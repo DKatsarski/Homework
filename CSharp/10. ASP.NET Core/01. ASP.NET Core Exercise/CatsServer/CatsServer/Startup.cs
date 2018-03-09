@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
+// 10:00 min.
+
 namespace CatsServer
 {
     public class Startup
@@ -27,6 +29,8 @@ namespace CatsServer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // If the data cannot migrate then it has to show error to let you know the specifics 
+                app.UseDatabaseErrorPage();
             }
 
             app.Run(async (context) =>
