@@ -29,8 +29,11 @@ namespace CatsServer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
+
                 // If the data cannot migrate then it has to show error to let you know the specifics 
                 app.UseDatabaseErrorPage();
+                
             }
 
             app.Run(async (context) =>
