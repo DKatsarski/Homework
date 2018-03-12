@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace CatsServer.Migrations
+namespace CatsServer.Data.Migrations
 {
     [DbContext(typeof(CatsDbContext))]
     [Migration("20180308201826_CatsTable")]

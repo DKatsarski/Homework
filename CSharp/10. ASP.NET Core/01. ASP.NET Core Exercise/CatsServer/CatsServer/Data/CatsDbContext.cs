@@ -15,4 +15,4 @@ namespace CatsServer.Data
 
         public DbSet<Cat> Cats { get; set; }
     }
-}
+}     
