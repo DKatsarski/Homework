@@ -29,16 +29,50 @@ namespace CatsServer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
+
 
                 // If the data cannot migrate then it has to show error to let you know the specifics 
                 app.UseDatabaseErrorPage();
-                
             }
+
+            app.MapWhen(
+                ctx => ctx.Request.Path.Value == string.Empty
+                && ctx.Request.Method == "GET",
+                home =>
+                {
+                    home.Run(async (context) =>
+                        {
+                            await context.Response.WriteAsync($"<h1>{env.ApplicationName}</h1>");
+
+                            var db = context.RequestServices.GetService<CatsDbContext>();
+
+                            var catData = db
+                            .Cats
+                            .Select(c => new
+                            {
+                                c.Id,
+                                c.Name
+                            })
+                            .ToList();
+
+                            await context.Response.WriteAsync("<ul>");
+
+                            foreach (var cat in catData)
+                            {
+                                await context.Response.WriteAsync($@"<li><a href=""/cats/{cat.Id}"">{cat.Name}</li>");
+                            }
+
+                            await context.Response.WriteAsync("</ul>");
+
+                        });
+                });
+
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("404 Page Was Not Found");
             });
         }
     }
