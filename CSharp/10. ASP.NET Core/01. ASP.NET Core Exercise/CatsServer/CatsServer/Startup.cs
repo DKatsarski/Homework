@@ -20,23 +20,26 @@ namespace CatsServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CatsDbContext>(options =>
-            options.UseSqlServer("Server=.;Database=CatsServerDb; Integrated Security=True"));
+            options.UseSqlServer("Server=.;Database=CatsServerDb;Integrated Security=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.Use((context, next) =>
             {
-                app.UseDeveloperExceptionPage();
+                context.RequestServices.GetRequiredService<CatsDbContext>().Database.Migrate();
+                return next();
+            });
 
-
-                // If the data cannot migrate then it has to show error to let you know the specifics 
-                app.UseDatabaseErrorPage();
-            }
+            app.Use((context, next) =>
+            {
+                context.Request.Headers.Add("Content-Type", "text/html");
+                return next();
+            });
 
             app.MapWhen(
-                ctx => ctx.Request.Path.Value == string.Empty
+                ctx => ctx.Request.Path.Value == "/"
                 && ctx.Request.Method == "GET",
                 home =>
                 {
@@ -44,7 +47,7 @@ namespace CatsServer
                         {
                             await context.Response.WriteAsync($"<h1>{env.ApplicationName}</h1>");
 
-                            var db = context.RequestServices.GetService<CatsDbContext>();
+                            var db = context.RequestServices.GetRequiredService<CatsDbContext>();
 
                             var catData = db
                             .Cats
@@ -59,10 +62,13 @@ namespace CatsServer
 
                             foreach (var cat in catData)
                             {
-                                await context.Response.WriteAsync($@"<li><a href=""/cats/{cat.Id}"">{cat.Name}</li>");
+                                await context.Response.WriteAsync($@"<li><a href=""/cat/{cat.Id}"">{cat.Name}</li>");
                             }
 
                             await context.Response.WriteAsync("</ul>");
+                            await context.Response.WriteAsync(@" <form action=""cat/add"">
+                                                                    <input type=""submit"" value=""Add Cat"" />
+                                                                </form>");
 
                         });
                 });
@@ -72,7 +78,7 @@ namespace CatsServer
             {
 
                 context.Response.StatusCode = 404;
-                await context.Response.WriteAsync("404 Page Was Not Found");
+                await context.Response.WriteAsync("404 Page Was Not Found :/");
             });
         }
     }
