@@ -78,14 +78,34 @@ namespace CatsServer
                 });
 
 
-            app.MapWhen(req => req.Request.Path.Value == "/cat/add"
-            && req.Request.Method == HttpMethod.Get,
+            app.MapWhen(req => req.Request.Path.Value == "/cat/add",
+            
             catAdd =>
             {
                 catAdd.Run((context) =>
                 {
-                    context.Response.StatusCode = 302;
-                    context.Response.Headers.Add("Location", "/cats-add-form.html");
+                    if (context.Request.Method == HttpMethod.Get)
+                    {
+
+                        context.Response.StatusCode = 302;
+                        context.Response.Headers.Add("Location", "/cats-add-form.html");
+                    }
+                    else if (context.Request.Method == HttpMethod.Post)
+                    {
+                        var db = context.RequestServices.GetRequiredService<CatsDbContext>();
+
+                        var formData = context.Request.Form;
+
+                        var cat = new Cat
+                        {
+                            Name = formData["Name"],
+                            Age = int.Parse(formData["Age"]),
+                            Breed = formData["Breed"],
+                            ImageUrl = formData["ImageUrl"]
+
+                        };
+                    }
+                 
                     return Task.CompletedTask;
                 });
             });
