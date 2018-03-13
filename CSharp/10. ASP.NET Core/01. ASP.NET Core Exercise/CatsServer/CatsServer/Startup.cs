@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CatsServer.Data;
+using CatsServer.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
 
 
 
@@ -32,6 +34,8 @@ namespace CatsServer
                 return next();
             });
 
+            app.UseStaticFiles();
+
             app.Use((context, next) =>
             {
                 context.Request.Headers.Add("Content-Type", "text/html");
@@ -40,7 +44,7 @@ namespace CatsServer
 
             app.MapWhen(
                 ctx => ctx.Request.Path.Value == "/"
-                && ctx.Request.Method == "GET",
+                && ctx.Request.Method == HttpMethod.Get,
                 home =>
                 {
                     home.Run(async (context) =>
@@ -73,6 +77,18 @@ namespace CatsServer
                         });
                 });
 
+
+            app.MapWhen(req => req.Request.Path.Value == "/cat/add"
+            && req.Request.Method == HttpMethod.Get,
+            catAdd =>
+            {
+                catAdd.Run((context) =>
+                {
+                    context.Response.StatusCode = 302;
+                    context.Response.Headers.Add("Location", "/cats-add-form.html");
+                    return Task.CompletedTask;
+                });
+            });
 
             app.Run(async (context) =>
             {
