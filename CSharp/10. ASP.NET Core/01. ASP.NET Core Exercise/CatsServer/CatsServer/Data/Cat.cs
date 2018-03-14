@@ -9,10 +9,12 @@ namespace CatsServer.Data
     public class Cat
     {
         private const int StringMaxLength = 50;
+        private const int StringMinLength = 1;
 
         public int Id { get; set; }
 
         [Required]
+        [MinLength(StringMinLength)]
         [MaxLength(StringMaxLength)]
         public string Name { get; set; }
 
@@ -21,10 +23,12 @@ namespace CatsServer.Data
         public int Age { get; set; }
 
         [Required]
+        [MinLength(StringMinLength)]
         [MaxLength(StringMaxLength)]
         public string Breed { get; set; }
 
         [Required]
+        [MinLength(10)]
         [MaxLength(2000)]
         public string ImageUrl { get; set; }
     }
