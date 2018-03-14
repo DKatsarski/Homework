@@ -38,7 +38,7 @@ namespace CatsServer
 
             app.Use((context, next) =>
             {
-                context.Request.Headers.Add("Content-Type", "text/html");
+                context.Response.Headers.Add("Content-Type", "text/html");
                 return next();
             });
 
@@ -70,7 +70,7 @@ namespace CatsServer
                             }
 
                             await context.Response.WriteAsync("</ul>");
-                            await context.Response.WriteAsync(@" <form action=""cat/add"">
+                            await context.Response.WriteAsync(@" <form action=""/cat/add"">
                                                                     <input type=""submit"" value=""Add Cat"" />
                                                                 </form>");
 
@@ -82,13 +82,12 @@ namespace CatsServer
             
             catAdd =>
             {
-                catAdd.Run((context) =>
+                catAdd.Run(async (context) =>
                 {
                     if (context.Request.Method == HttpMethod.Get)
                     {
-
-                        context.Response.StatusCode = 302;
-                        context.Response.Headers.Add("Location", "/cats-add-form.html");
+                        context.Response.Redirect("/cats-add-form.html");
+                      
                     }
                     else if (context.Request.Method == HttpMethod.Post)
                     {
@@ -104,9 +103,23 @@ namespace CatsServer
                             ImageUrl = formData["ImageUrl"]
 
                         };
+
+                        db.Add(cat);
+
+                        try
+                        {
+                            await db.SaveChangesAsync();
+
+                            context.Response.Redirect("/");
+                        }
+                        catch (Exception)
+                        {
+
+                            await context.Response.WriteAsync("<h2>Invalid cat data!</h2>");
+                            await context.Response.WriteAsync(@"<a href=""/cat/add/"">Back To The Form</a>");
+                        }
                     }
                  
-                    return Task.CompletedTask;
                 });
             });
 
