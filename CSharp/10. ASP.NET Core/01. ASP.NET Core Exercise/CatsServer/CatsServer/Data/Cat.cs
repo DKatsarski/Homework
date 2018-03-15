@@ -14,7 +14,6 @@ namespace CatsServer.Data
         public int Id { get; set; }
 
         [Required]
-        [MinLength(StringMinLength)]
         [MaxLength(StringMaxLength)]
         public string Name { get; set; }
 
@@ -23,12 +22,10 @@ namespace CatsServer.Data
         public int Age { get; set; }
 
         [Required]
-        [MinLength(StringMinLength)]
         [MaxLength(StringMaxLength)]
         public string Breed { get; set; }
 
         [Required]
-        [MinLength(10)]
         [MaxLength(2000)]
         public string ImageUrl { get; set; }
     }
