@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using CatsServer.Data;
 using CatsServer.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -93,7 +91,6 @@ namespace CatsServer
                     }
                     else if (context.Request.Method == HttpMethod.Post)
                     {
-
                         var formData = context.Request.Form;
 
                         var age = 0;
@@ -127,8 +124,6 @@ namespace CatsServer
                                 await db.SaveChangesAsync();
                             }
 
-
-
                             context.Response.Redirect("/");
                         }
                         catch (Exception)
@@ -138,7 +133,6 @@ namespace CatsServer
                             await context.Response.WriteAsync(@"<a href=""/cat/add"">Back To The Form</a>");
                         }
                     }
-
                 });
             });
 
@@ -181,19 +175,13 @@ namespace CatsServer
                         await context.Response.WriteAsync($@"<img src=""{cat.ImageUrl}"" alt=""{cat.Name}"" width=""300""/>");
                         await context.Response.WriteAsync($"<p><b>Age: {cat.Age}</b></p>");
                         await context.Response.WriteAsync($"<p><b>Breed: {cat.Breed}</b></p>");
-
-
-
                     }
-
-
                 });
 
             });
 
             app.Run(async (context) =>
             {
-
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync("404 Page Was Not Found :/");
             });
