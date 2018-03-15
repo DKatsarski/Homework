@@ -179,8 +179,8 @@ namespace CatsServer
 
                         await context.Response.WriteAsync($"<h1>{cat.Name}</h1>");
                         await context.Response.WriteAsync($@"<img src=""{cat.ImageUrl}"" alt=""{cat.Name}"" width=""300""/>");
-                        await context.Response.WriteAsync($"<p>Age: {cat.Age}</p>");
-                        await context.Response.WriteAsync($"<p>Breed: {cat.Breed}</p>");
+                        await context.Response.WriteAsync($"<p><b>Age: {cat.Age}</b></p>");
+                        await context.Response.WriteAsync($"<p><b>Breed: {cat.Breed}</b></p>");
 
 
 
