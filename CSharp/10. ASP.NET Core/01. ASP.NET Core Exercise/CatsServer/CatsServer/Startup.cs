@@ -2,11 +2,13 @@
 using System.Linq;
 using CatsServer.Data;
 using CatsServer.Infrastructure;
+using CatsServer.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
 
 
 
@@ -26,19 +28,9 @@ namespace CatsServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.Use((context, next) =>
-            {
-                context.RequestServices.GetRequiredService<CatsDbContext>().Database.Migrate();
-                return next();
-            });
-
+            app.UseDatabaseMIgration();
             app.UseStaticFiles();
-
-            app.Use((context, next) =>
-            {
-                context.Response.Headers.Add("Content-Type", "text/html");
-                return next();
-            });
+            app.UseHtmlContentType();
 
             app.MapWhen(
                 ctx => ctx.Request.Path.Value == "/"
