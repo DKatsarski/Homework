@@ -10,13 +10,13 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
+            int[] numbers = new int[4];
 
-            var dog = new Dog();
-            dog.Age = 5;
-            dog.Breed = "Border Collie";
+            numbers[1] = 3;
 
-            Console.WriteLine(dog.Age);
-            Console.WriteLine(dog.Breed);
+            string a = string.Join(", ", numbers);
+
+            Console.WriteLine(a);
         }
     }
 }
