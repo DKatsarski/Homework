@@ -10,11 +10,18 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
+            Console.WriteLine("please, input two numbers to be summed:");
+            Console.WriteLine();
 
-            NumberPrinter.PrintUpToANumber(5);
+            int numberToBeSummed = int.Parse(Console.ReadLine());
+            int secondNumberToBeSummed = int.Parse(Console.ReadLine());
+
+            int result = SumNumbers.Sum(numberToBeSummed, secondNumberToBeSummed);
+
+            Console.WriteLine(result);
+
+            //NumberPrinter.PrintUpToANumber(5);
 
         }
-
-      
     }
 }
