@@ -1,22 +1,26 @@
-﻿using System;
+﻿using School;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCSharp2
+namespace Problem_11.Numbers_in_Interval
 {
-    public class StartUp
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            int[] numbers = new int[4];
+            var listOfTeachers = new ListOfTeachers();
 
-            numbers[1] = 3;
+            listOfTeachers.AddTeacher("Gosho Petrov");
 
-            string a = string.Join(", ", numbers);
-
-            Console.WriteLine(a);
+            foreach (var teacher in listOfTeachers.Teachers)
+            {
+                Console.WriteLine(teacher);
+            }
+            
         }
     }
 }
