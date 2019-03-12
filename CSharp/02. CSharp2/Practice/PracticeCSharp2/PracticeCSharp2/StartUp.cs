@@ -19,6 +19,12 @@ namespace PracticeCSharp2
             var director = new Director();
 
             director.SayAngryWords("sprete!");
+
+            var doorman = new Doorman("Marko");
+
+            var messageFromTheDoorsman = doorman.SpeakStuff();
+
+            Console.WriteLine(messageFromTheDoorsman);
         }
     }
 }
