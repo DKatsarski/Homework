@@ -27,5 +27,10 @@ namespace School
             teachers.Add(name);
         }
 
+        public virtual void SayAngryWords (string words)
+        {
+            Console.WriteLine(words);
+        }
+
     }
 }

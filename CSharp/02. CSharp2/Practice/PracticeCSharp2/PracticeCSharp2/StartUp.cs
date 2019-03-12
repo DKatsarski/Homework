@@ -1,24 +1,24 @@
 ﻿using School;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Problem_11.Numbers_in_Interval
+namespace PracticeCSharp2
 {
-    public class Program
+    public class PracticeCSharp2
+
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            var n = int.Parse(Console.ReadLine());
-            var printNumbers = string.Empty;
+            var teachers = new ListOfTeachers();
 
-            for (int i = 0; i < n + 1; i++)
-            {
-                if (i % 3 != 0 && i % 7 != 0)
-                {
-                    printNumbers += i.ToString() + " ";
-                }
-            }
+            teachers.SayAngryWords("Ne goworete poweche!!");
 
-            Console.WriteLine(printNumbers);
+            var director = new Director();
+
+            director.SayAngryWords("sprete!");
         }
     }
 }
