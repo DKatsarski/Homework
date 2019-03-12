@@ -1,26 +1,24 @@
 ﻿using School;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Problem_11.Numbers_in_Interval
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var listOfTeachers = new ListOfTeachers();
+            var n = int.Parse(Console.ReadLine());
+            var printNumbers = string.Empty;
 
-            listOfTeachers.AddTeacher("Gosho Petrov");
-
-            foreach (var teacher in listOfTeachers.Teachers)
+            for (int i = 0; i < n + 1; i++)
             {
-                Console.WriteLine(teacher);
+                if (i % 3 != 0 && i % 7 != 0)
+                {
+                    printNumbers += i.ToString() + " ";
+                }
             }
-            
+
+            Console.WriteLine(printNumbers);
         }
     }
 }
