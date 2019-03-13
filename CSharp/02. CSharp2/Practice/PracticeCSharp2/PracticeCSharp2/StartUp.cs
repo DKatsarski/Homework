@@ -12,19 +12,30 @@ namespace PracticeCSharp2
     {
         static void Main(string[] args)
         {
-            var teachers = new ListOfTeachers();
+            int n = int.Parse(Console.ReadLine());
+            int p = int.Parse(Console.ReadLine());
 
-            teachers.SayAngryWords("Ne goworete poweche!!");
+            int result = 0;
 
-            var director = new Director();
+            int biggerNumberToBeUsedInTheForCycle = Math.Max(n, p);
+            int lowerNumberToBeUsedInTheForCycle = Math.Min(n, p);
 
-            director.SayAngryWords("sprete!");
+            int factorielBig = biggerNumberToBeUsedInTheForCycle;
+            int factorielLow = lowerNumberToBeUsedInTheForCycle;
 
-            var doorman = new Doorman("Marko");
+            for (int i = biggerNumberToBeUsedInTheForCycle - 1; i >= 1; i--)
+            {
+                factorielBig *= i;
 
-            var messageFromTheDoorsman = doorman.SpeakStuff();
+                if (factorielLow > i)
+                {
+                    factorielLow *= i;
+                }
+            };
 
-            Console.WriteLine(messageFromTheDoorsman);
+            result = factorielBig / factorielLow;
+
+            Console.WriteLine(result);
         }
     }
 }

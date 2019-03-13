@@ -54,6 +54,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bazik\Bazik.csproj">
+      <Project>{6bbfbe02-a110-4b28-86fd-95327c5e1dbb}</Project>
+      <Name>Bazik</Name>
+    </ProjectReference>
     <ProjectReference Include="..\School\School.csproj">
       <Project>{cbc96b9d-a437-49d4-8874-60e88a7a308f}</Project>
       <Name>School</Name>
