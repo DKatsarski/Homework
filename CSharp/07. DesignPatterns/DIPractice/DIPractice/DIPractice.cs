@@ -10,7 +10,10 @@ namespace DIPractice
     {
         static void Main()
         {
-            Console.WriteLine("Hello DI");
+            IWriter writer = new ConsoleWriter();
+            var salutation = new Solutator(writer);
+            salutation.Exclaim();
+
         }
     }
 }
