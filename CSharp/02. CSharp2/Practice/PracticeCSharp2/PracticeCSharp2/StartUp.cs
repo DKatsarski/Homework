@@ -1,4 +1,5 @@
-﻿using School;
+﻿using Bazik;
+using School;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +9,25 @@ using System.Threading.Tasks;
 namespace PracticeCSharp2
 {
     public class PracticeCSharp2
-
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int n = int.Parse(Console.ReadLine());
-            int p = int.Parse(Console.ReadLine());
+            Console.WriteLine("Simon");
+            System.Threading.Thread.Sleep(1500);
 
-            int result = 0;
+            Console.WriteLine("e");
+            System.Threading.Thread.Sleep(1500);
 
-            int biggerNumberToBeUsedInTheForCycle = Math.Max(n, p);
-            int lowerNumberToBeUsedInTheForCycle = Math.Min(n, p);
+            Console.WriteLine("mnogo");
+            System.Threading.Thread.Sleep(2500);
 
-            int factorielBig = biggerNumberToBeUsedInTheForCycle;
-            int factorielLow = lowerNumberToBeUsedInTheForCycle;
+            Console.WriteLine("GAAAAAAAAAAAAy");
 
-            for (int i = biggerNumberToBeUsedInTheForCycle - 1; i >= 1; i--)
-            {
-                factorielBig *= i;
+            System.Threading.Thread.Sleep(1000);
 
-                if (factorielLow > i)
-                {
-                    factorielLow *= i;
-                }
-            };
+            Console.WriteLine("I ne chatka Fuko... bate, sorry.. wtf e twa s 'prosweshteneca'");
+            Console.ReadKey();
 
-            result = factorielBig / factorielLow;
-
-            Console.WriteLine(result);
         }
     }
 }
