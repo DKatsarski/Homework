@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace School
 {
-    public class ListOfTeachers
+    public class ListOfTeachers : IListOfTeachers
     {
         private List<string> teachers;
 

@@ -8,26 +8,41 @@ using System.Threading.Tasks;
 
 namespace PracticeCSharp2
 {
+    public delegate void Asdf();
     public class PracticeCSharp2
     {
         static void Main()
         {
-            Console.WriteLine("Simon");
-            System.Threading.Thread.Sleep(1500);
+            //Write a program, that reads from the console an array of N integers and an integer K, 
+            //sorts the array and using the method Array.BinSearch() finds the largest number in the array which is ≤ K.
 
-            Console.WriteLine("e");
-            System.Threading.Thread.Sleep(1500);
+            int n = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            int value = 0;
+            int valueForSearch = 1;
+            int[] array = new int[n];
 
-            Console.WriteLine("mnogo");
-            System.Threading.Thread.Sleep(2500);
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+            }
+            Array.Sort(array);
 
-            Console.WriteLine("GAAAAAAAAAAAAy");
+            value = Array.BinarySearch(array, k);
 
-            System.Threading.Thread.Sleep(1000);
+            while (value < 0)
+            {
+                value = Array.BinarySearch(array, k - valueForSearch);
+                valueForSearch++;
+            }
+            Console.WriteLine(array[value]);
 
-            Console.WriteLine("I ne chatka Fuko... bate, sorry.. wtf e twa s 'prosweshteneca'");
-            Console.ReadKey();
 
+        }
+
+        public  static void Something()
+        {
+            Console.WriteLine("sdf");
         }
     }
 }
