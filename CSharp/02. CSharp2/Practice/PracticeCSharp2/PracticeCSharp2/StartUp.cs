@@ -13,7 +13,25 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            Console.WriteLine("hello");
+            for (int i = 1; i < 100; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine("fizzfuzz");
+                }
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine("fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("fuzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
 
         }
 
