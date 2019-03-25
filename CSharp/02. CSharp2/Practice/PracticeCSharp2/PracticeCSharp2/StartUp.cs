@@ -13,26 +13,29 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            for (int i = 1; i < 100; i++)
+
+            int c = 3;
+            int[] exampleArray = new int[] { 4, 5, 3, 3, 2, 6, 7 };
+
+
+            Console.WriteLine(TimesANumberIsFoundInAnArray(exampleArray, c));
+
+
+        }
+
+        public static int TimesANumberIsFoundInAnArray(int[] givenArray, int numberToBeSearched)
+        {
+            int timesTheNumbersIsSpoted = 0;
+
+            for (int i = 0; i < givenArray.Length; i++)
             {
-                if (i % 3 == 0 && i % 5 == 0)
+                if (givenArray[i] == numberToBeSearched)
                 {
-                    Console.WriteLine("fizzfuzz");
-                }
-                else if (i % 3 == 0)
-                {
-                    Console.WriteLine("fizz");
-                }
-                else if (i % 5 == 0)
-                {
-                    Console.WriteLine("fuzz");
-                }
-                else
-                {
-                    Console.WriteLine(i);
+                    timesTheNumbersIsSpoted += 1;
                 }
             }
 
+            return timesTheNumbersIsSpoted;
         }
 
     }
