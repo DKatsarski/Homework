@@ -8,35 +8,71 @@ using System.Threading.Tasks;
 
 namespace PracticeCSharp2
 {
-    public delegate void Asdf();
     public class PracticeCSharp2
     {
         static void Main()
         {
 
-            int c = 3;
-            int[] exampleArray = new int[] { 4, 5, 3, 3, 2, 6, 7 };
-
-
-            Console.WriteLine(TimesANumberIsFoundInAnArray(exampleArray, c));
-
+            Console.WriteLine(Reverse(-123));
 
         }
 
-        public static int TimesANumberIsFoundInAnArray(int[] givenArray, int numberToBeSearched)
-        {
-            int timesTheNumbersIsSpoted = 0;
 
-            for (int i = 0; i < givenArray.Length; i++)
+        public static int Reverse(int x)
+        {
+
+            string result = string.Empty;
+
+            if (x > 0)
             {
-                if (givenArray[i] == numberToBeSearched)
+                string lenghtOfNumber = x.ToString();
+                long brecauseWTF = 0;
+
+                for (int i = 0; i < lenghtOfNumber.Length; i++)
                 {
-                    timesTheNumbersIsSpoted += 1;
+                    result += (x % 10).ToString();
+                    x = x / 10;
+                }
+
+                brecauseWTF = long.Parse(result);
+                if (brecauseWTF > 2147483647 || brecauseWTF < -2147483648)
+                {
+                    return 0;
+
                 }
             }
+            else if (x < 0)
+            {
+                long omgThisThing = x;
+                long inAnyCaseOfTooLongWTF = omgThisThing * -1;
+                string lenghtOfNumber = inAnyCaseOfTooLongWTF.ToString();
+                long brecauseWTF = 0;
 
-            return timesTheNumbersIsSpoted;
+                result += "-";
+
+                for (int i = 0; i < lenghtOfNumber.Length; i++)
+                {
+                    result += (inAnyCaseOfTooLongWTF % 10).ToString();
+                    inAnyCaseOfTooLongWTF = inAnyCaseOfTooLongWTF / 10;
+                }
+
+                brecauseWTF = long.Parse(result);
+
+                if (brecauseWTF > 2147483647 || brecauseWTF < -2147483648)
+                {
+                    return 0;
+
+                }
+            }
+            else
+            {
+                result = 0.ToString();
+            }
+
+            return int.Parse(result);
         }
 
+
     }
+
 }
