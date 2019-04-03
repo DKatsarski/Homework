@@ -12,67 +12,92 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-
-            Console.WriteLine(Reverse(-123));
-
+            Console.WriteLine(LengthOfLongestSubstring("abcb"));
         }
 
-
-        public static int Reverse(int x)
+        public static int LengthOfLongestSubstring(string givenString)
         {
+            int longestNumber = 1;
+            int resultKeeper = 1;
+            int counter = 1;
+            int resterterToZero = 0;
+            int restarterToOne = 1;
 
-            string result = string.Empty;
-
-            if (x > 0)
+            if (givenString == string.Empty)
             {
-                string lenghtOfNumber = x.ToString();
-                long brecauseWTF = 0;
-
-                for (int i = 0; i < lenghtOfNumber.Length; i++)
-                {
-                    result += (x % 10).ToString();
-                    x = x / 10;
-                }
-
-                brecauseWTF = long.Parse(result);
-                if (brecauseWTF > 2147483647 || brecauseWTF < -2147483648)
-                {
-                    return 0;
-
-                }
+                return 0;
             }
-            else if (x < 0)
+            else if (givenString.Length == 2 && givenString[0] != givenString[1])
             {
-                long omgThisThing = x;
-                long inAnyCaseOfTooLongWTF = omgThisThing * -1;
-                string lenghtOfNumber = inAnyCaseOfTooLongWTF.ToString();
-                long brecauseWTF = 0;
-
-                result += "-";
-
-                for (int i = 0; i < lenghtOfNumber.Length; i++)
-                {
-                    result += (inAnyCaseOfTooLongWTF % 10).ToString();
-                    inAnyCaseOfTooLongWTF = inAnyCaseOfTooLongWTF / 10;
-                }
-
-                brecauseWTF = long.Parse(result);
-
-                if (brecauseWTF > 2147483647 || brecauseWTF < -2147483648)
-                {
-                    return 0;
-
-                }
+                return 2;
             }
-            else
+            else if (givenString.Length == 3 && (givenString[0] == givenString[1] && givenString[0] == givenString[2]))
             {
-                result = 0.ToString();
+
+                return 1;
+            }
+            else if (givenString.Length == 3 && (givenString[0] == givenString[1] || givenString[0] == givenString[2] || givenString[1] == givenString[2]))
+            {
+                return 2;
             }
 
-            return int.Parse(result);
+          
+
+
+            for (int i = 0; i < givenString.Length; i++)
+            {
+                counter = restarterToOne;
+
+                for (int x = i + 1; x < givenString.Length; x++)
+                {
+                    if (x != givenString.Length - 1)
+                    {
+                        if (givenString[i] != givenString[x] && givenString[x] != givenString[x + 1])
+                        {
+                            counter += 1;
+                        }
+                        else if (givenString[i] == givenString[x])
+                        {
+                            resultKeeper = counter;
+                            break;
+                        }
+                        else if (givenString[x] == givenString[x + 1])
+                        {
+                            resultKeeper = counter;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (givenString[i] != givenString[x])
+                        {
+                            counter += 1;
+                            resultKeeper = counter;
+                        }
+                        else if (givenString[i] == givenString[x])
+                        {
+                            resultKeeper = counter;
+                            break;
+                        }
+                        else if (givenString[x] != givenString[x + 1])
+                        {
+                            resultKeeper = counter;
+                            break;
+                        }
+                    }
+
+                }
+
+                if (resultKeeper > longestNumber)
+                {
+                    longestNumber = resultKeeper;
+                    resultKeeper = resterterToZero;
+                }
+
+            }
+
+
+            return longestNumber;
         }
-
-
     }
-
 }
