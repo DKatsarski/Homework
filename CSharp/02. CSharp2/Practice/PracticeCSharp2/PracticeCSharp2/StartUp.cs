@@ -12,64 +12,46 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-
             int n = Convert.ToInt32(Console.ReadLine());
 
-            int[][] arr = new int[n][];
+            int[] arr = new int[] { -4, 3, -9, 0, 4, 1 };  //Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
 
-            for (int i = 0; i < n; i++)
-            {
-                arr[i] = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
-            }
+            plusMinus(arr);
 
-            int test = diagonalDifference(arr);
-
-            Console.WriteLine(test);
         }
 
-        static int diagonalDifference(int[][] arr)
+        static void plusMinus(int[] arr)
         {
+            double counterPositiveNumbers = 0;
+            double counterNegativeNumbers = 0;
+            double counterOfZeroes = 0;
 
-            int sumOfLeftToRightDiagonals = 0;
-            int sumOfRightToLeftDiagonals = 0;
-            int result = 0;
-
-            int oppositeRow = 0;
-            int oppositeCol = 0;
-
-            int indexDropperCol = 1;
-
-
-            for (int row = 0; row < arr.GetLength(0); row++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                int test = arr.GetLength(0);
-
-                oppositeRow = row;
-
-                for (int col = 0; col < arr[row].Length; col++)
+                if (arr[i] > 0)
                 {
-                    oppositeCol = arr[row].Length - indexDropperCol;
-
-                    if (row == col)
-                    {
-                        sumOfLeftToRightDiagonals += arr[row][col];
-                    }
-
-                    if ((oppositeRow + oppositeCol == arr[row].Length - 1))
-                    {
-                        sumOfRightToLeftDiagonals += arr[row][oppositeCol];
-                    }
-
-                    indexDropperCol += 1;
+                    counterPositiveNumbers += 1;
                 }
-
-                indexDropperCol = 1;
-
+                else if (arr[i] < 0)
+                {
+                    counterNegativeNumbers += 1;
+                }
+                else if (arr[i] == 0)
+                {
+                    counterOfZeroes += 1;
+                }
             }
 
-            result = Math.Abs(sumOfLeftToRightDiagonals - sumOfRightToLeftDiagonals);
+            double postiiveFractoin = counterPositiveNumbers / arr.Length;
+            double negativeFraction = counterNegativeNumbers / arr.Length;
+            double zeroFraction = counterOfZeroes / arr.Length;
 
-            return result;
+            Console.WriteLine("{0:F6}", postiiveFractoin);
+            Console.WriteLine("{0:F6}", negativeFraction);
+            Console.WriteLine("{0:F6}", zeroFraction);
+
+
+
         }
 
     }
