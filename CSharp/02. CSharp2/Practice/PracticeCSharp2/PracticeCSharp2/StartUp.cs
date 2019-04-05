@@ -12,26 +12,27 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            int n = 6;// Convert.ToInt32(Console.ReadLine());
-            
+            var arr = new int[] { 3 ,2 ,1 ,3 }; // Convert.ToInt32(Console.ReadLine());
 
-            staircase(n);
+
+            Console.WriteLine(  birthdayCakeCandles(arr));
         }
 
-        static void staircase(int n)
+        static int birthdayCakeCandles(int[] ar)
         {
-            int star = 1;
+            int maxNumber = ar.Max();
+            int counter = 0;
 
-            for (int i = n; i > 0; i--)
+            for (int i = 0; i < ar.Length; i++)
             {
-                Console.Write(new string(' ', i - 1));
-                Console.Write(new string('#', star));
-                Console.WriteLine();
-                star++;
-
+                if (ar[i] == maxNumber)
+                {
+                    counter++;
+                }
             }
 
-        }
+            return counter;
 
+        }
     }
 }
