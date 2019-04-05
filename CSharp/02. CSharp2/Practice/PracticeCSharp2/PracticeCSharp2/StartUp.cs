@@ -12,92 +12,65 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            Console.WriteLine(LengthOfLongestSubstring("abcb"));
+
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int[][] arr = new int[n][];
+
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
+            }
+
+            int test = diagonalDifference(arr);
+
+            Console.WriteLine(test);
         }
 
-        public static int LengthOfLongestSubstring(string givenString)
+        static int diagonalDifference(int[][] arr)
         {
-            int longestNumber = 1;
-            int resultKeeper = 1;
-            int counter = 1;
-            int resterterToZero = 0;
-            int restarterToOne = 1;
 
-            if (givenString == string.Empty)
+            int sumOfLeftToRightDiagonals = 0;
+            int sumOfRightToLeftDiagonals = 0;
+            int result = 0;
+
+            int oppositeRow = 0;
+            int oppositeCol = 0;
+
+            int indexDropperCol = 1;
+
+
+            for (int row = 0; row < arr.GetLength(0); row++)
             {
-                return 0;
-            }
-            else if (givenString.Length == 2 && givenString[0] != givenString[1])
-            {
-                return 2;
-            }
-            else if (givenString.Length == 3 && (givenString[0] == givenString[1] && givenString[0] == givenString[2]))
-            {
+                int test = arr.GetLength(0);
 
-                return 1;
-            }
-            else if (givenString.Length == 3 && (givenString[0] == givenString[1] || givenString[0] == givenString[2] || givenString[1] == givenString[2]))
-            {
-                return 2;
-            }
+                oppositeRow = row;
 
-          
-
-
-            for (int i = 0; i < givenString.Length; i++)
-            {
-                counter = restarterToOne;
-
-                for (int x = i + 1; x < givenString.Length; x++)
+                for (int col = 0; col < arr[row].Length; col++)
                 {
-                    if (x != givenString.Length - 1)
+                    oppositeCol = arr[row].Length - indexDropperCol;
+
+                    if (row == col)
                     {
-                        if (givenString[i] != givenString[x] && givenString[x] != givenString[x + 1])
-                        {
-                            counter += 1;
-                        }
-                        else if (givenString[i] == givenString[x])
-                        {
-                            resultKeeper = counter;
-                            break;
-                        }
-                        else if (givenString[x] == givenString[x + 1])
-                        {
-                            resultKeeper = counter;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (givenString[i] != givenString[x])
-                        {
-                            counter += 1;
-                            resultKeeper = counter;
-                        }
-                        else if (givenString[i] == givenString[x])
-                        {
-                            resultKeeper = counter;
-                            break;
-                        }
-                        else if (givenString[x] != givenString[x + 1])
-                        {
-                            resultKeeper = counter;
-                            break;
-                        }
+                        sumOfLeftToRightDiagonals += arr[row][col];
                     }
 
+                    if ((oppositeRow + oppositeCol == arr[row].Length - 1))
+                    {
+                        sumOfRightToLeftDiagonals += arr[row][oppositeCol];
+                    }
+
+                    indexDropperCol += 1;
                 }
 
-                if (resultKeeper > longestNumber)
-                {
-                    longestNumber = resultKeeper;
-                    resultKeeper = resterterToZero;
-                }
+                indexDropperCol = 1;
 
             }
 
+            result = Math.Abs(sumOfLeftToRightDiagonals - sumOfRightToLeftDiagonals);
 
-            return longestNumber;
+            return result;
         }
+
     }
 }
