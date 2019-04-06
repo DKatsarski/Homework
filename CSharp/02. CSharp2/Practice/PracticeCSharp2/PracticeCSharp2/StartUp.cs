@@ -15,24 +15,109 @@ namespace PracticeCSharp2
             var arr = new int[] { 3 ,2 ,1 ,3 }; // Convert.ToInt32(Console.ReadLine());
 
 
-            Console.WriteLine(  birthdayCakeCandles(arr));
+             IsAnArrayTelescopic(arr);
+
+            Console.WriteLine(IsAnArrayTelescopic(arr));
         }
 
-        static int birthdayCakeCandles(int[] ar)
+        public static bool IsAnArrayTelescopic(int[] arrayToBeTested)
         {
-            int maxNumber = ar.Max();
-            int counter = 0;
+            int number = 1;
+            bool arrrayIsTelescopic = false;
+            int lengthOfHalfArrayPluesOne = (arrayToBeTested.Length / 2);
 
-            for (int i = 0; i < ar.Length; i++)
+            if (arrayToBeTested.Length % 2 == 0)
             {
-                if (ar[i] == maxNumber)
+                for (int i = 0; i < arrayToBeTested.Length / 2; i++)
                 {
-                    counter++;
+                    if (arrayToBeTested[i] == number)
+                    {
+                        arrrayIsTelescopic = true;
+                        number++;
+                    }
+                    else
+                    {
+                        arrrayIsTelescopic = false;
+                        break;
+                    }
+                }
+
+                if (arrrayIsTelescopic == true)
+                {
+                    number = arrayToBeTested.Length / 2;
+
+                    for (int i = arrayToBeTested.Length / 2; i < arrayToBeTested.Length; i++)
+                    {
+                        if (arrayToBeTested[i] == number)
+                        {
+                            arrrayIsTelescopic = true;
+                            number--;
+                        }
+                        else
+                        {
+                            arrrayIsTelescopic = false;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    return arrrayIsTelescopic;
+                }
+
+            }
+            else
+            {
+
+                for (int i = 0; i < arrayToBeTested.Length / 2; i++)
+                {
+
+                    if (arrayToBeTested[i] == number)
+                    {
+                        arrrayIsTelescopic = true;
+                        number++;
+                    }
+                    else
+                    {
+                        arrrayIsTelescopic = false;
+                        break;
+                    }
+                }
+
+                if (arrayToBeTested[lengthOfHalfArrayPluesOne] == number)
+                {
+                    arrrayIsTelescopic = true;
+                    number++;
+                }
+                else
+                {
+                    arrrayIsTelescopic = false;
+                }
+
+                if (arrrayIsTelescopic == true)
+                {
+                    number = arrayToBeTested.Length / 2;
+
+                    for (int i = (arrayToBeTested.Length / 2) + 1; i < arrayToBeTested.Length; i++)
+                    {
+                        if (arrayToBeTested[i] == number)
+                        {
+                            arrrayIsTelescopic = true;
+                            number--;
+                        }
+                        else
+                        {
+                            arrrayIsTelescopic = false;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    return arrrayIsTelescopic;
                 }
             }
-
-            return counter;
-
+            return arrrayIsTelescopic;
         }
     }
 }
