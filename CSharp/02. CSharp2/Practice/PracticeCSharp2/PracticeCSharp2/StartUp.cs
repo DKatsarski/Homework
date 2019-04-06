@@ -12,112 +12,34 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            var arr = new int[] { 3 ,2 ,1 ,3 }; // Convert.ToInt32(Console.ReadLine());
+           
 
 
-             IsAnArrayTelescopic(arr);
+            string[] nd = Console.ReadLine().Split(' ');
 
-            Console.WriteLine(IsAnArrayTelescopic(arr));
-        }
+            int n = Convert.ToInt32(nd[0]);
 
-        public static bool IsAnArrayTelescopic(int[] arrayToBeTested)
-        {
-            int number = 1;
-            bool arrrayIsTelescopic = false;
-            int lengthOfHalfArrayPluesOne = (arrayToBeTested.Length / 2);
+            int d = Convert.ToInt32(nd[1]);
 
-            if (arrayToBeTested.Length % 2 == 0)
+            int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp));
+            
+
+            int[] rotatedArray = new int[a.Length];
+            int numberOfTimesToBeRotated = d;
+
+            for (int i = 0; i < a.Length; i++)
             {
-                for (int i = 0; i < arrayToBeTested.Length / 2; i++)
-                {
-                    if (arrayToBeTested[i] == number)
-                    {
-                        arrrayIsTelescopic = true;
-                        number++;
-                    }
-                    else
-                    {
-                        arrrayIsTelescopic = false;
-                        break;
-                    }
-                }
+             
+                rotatedArray[((rotatedArray.Length + i) - (numberOfTimesToBeRotated % rotatedArray.Length)) % rotatedArray.Length] = a[i];
+            }
 
-                if (arrrayIsTelescopic == true)
-                {
-                    number = arrayToBeTested.Length / 2;
-
-                    for (int i = arrayToBeTested.Length / 2; i < arrayToBeTested.Length; i++)
-                    {
-                        if (arrayToBeTested[i] == number)
-                        {
-                            arrrayIsTelescopic = true;
-                            number--;
-                        }
-                        else
-                        {
-                            arrrayIsTelescopic = false;
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    return arrrayIsTelescopic;
-                }
+            foreach (var number in rotatedArray)
+            {
+                Console.Write(number + " ");
 
             }
-            else
-            {
-
-                for (int i = 0; i < arrayToBeTested.Length / 2; i++)
-                {
-
-                    if (arrayToBeTested[i] == number)
-                    {
-                        arrrayIsTelescopic = true;
-                        number++;
-                    }
-                    else
-                    {
-                        arrrayIsTelescopic = false;
-                        break;
-                    }
-                }
-
-                if (arrayToBeTested[lengthOfHalfArrayPluesOne] == number)
-                {
-                    arrrayIsTelescopic = true;
-                    number++;
-                }
-                else
-                {
-                    arrrayIsTelescopic = false;
-                }
-
-                if (arrrayIsTelescopic == true)
-                {
-                    number = arrayToBeTested.Length / 2;
-
-                    for (int i = (arrayToBeTested.Length / 2) + 1; i < arrayToBeTested.Length; i++)
-                    {
-                        if (arrayToBeTested[i] == number)
-                        {
-                            arrrayIsTelescopic = true;
-                            number--;
-                        }
-                        else
-                        {
-                            arrrayIsTelescopic = false;
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    return arrrayIsTelescopic;
-                }
-            }
-            return arrrayIsTelescopic;
         }
+
+
     }
 }
