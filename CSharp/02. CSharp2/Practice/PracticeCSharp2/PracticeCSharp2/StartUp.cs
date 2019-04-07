@@ -1,45 +1,63 @@
-﻿using Bazik;
-using School;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCSharp2
+namespace Problem_06.String_length
 {
-    public class PracticeCSharp2
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-           
+            //Write a program that reads from the console a string of maximum 20 characters.If the length of the string is less than 20, the rest of the characters should be filled with *.
+            //Print the result string into the console.Write a program that reads from the console a string of maximum 20 characters.If the length of the string is less than 20, the rest of the characters should be filled with *.
+            //Print the result string into the console.
 
+            //substring - index to 20 
 
-            string[] nd = Console.ReadLine().Split(' ');
+            char[] arr = new char[20];
+            int counterPosition = 0;
+            int counterLenght = 0;
+            char currentKey = Char.MinValue;
+            char homo = Char.MaxValue;
 
-            int n = Convert.ToInt32(nd[0]);
-
-            int d = Convert.ToInt32(nd[1]);
-
-            int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp));
-            
-
-            int[] rotatedArray = new int[a.Length];
-            int numberOfTimesToBeRotated = d;
-
-            for (int i = 0; i < a.Length; i++)
+            do
             {
-             
-                rotatedArray[((rotatedArray.Length + i) - (numberOfTimesToBeRotated % rotatedArray.Length)) % rotatedArray.Length] = a[i];
+                currentKey = Console.ReadKey().KeyChar;
+
+                if (currentKey == (char)ConsoleKey.Enter)
+                {
+                    homo = currentKey;
+                }
+                else
+                {
+                    arr[counterPosition] = currentKey;
+
+                    counterLenght++;
+                    counterPosition++;
+                }
+
+
+
+            } while (homo != (char)ConsoleKey.Enter);
+
+            if (counterPosition != 20)
+            {
+                for (int i = counterPosition; i < arr.Length; i++)
+                {
+                    arr[i] = '*';
+                }
+
             }
 
-            foreach (var number in rotatedArray)
-            {
-                Console.Write(number + " ");
 
+
+            Console.WriteLine();
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
             }
         }
-
-
     }
 }
