@@ -8,17 +8,19 @@ namespace CatsServer.Data
 {
     public class Cat
     {
+        private const int StringMaxLength = 50;
+
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(StringMaxLength)]
         public string Name { get; set; }
             
         [Range(0, 30)]
         public int Age { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(StringMaxLength)]
         public string Breed { get; set; }
 
         [Required]
