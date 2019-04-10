@@ -10,48 +10,24 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            var myArr = new int[] {73,  99, 49  };
-            var resultArr = new int[myArr.Length];
-            resultArr = GradingStudents(myArr);
-
-            foreach (var number in resultArr)
+            var array = rotLeft(new int[] { 2, 3, 4, 5 }, 3);
+            foreach (var num in array)
             {
-                Console.WriteLine(number);
+                Console.WriteLine(num);
             }
         }
 
-        static int[] GradingStudents(int[] grades)
+        static int[] rotLeft(int[] arrayToBeRotaed, int numberOfRotations)
         {
-            var roundedGrades = new int[grades.Length];
+            int[] rotaedArray = new int[arrayToBeRotaed.Length];
 
-            for (int i = 0; i < grades.Length; i++)
+            for (int i = 0; i < arrayToBeRotaed.Length; i++)
             {
-                if (grades[i] >= 38)
-                {
-                    if (grades[i] % 10 >= 3 && grades[i] % 10 <= 5)
-                    {
-                        roundedGrades[i] = ((grades[i] / 10)  * 10) + 5;
-                    }
-                    else if (grades[i] % 10 >= 8 && grades[i] % 10 <= 9)
-                    {
-                        roundedGrades[i] = ((grades[i] / 10) * 10) + 10;
-
-                    }
-                    else
-                    {
-                        roundedGrades[i] = grades[i];
-                    }
-                }
-                else
-                {
-                    roundedGrades[i] = grades[i];
-                }
+                rotaedArray[((rotaedArray.Length + i) - (numberOfRotations % rotaedArray.Length)) % rotaedArray.Length] = arrayToBeRotaed[i];
             }
 
-
-            return roundedGrades;
+            return rotaedArray;
         }
-
 
 
 
