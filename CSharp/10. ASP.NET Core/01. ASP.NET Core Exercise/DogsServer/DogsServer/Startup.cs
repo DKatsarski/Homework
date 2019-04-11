@@ -33,7 +33,8 @@ namespace DogsServer
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("404 Page Was Not Found ;/");
             });
         }
     }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DogsServer.Migrations
+namespace DogsServer.Data.Migrations
 {
     [DbContext(typeof(DogsDbContext))]
     [Migration("20190411092817_DogsTable")]

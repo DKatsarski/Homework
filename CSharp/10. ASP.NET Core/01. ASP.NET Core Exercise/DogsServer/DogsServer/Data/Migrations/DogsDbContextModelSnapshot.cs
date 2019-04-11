@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DogsServer.Migrations
+namespace DogsServer.Data.Migrations
 {
     [DbContext(typeof(DogsDbContext))]
     partial class DogsDbContextModelSnapshot : ModelSnapshot
