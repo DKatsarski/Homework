@@ -10,23 +10,32 @@ namespace PracticeCSharp2
     {
         static void Main()
         {
-            var array = rotLeft(new int[] { 2, 3, 4, 5 }, 3);
-            foreach (var num in array)
-            {
-                Console.WriteLine(num);
-            }
+            
         }
 
-        static int[] rotLeft(int[] arrayToBeRotaed, int numberOfRotations)
+        static List<int> compareTriplets(List<int> a, List<int> b)
         {
-            int[] rotaedArray = new int[arrayToBeRotaed.Length];
+            var aPoints = 0;
+            var bPoints = 0;
+            var score = new List<int>();
 
-            for (int i = 0; i < arrayToBeRotaed.Length; i++)
+            for (int i = 0; i < a.Count; i++)
             {
-                rotaedArray[((rotaedArray.Length + i) - (numberOfRotations % rotaedArray.Length)) % rotaedArray.Length] = arrayToBeRotaed[i];
+                if (a[i] > b[i])
+                {
+                    aPoints++;
+                }
+                else if (a[i] < b[i])
+                {
+                    bPoints++;
+                }
             }
 
-            return rotaedArray;
+            score.Add(aPoints);
+            score.Add(bPoints);
+
+            return score;
+
         }
 
 

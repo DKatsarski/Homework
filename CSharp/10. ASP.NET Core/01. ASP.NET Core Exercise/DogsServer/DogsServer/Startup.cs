@@ -31,6 +31,11 @@ namespace DogsServer
                 app.UseDatabaseErrorPage();
             }
 
+            app.Map(string.Empty,  homeApp =>
+            {
+
+            });
+
             app.Run(async (context) =>
             {
                 context.Response.StatusCode = 404;
