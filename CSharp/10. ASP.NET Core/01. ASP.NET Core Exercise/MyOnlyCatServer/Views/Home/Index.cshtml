@@ -6,7 +6,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <h1>There we gooooO!</h1>
+<h1>There we gooooO!</h1>
+
+<button><a asp-controller="Cats" asp-action="Add">Add New Cat</a></button>
 
 <ul>
     @foreach (var cat in Model)
@@ -14,3 +16,5 @@
         <li><a asp-controller="Cats" asp-action="Details" asp-route-id="@(cat.Id)">@(cat.Name)</a></li>
     }
 </ul>
+
+ 

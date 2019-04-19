@@ -2,6 +2,10 @@
 
 @model Cat
 
+@{ 
+    ViewData["Title"] = "Details";
+}
+
 <h2>@Model.Name</h2>
 
 <img src="@Model.ImageUrl" alt="NO Idea what this is @Model.Name" />
