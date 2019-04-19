@@ -9,8 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyOnlyCatServer.Data;
 
-namespace FluffyCatServer
+namespace MyOnlyCatServer
 {
     public class Startup
     {
@@ -31,7 +32,7 @@ namespace FluffyCatServer
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddDbContext<MyOnlyContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

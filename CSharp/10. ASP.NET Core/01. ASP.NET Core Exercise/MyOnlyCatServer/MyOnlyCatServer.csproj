@@ -12,11 +12,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FluffyCat.Data\FluffyCat.Data.csproj" />
-    <ProjectReference Include="..\..\FluffyCat.Models\FluffyCat.Models.csproj" />
+    <ProjectReference Include="..\..\MyOnlyCatServer.Data\MyOnlyCatServer.Data.csproj" />
+    <ProjectReference Include="..\..\MyOnlyCatServer.Model\MyOnlyCatServer.Model.csproj" />
   </ItemGroup>
 
 </Project>

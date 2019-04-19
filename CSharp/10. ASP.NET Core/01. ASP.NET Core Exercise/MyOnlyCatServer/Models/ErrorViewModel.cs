@@ -1,6 +1,6 @@
 using System;
 
-namespace FluffyCatServer.Models
+namespace MyOnlyCatServer.Models
 {
     public class ErrorViewModel
     {
