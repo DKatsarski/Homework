@@ -1,100 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PracticeCSharp2
+﻿namespace Defining_Classes_Main
 {
-    public class StartUp
+    using System.Collections.Generic;
+
+    public struct Point3D
     {
-        static void Main()
+        /// <summary>
+        /// Create a structure Point3D to hold a 3D-coordinate {X, Y, Z} in the Euclidian 3D space.
+        /// </summary>
+
+        private decimal X;
+        private decimal Y;
+        private decimal Z;
+
+        /// <summary>
+        /// Add a private static read-only field to hold the start of the coordinate system – the point O{0, 0, 0}.
+        /// </summary>
+        static readonly List<decimal> O = new List<decimal> { 0, 0, 0 };
+
+        public Point3D(decimal x, decimal y, decimal z)
         {
-            Console.WriteLine(7 / -3);
-            Console.WriteLine(Divide(10, 3));
-            Console.WriteLine(Divide(7, -3));
-            Console.WriteLine(2147483648 / 1);
-            Console.WriteLine(Divide(-2147483648, -1));
-
-        }
-
-        public static int Divide(int dividend, int divisor)
-        {
-            int result = 0;
-
-            if (dividend < 0 && divisor < 0)
-            {
-                string dividenedString = dividend.ToString();
-                string divisorString = divisor.ToString();
-                divisorString.TrimStart('-');
-
-                divisor = int.Parse(divisorString);
-                dividend = int.Parse(dividenedString);
-
-
-                for (int i = divisor; i >= dividend; i += divisor)
-                {
-                    result++;
-                }
-
-
-                return result;
-            }
-            else if (dividend < 0 || divisor < 0)
-            {
-                if (dividend < 0)
-                {
-                    string myString = dividend.ToString();
-                    string newString = string.Empty;
-                    for (int i = 1; i < myString.Length; i++)
-                    {
-                        newString += myString[i];
-                    }
-
-                    dividend = int.Parse(newString);
-
-                }
-                else if (divisor < 0)
-                {
-                    string myString = divisor.ToString();
-                    string newString = string.Empty;
-                    for (int i = 1; i < myString.Length; i++)
-                    {
-                        newString += myString[i];
-                    }
-
-                    divisor = int.Parse(newString);
-                }
-
-                for (int i = divisor; i <= dividend; i += divisor)
-                {
-                    result++;
-                }
-
-                string minus = "-" + result.ToString();
-
-                return int.Parse(minus);
-            }
-            else
-            {
-                for (int i = divisor; i <= dividend; i += divisor)
-                {
-                    result++;
-                }
-
-                return result;
-            }
-
-
-
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
 
 
+        /// <summary>
+        /// Implement the ToString() to enable printing a 3D point.
+        /// </summary>
+        /// <returns> Printed 3D point </returns>
+        /// 
 
-
-
-
-
+        public static List<decimal> ReturnCoordinates
+        { get
+            {
+                return O;
+            }
+        }
 
     }
+  
+
 }
