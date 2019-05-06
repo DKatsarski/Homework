@@ -21,5 +21,7 @@ namespace CarDealer.Data.Models
         public long TravelledDistance { get; set; }
 
         public List<Sale> Sales { get; set; } = new List<Sale>();
+
+        public List<PartCars> Parts { get; set; } = new List<PartCars>();
     }
 }

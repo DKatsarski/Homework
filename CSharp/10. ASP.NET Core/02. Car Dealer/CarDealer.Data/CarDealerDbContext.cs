@@ -15,6 +15,8 @@ namespace CarDealer.Data
         {
         }
 
+        
+
         public DbSet<Car> Cars { get; set; }
 
         public DbSet<Supplier> Suppliers { get; set; }
@@ -23,8 +25,26 @@ namespace CarDealer.Data
 
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Part> Parts { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder
+                .Entity<PartCars>()
+                .HasKey(pc => new { pc.Part_Id, pc.Car_Id });
+
+            builder
+                .Entity<PartCars>()
+                .HasOne(pc => pc.Car)
+                .WithMany(c => c.Parts)
+                .HasForeignKey(pc => pc.Car_Id);
+
+            builder
+                .Entity<PartCars>()
+                .HasOne(pc => pc.Part)
+                .WithMany(p => p.Cars)
+                .HasForeignKey(pc => pc.Part_Id);
+
             builder
                 .Entity<Sale>()
                 .HasOne(s => s.Car)
@@ -36,6 +56,12 @@ namespace CarDealer.Data
                 .HasOne(s => s.Customer)
                 .WithMany(c => c.Sales)
                 .HasForeignKey(s => s.Customer_Id);
+
+            builder
+                .Entity<Supplier>()
+                .HasMany(s => s.Parts)
+                .WithOne(s => s.Supplier)
+                .HasForeignKey(p => p.Supplier_Id);
 
 
             base.OnModelCreating(builder);
