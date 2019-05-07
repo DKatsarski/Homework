@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CarDealer.Data;
 using CarDealer.Web.Models;
 using CarDealer.Data.Models;
+using CarDealer.Services;
 
 namespace CarDealer.Web
 {
@@ -35,6 +36,7 @@ namespace CarDealer.Web
 
             // Add application services.
 
+            services.AddTransient<ICustomerService, ICustomerService>();
             services.AddMvc();
         }
 
@@ -58,6 +60,11 @@ namespace CarDealer.Web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "customers",
+                    template: "customers/all/{order}",
+                    defaults: new { controller = "Customers", action = "All " });
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
