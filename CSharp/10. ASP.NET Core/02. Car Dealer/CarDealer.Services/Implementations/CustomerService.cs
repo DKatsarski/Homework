@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CarDealer.Data;
-using CarDealer.Services.Models;
-
-namespace CarDealer.Services.Implementations
+﻿namespace CarDealer.Services.Implementations
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Data;
+    using Models;
+
     public class CustomerService : ICustomerService
     {
         private readonly CarDealerDbContext db;

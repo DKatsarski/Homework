@@ -18,8 +18,8 @@ namespace CarDealer.Web.Controllers
         {
 
             this.customers = customers;
-        }
-        IActionResult All(int id)
+        } 
+        public IActionResult All(string id)
         {
             return null;
         }

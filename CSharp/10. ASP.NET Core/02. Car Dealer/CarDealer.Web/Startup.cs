@@ -12,6 +12,7 @@ using CarDealer.Data;
 using CarDealer.Web.Models;
 using CarDealer.Data.Models;
 using CarDealer.Services;
+using CarDealer.Services.Implementations;
 
 namespace CarDealer.Web
 {
@@ -36,7 +37,8 @@ namespace CarDealer.Web
 
             // Add application services.
 
-            services.AddTransient<ICustomerService, ICustomerService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+
             services.AddMvc();
         }
 
