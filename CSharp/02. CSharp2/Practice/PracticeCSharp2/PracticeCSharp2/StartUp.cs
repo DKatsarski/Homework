@@ -2,56 +2,110 @@
 {
     using System.Collections.Generic;
     using System;
+    using System.Linq;
 
     public class StartUp
     {
 
-         static void Main()
+        static void Main()
         {
-            var array = new int[] { 2, 1, 5, 3, 4 };
-            var newArray = new int[] { 2, 5, 1, 3, 4 };
+            var tryClass = new SpecialList();
 
-            minimumBribes(array);
-            minimumBribes(newArray);
-        }
+            tryClass.GiveMeListOFNames = "Ivan";
+            tryClass.GiveMeListOFNames = "Pesho";
+            tryClass.GiveMeListOFNames = "Stamat";
+            tryClass.GiveMeListOFNames = "Petran";
+            tryClass.GiveMeListOFNames = "Denica";
 
+            Console.WriteLine(tryClass.GiveMeListOFNames);
 
-        static void minimumBribes(int[] arr)
-        {
-            int n = arr.Length;
-            int counter = 0;
-
-
-            if (counter <= 2)
+            for (int i = 32; i < 40; i++)
             {
+                tryClass.Age = i.ToString();
+            }
 
+            Console.WriteLine(tryClass.Age);
 
-                for (int i = 0; i < n - 1; i++)
-                {
-                    for (int j = 0; j < n - i - 1; j++)
-                    {
-                        if (arr[j] > arr[j + 1])
-                        {
-                            // swap temp and arr[i] 
-                            int temp = arr[j];
-                            arr[j] = arr[j + 1];
-                            arr[j + 1] = temp;
-                            counter += 1;
-                        }
-                    }
-                }
-                if (counter > 2)
-                {
-                    Console.WriteLine(counter);
-                    Console.WriteLine("Too chaotic");
+            tryClass.NoReasonHere = true;
 
-                }
-                else
-                {
-                    Console.WriteLine(counter);
-                }
+            Console.WriteLine(tryClass.NoReasonHere);
+
+            var asdf = TestAndLearn();
+
+            foreach (var item in asdf)
+            {
+                Console.WriteLine(item.ToString());
             }
         }
-    }
 
+
+
+
+
+
+
+        public class SpecialList
+        {
+            private List<string> namesOfTeachers;
+            private string name;
+
+            private List<int> ageOfTeachers;
+            private int age;
+            public SpecialList()
+            {
+                this.namesOfTeachers = new List<string>();
+                this.ageOfTeachers = new List<int>();
+
+            }
+
+            public string GiveMeListOFNames
+            {
+                get
+                {
+                    return String.Join(", ", this.namesOfTeachers.ToArray());
+
+                }
+                set
+                {
+                    this.name = value;
+                    this.namesOfTeachers.Add(name);
+                }
+            }
+
+            public string Age
+            {
+                get
+                {
+                    return String.Join(", ", this.ageOfTeachers.ToArray());
+                }
+                set
+                {
+                    this.age = int.Parse(value);
+                    this.ageOfTeachers.Add(age);
+                }
+            }
+
+
+            public bool NoReasonHere { get; set; }
+        }
+
+
+
+        public static IEnumerable<ThereWeGoClass> TestAndLearn()
+        {
+            var geniusMate = new SpecialList();
+
+
+
+            return geniusMate.GiveMeListOFNames
+                .Select(c => new ThereWeGoClass
+                {
+                    Name = "sdf",
+                    Age = "23"
+                })
+                .ToList();
+
+
+        }
+    }
 }
