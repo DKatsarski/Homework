@@ -43,13 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleWriter.cs" />
     <Compile Include="Dog.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Interfaces\IDog.cs" />
+    <Compile Include="IWriter.cs" />
     <Compile Include="StaticClasses\NumberPrinter.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticClasses\SumNumbers.cs" />
-    <Compile Include="ThereWeGoClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace PracticeCSharp2
 {
-    public class ThereWeGoClass
+    public interface IWriter
     {
-        public string Age { get; set; }
-
-        public string Name { get; set; }
-
-
+        void Write(string message);
     }
 }
