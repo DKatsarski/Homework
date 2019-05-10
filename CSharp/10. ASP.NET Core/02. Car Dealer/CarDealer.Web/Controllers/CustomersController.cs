@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.Services;
-
+using CarDealer.Services.Models;
 
 namespace CarDealer.Web.Controllers
 {
@@ -19,9 +19,15 @@ namespace CarDealer.Web.Controllers
 
             this.customers = customers;
         } 
-        public IActionResult All(string id)
+        public IActionResult All(string order)
         {
-            return null;
+            var orderDirection = order.ToLower() == "ascending"
+                ? OrderedDirection.Ascending
+                : OrderedDirection.Descending;
+
+            var result = this.customers.OrderedCustomers(orderDirection);
+
+            return View(result);
         }
     }
 }
