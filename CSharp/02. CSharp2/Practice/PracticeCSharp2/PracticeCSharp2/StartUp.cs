@@ -9,11 +9,11 @@
 
         static void Main()
         {
-            IWriter consoleWrtier = new ConsoleWriter();
-            IWriter fileWriter = new FileWriter();
 
-            MyWrtier(consoleWrtier);
-            MyWrtier(fileWriter);
+            bool a = false;
+            bool b = true;
+            Console.WriteLine(b || (a & !b));
+
         }
 
         public static void MyWrtier(IWriter wrtier)
