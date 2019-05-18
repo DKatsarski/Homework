@@ -1,8 +1,41 @@
-﻿@model IEnumerable<CustomerModel>
+﻿@model AllCustomersModel
 
 @{
     ViewData["Title"] = "All Customers";
 }
 
 <h2>All Customers</h2>
+<h3> Ordered in @(Model.OrderedDirection.ToString()) direction</h3>
+
+<table class="table table-hover  table-bordered" >
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+               Birthday
+            </th>
+            <th>
+                Is Young Driver
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.BirthDate.ToShortDateString()
+                </td>
+                <td>
+                    @(item.IsYoungDriver ? "Yes" : "No")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

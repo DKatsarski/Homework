@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.Services;
 using CarDealer.Services.Models;
+using CarDealer.Web.Models.Customers;
 
 namespace CarDealer.Web.Controllers
 {
@@ -19,15 +20,21 @@ namespace CarDealer.Web.Controllers
 
             this.customers = customers;
         } 
+
+        [Route("customers/all/{order}")]
         public IActionResult All(string order)
         {
-            var orderDirection = order.ToLower() == "ascending"
-                ? OrderedDirection.Ascending
-                : OrderedDirection.Descending;
+            var orderDirection = order.ToLower() == "descending"
+                ? OrderedDirection.Descending
+                : OrderedDirection.Ascending;
 
-            var result = this.customers.OrderedCustomers(orderDirection);
+            var customers = this.customers.Customers(orderDirection);
 
-            return View(result);
+            return View(new AllCustomersModel
+            {
+                Customers = customers,
+                OrderedDirection = orderDirection
+            });
         }
     }
 }

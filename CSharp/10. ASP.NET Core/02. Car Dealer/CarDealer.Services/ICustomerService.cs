@@ -7,6 +7,6 @@
 
     public interface ICustomerService
     {
-        IEnumerable<CustomerModel> OrderedCustomers(OrderedDirection order); 
+        IEnumerable<CustomerModel> Customers(OrderedDirection order); 
     }
 }
