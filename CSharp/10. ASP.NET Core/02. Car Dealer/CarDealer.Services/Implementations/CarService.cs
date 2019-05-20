@@ -18,9 +18,8 @@ namespace CarDealer.Services.Implementations
 
         public IEnumerable<CarModel> ByMake(string make)
         {
-            var carQuery = this.db.Cars.AsQueryable();
 
-            return carQuery
+            return this.db.Cars
                 .Where(c => c.Make.ToLower() == make.ToLower())
                 .OrderBy(c => c.Model)
                 .ThenBy(c => c.TravelledDistance)
