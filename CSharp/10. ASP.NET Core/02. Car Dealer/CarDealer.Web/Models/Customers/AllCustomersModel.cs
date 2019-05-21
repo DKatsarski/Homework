@@ -1,4 +1,6 @@
-﻿using CarDealer.Services.Models;
+﻿using CarDealer.Services.Models.Customers;
+using CarDealer.Services.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

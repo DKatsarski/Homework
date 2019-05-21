@@ -3,8 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using CarDealer.Services.Models;
+    using CarDealer.Services.Models.Cars;
     using Data;
-    using Models;
+    using Models.Customers;
 
     public class CustomerService : ICustomerService
     {
@@ -31,7 +33,7 @@
 
                     customersQuery = customersQuery
                         .OrderByDescending(c => c.BirthDate)
-                        .ThenBy(c => c.Name); 
+                        .ThenBy(c => c.Name);
                     break;
                 default:
                     throw new InvalidOperationException($"Invalid order: {order}");
@@ -46,5 +48,24 @@
                 })
                 .ToList();
         }
+
+        public CustomerTotalSalesModel TotalSalesById(int id)
+       => this.db
+            .Customers
+            .Where(c => c.Id == id)
+            .Select(c => new CustomerTotalSalesModel()
+            {
+                Name = c.Name,
+                IsYoungDriver = c.IsYoungDriver,
+                Boughtcars = c.Sales.Select(s => new CarPriceModel
+                {
+                    Price = s.Car.Parts.Sum(p => p.Part.Price),
+                    Discount = s.Discount
+                })
+
+            })
+            .FirstOrDefault();
+
+
     }
 }
