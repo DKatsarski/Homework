@@ -10,6 +10,7 @@ using CarDealer.Web.Models.Customers;
 
 namespace CarDealer.Web.Controllers
 {
+    [Route("customers")]
     public class CustomersController : Controller
     {
         private readonly ICustomerService customers;
@@ -19,9 +20,9 @@ namespace CarDealer.Web.Controllers
         {
 
             this.customers = customers;
-        } 
+        }
 
-        [Route("customers/all/{order}")]
+        [Route("all/{order}")]
         public IActionResult All(string order)
         {
             var orderDirection = order.ToLower() == "descending"
@@ -35,6 +36,14 @@ namespace CarDealer.Web.Controllers
                 Customers = customers,
                 OrderedDirection = orderDirection
             });
+        }
+
+        [Route("{id}")]
+        public IActionResult TotalSales(int id)
+        {
+            var result = this.customers.TotalSalesById(id);
+
+            return View(result);
         }
     }
 }
