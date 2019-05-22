@@ -11,8 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CarDealer.Data;
 using CarDealer.Web.Models;
 using CarDealer.Data.Models;
-using CarDealer.Services;
-using CarDealer.Services.Implementations;
+using CarDealer.Web.Infrastructure.Extensions;
 
 namespace CarDealer.Web
 {
@@ -37,10 +36,7 @@ namespace CarDealer.Web
 
             // Add application services.
 
-            services.AddTransient<ICustomerService, CustomerService>();
-            services.AddTransient<ICarService, CarService>();
-            services.AddTransient<ISupplierService, SupplierService>();
-            services.AddTransient<ISaleService, SaleService>();
+            services.AddDomainService();
 
 
             services.AddMvc();
