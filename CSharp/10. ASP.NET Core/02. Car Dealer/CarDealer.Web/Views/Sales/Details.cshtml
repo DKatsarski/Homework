@@ -9,6 +9,12 @@
 <h3>@Model.CustomerName</h3>
 
 <p>
-    @Model.Discount%
+    @Model.Discount.ToPercentage()
+</p>
+<p>
+    @Model.DiscountedPrice.ToPrice()
+</p>
+<p>
+    @Model.Car.Make @Model.Car.Model - @(Model.Car.TravelledDistance / 1000)KM
 </p>
 
