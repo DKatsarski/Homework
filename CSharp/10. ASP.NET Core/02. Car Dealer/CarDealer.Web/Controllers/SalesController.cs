@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarDealer.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarDealer.Web.Controllers
 {
     public class SalesController : Controller
     {
-        public IActionResult Index()
+        private ISaleService sales;
+
+        public SalesController(ISaleService sales)
         {
-            return View();
+            this.sales = sales;
         }
+
+        [Route("sales")]
+        public IActionResult All()
+        => View(this.sales.All());
     }
 }
