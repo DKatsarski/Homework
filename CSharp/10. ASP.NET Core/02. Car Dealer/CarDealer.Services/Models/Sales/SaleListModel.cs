@@ -8,6 +8,9 @@ namespace CarDealer.Services.Models.Sales
     {
         public string CustomerName { get; set; }
 
-        public decimal DiscountedPrice => this.Price * (decimal)this.Discount;
+        public bool IsYoungDriver { get; set; }
+
+
+        public decimal DiscountedPrice => this.Price * ((decimal)this.Discount + (this.IsYoungDriver ? 0.05m : 0));
     }
 }
