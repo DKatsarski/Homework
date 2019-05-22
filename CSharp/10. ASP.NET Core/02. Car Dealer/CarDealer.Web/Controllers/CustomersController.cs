@@ -1,6 +1,7 @@
 ﻿
 using CarDealer.Services;
 using CarDealer.Services.Models;
+using CarDealer.Web.Infrastructure.Extensions;
 using CarDealer.Web.Models.Customers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,9 +38,7 @@ namespace CarDealer.Web.Controllers
         [Route("{id}")]
         public IActionResult TotalSales(int id)
         {
-            var result = this.customers.TotalSalesById(id);
-
-            return View(result);
+            return this.ViewOrNotFound(this.customers.TotalSalesById(id));
         }
     }
 }

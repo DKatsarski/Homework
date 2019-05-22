@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.Services;
+using CarDealer.Web.Infrastructure.Extensions;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarDealer.Web.Controllers
 {
+    [Route("sales")]
     public class SalesController : Controller
     {
         private ISaleService sales;
@@ -16,8 +19,14 @@ namespace CarDealer.Web.Controllers
             this.sales = sales;
         }
 
-        [Route("sales")]
+        [Route("")]
         public IActionResult All()
         => View(this.sales.All());
+
+        [Route("{id}")]
+        public IActionResult Details(int id)
+        {
+            return this.ViewOrNotFound(this.sales.Details(id));
+        }
     }
 }
