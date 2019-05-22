@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using CarDealer.Services.Models;
-    using CarDealer.Services.Models.Cars;
+    using CarDealer.Services.Models.Sales;
     using Data;
     using Models.Customers;
 
@@ -57,7 +57,7 @@
             {
                 Name = c.Name,
                 IsYoungDriver = c.IsYoungDriver,
-                Boughtcars = c.Sales.Select(s => new CarPriceModel
+                Boughtcars = c.Sales.Select(s => new SaleModel
                 {
                     Price = s.Car.Parts.Sum(p => p.Part.Price),
                     Discount = s.Discount

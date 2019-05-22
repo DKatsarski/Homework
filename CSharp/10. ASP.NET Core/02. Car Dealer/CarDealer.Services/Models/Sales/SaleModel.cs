@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarDealer.Services.Models.Cars
+namespace CarDealer.Services.Models.Sales
 {
-    public class CarPriceModel
+    public class SaleModel
     {
         public decimal Price { get; set; }
 

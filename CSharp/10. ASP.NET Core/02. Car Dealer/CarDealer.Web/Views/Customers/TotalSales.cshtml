@@ -2,13 +2,17 @@
 
 
 @{
-    ViewData["Title"] = $"Total Sales For Customer {Model.Name}";
+    ViewData["Title"] = $"Customer {Model.Name}";
 }
 
 <h2>@ViewData["Title"]</h2>
 
+
+@{ 
+    var totalCars = Model.Boughtcars.Count();
+}
 <p>
-    @Model.Boughtcars.Count() Cars Bought
+    @totalCars @(totalCars != 1 ? "Cars" : "Car") Bought
 </p>
 
 <p>

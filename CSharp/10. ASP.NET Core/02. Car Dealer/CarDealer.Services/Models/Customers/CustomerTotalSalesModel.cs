@@ -1,4 +1,4 @@
-﻿using CarDealer.Services.Models.Cars;
+﻿using CarDealer.Services.Models.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace CarDealer.Services.Models.Customers
         public bool IsYoungDriver { get; set; }
 
 
-        public IEnumerable<CarPriceModel> Boughtcars { get; set; }
+        public IEnumerable<SaleModel> Boughtcars { get; set; }
 
 
         public decimal TotalMoneySpent
