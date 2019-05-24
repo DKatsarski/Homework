@@ -12,6 +12,6 @@
 
         CustomerTotalSalesModel TotalSalesById(int id);
 
-        void Create(string name, DateTime birthday);
+        void Create(string name, DateTime birthday, bool isYoungDriver);
     }
 }

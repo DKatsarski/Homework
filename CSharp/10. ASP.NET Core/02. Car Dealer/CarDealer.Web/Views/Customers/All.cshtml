@@ -19,6 +19,7 @@
             <th>
                 Is Young Driver
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +34,9 @@
                 </td>
                 <td>
                     @(item.IsYoungDriver ? "Yes" : "No")
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="/customers/edit/@item.Id">Edit</a>
                 </td>
             </tr>
         }

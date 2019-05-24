@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarDealer.Web.Models.Customers
 {
-    public class CreateCustomerModel
+    public class CustomerFormModel
     {
         [Required]
         [MaxLength(200)]

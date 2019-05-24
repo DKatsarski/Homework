@@ -25,7 +25,7 @@ namespace CarDealer.Web.Controllers
 
         [HttpPost]
         [Route(nameof(Create))]
-        public IActionResult Create(CreateCustomerModel model)
+        public IActionResult Create(CustomerFormModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -38,6 +38,12 @@ namespace CarDealer.Web.Controllers
                 model.IsYoungDriver);
 
             return RedirectToAction(nameof(All), new { order = OrderedDirection.Ascending });
+        }
+
+        [Route(nameof(Edit) + "/{id}")]
+        public IActionResult Edit(int id)
+        {
+            return View();
         }
 
         [Route("all/{order}")]
