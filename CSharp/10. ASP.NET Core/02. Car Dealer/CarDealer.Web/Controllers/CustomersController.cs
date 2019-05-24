@@ -19,6 +19,9 @@ namespace CarDealer.Web.Controllers
             this.customers = customers;
         }
 
+        [Route(nameof(Create))]
+        public IActionResult Create() => View();
+
         [Route("all/{order}")]
         public IActionResult All(string order)
         {

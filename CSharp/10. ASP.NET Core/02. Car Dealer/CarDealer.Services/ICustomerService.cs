@@ -11,5 +11,7 @@
         IEnumerable<CustomerModel> Customers(OrderedDirection order);
 
         CustomerTotalSalesModel TotalSalesById(int id);
+
+        void Create(string name, DateTime birthday);
     }
 }

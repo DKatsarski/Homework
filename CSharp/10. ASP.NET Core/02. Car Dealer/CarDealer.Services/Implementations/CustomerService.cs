@@ -17,6 +17,11 @@
             this.db = db;
         }
 
+        public void Create(string name, DateTime birthday)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<CustomerModel> Customers(OrderedDirection order)
         {
 
