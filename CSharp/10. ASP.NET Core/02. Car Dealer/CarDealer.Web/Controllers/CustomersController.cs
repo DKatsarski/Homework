@@ -22,6 +22,24 @@ namespace CarDealer.Web.Controllers
         [Route(nameof(Create))]
         public IActionResult Create() => View();
 
+
+        [HttpPost]
+        [Route(nameof(Create))]
+        public IActionResult Create(CreateCustomerModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            this.customers.Create(
+                model.Name,
+                model.Birthday,
+                model.IsYoungDriver);
+
+            return RedirectToAction(nameof(All), new { order = OrderedDirection.Ascending });
+        }
+
         [Route("all/{order}")]
         public IActionResult All(string order)
         {

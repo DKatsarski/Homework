@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using CarDealer.Data.Models;
     using CarDealer.Services.Models;
     using CarDealer.Services.Models.Sales;
     using Data;
@@ -17,9 +18,17 @@
             this.db = db;
         }
 
-        public void Create(string name, DateTime birthday)
+        public void Create(string name, DateTime birthday, bool isYoungDriver)
         {
-            throw new NotImplementedException();
+            var customer = new Customer
+            {
+                Name = name,
+                BirthDate = birthday,
+                IsYoungDriver = isYoungDriver
+            };
+
+            this.db.Add(customer);
+            this.db.SaveChanges();
         }
 
         public IEnumerable<CustomerModel> Customers(OrderedDirection order)
