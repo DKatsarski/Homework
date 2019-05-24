@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CarDealer.Services.Models.Sales
+﻿namespace CarDealer.Services.Models.Sales
 {
     public class SaleListModel : SaleModel
     {

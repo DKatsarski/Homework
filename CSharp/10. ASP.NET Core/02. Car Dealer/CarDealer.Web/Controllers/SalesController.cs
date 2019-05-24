@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CarDealer.Services;
+﻿using CarDealer.Services;
 using CarDealer.Web.Infrastructure.Extensions;
 
 using Microsoft.AspNetCore.Mvc;
