@@ -18,6 +18,21 @@
             this.db = db;
         }
 
+        public CustomerModel ById(int id)
+        {
+            return this.db
+                 .Customers
+                 .Where(c => c.Id == id)
+                 .Select(c => new CustomerModel
+                 {
+                     Id = c.Id,
+                     Name  = c.Name,
+                     BirthDate = c.BirthDate,
+                     IsYoungDriver = c.IsYoungDriver
+                 })
+                 .FirstOrDefault();
+        }
+
         public void Create(string name, DateTime birthday, bool isYoungDriver)
         {
             var customer = new Customer
@@ -62,6 +77,28 @@
                     IsYoungDriver = c.IsYoungDriver
                 })
                 .ToList();
+        }
+
+        public void Edit(int id, string name, DateTime birthday, bool isYoungDriver)
+        {
+            var existingCustomer = this.db.Customers.Find(id);
+
+            if (existingCustomer == null)
+            {
+
+                return;
+            }
+
+            existingCustomer.Name = name;
+            existingCustomer.BirthDate = birthday;
+            existingCustomer.IsYoungDriver = isYoungDriver;
+
+            this.db.SaveChanges();
+        }
+
+        public bool Exists(int id)
+        {
+            return this.db.Customers.Any(c => c.Id == id);
         }
 
         public CustomerTotalSalesModel TotalSalesById(int id)

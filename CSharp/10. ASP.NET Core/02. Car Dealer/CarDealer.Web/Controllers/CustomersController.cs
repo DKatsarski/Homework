@@ -43,7 +43,47 @@ namespace CarDealer.Web.Controllers
         [Route(nameof(Edit) + "/{id}")]
         public IActionResult Edit(int id)
         {
-            return View();
+            var customer = this.customers.ById(id);
+
+            if (customer == null)
+            {
+
+                return NotFound();
+            }
+
+            return View(new CustomerFormModel
+            {
+                Name = customer.Name,
+                Birthday = customer.BirthDate,
+                IsYoungDriver = customer.IsYoungDriver
+            });
+        }
+
+        [HttpPost]
+        [Route(nameof(Edit) + "/{id}")]
+        public IActionResult Edit(int id, CustomerFormModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var customerExists = this.customers.Exists(id);
+
+
+            if (!customerExists)
+            {
+                return NotFound();
+            }
+
+            this.customers.Edit(
+            id,
+          model.Name,
+          model.Birthday,
+          model.IsYoungDriver);
+
+            return RedirectToAction(nameof(All), new { order = OrderedDirection.Ascending });
+
         }
 
         [Route("all/{order}")]
