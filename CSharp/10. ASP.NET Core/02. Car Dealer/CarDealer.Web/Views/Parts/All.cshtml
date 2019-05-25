@@ -6,3 +6,41 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<table class="table table-bordered table-hover">
+    <thead>
+         <tr>
+             <th>
+                  Name
+             </th>
+             <th>
+                 Price
+             </th>
+             <th>
+                 Quantity
+             </th>
+             <th>
+                 Supplier
+             </th>
+         </tr>
+    </thead>
+    <tbody>
+        @foreach (var part in Model)
+        {
+            <tr>
+                <th>
+                    @part.Name
+                </th>
+                <th>
+                    @part.Price.ToPrice()
+                </th>
+                <th>
+                    @part.Quantity
+                </th>
+                <th>
+                    @part.SupplierName
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+
