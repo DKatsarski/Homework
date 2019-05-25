@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CarDealer.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using CarDealer.Web.Models;
+using System.Diagnostics;
 
 namespace CarDealer.Web.Controllers
 {

@@ -30,5 +30,7 @@ namespace CarDealer.Web.Controllers
                 TotalPages = (int)Math.Ceiling(this.parts.Total() / (double)PageSize)
             });
         }
+
+        public IActionResult Create() => View();
     }
 }

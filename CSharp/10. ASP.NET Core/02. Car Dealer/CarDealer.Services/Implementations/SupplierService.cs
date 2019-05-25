@@ -1,9 +1,7 @@
-﻿using System;
+﻿using CarDealer.Data;
+using CarDealer.Services.Models.Suppliers;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CarDealer.Data;
-using CarDealer.Services.Models;
 
 namespace CarDealer.Services.Implementations
 {

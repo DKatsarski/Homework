@@ -4,7 +4,8 @@
     ViewData["Title"] = "All Parts";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>@ViewData["Title"]
+    <a class="btn btn-primary" href="/parts/create">Add Part</a></h2>
 
 @{ 
     var previousPageDisabled = Model.CurrentPage == 1 ? "disabled" : string.Empty;
