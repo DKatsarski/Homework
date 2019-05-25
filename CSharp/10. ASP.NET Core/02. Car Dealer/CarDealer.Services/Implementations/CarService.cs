@@ -36,6 +36,7 @@ namespace CarDealer.Services.Implementations
         public IEnumerable<CarWithPartsModel> WithParts()
       => this.db
             .Cars
+            .OrderByDescending(c => c.Id)
             .Select(c => new CarWithPartsModel
             {
                 Make = c.Make,
