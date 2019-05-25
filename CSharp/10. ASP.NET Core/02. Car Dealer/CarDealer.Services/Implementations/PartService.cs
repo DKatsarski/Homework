@@ -9,7 +9,6 @@ namespace CarDealer.Services.Implementations
 {
     public class PartService : IPartService
     {
-        private const int PageSize = 25;
 
         private readonly CarDealerDbContext db;
 
@@ -18,11 +17,12 @@ namespace CarDealer.Services.Implementations
             this.db = db; 
         }
 
-        public IEnumerable<PartListingModel> All(int page = 1)
+        public IEnumerable<PartListingModel> All(int page = 1, int pageSize = 10)
         => this.db
             .Parts
-            .Skip((page - 1) * PageSize)
-            .Take(PageSize)
+            .OrderByDescending(p => p.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .Select(p => new PartListingModel
             {
                 Id = p.Id,
@@ -32,5 +32,7 @@ namespace CarDealer.Services.Implementations
                 SupplierName = p.Supplier.Name
             })
             .ToList();
+
+        public int Total() => this.db.Parts.Count();
     }
 }

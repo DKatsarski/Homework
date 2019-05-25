@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarDealer.Services;
 using Microsoft.AspNetCore.Mvc;
+using CarDealer.Web.Models.Parts;
 
 namespace CarDealer.Web.Controllers
 {
     public class PartsController : Controller
     {
+        private const int PageSize = 25;
+
         private readonly IPartService parts;
 
         public PartsController(IPartService parts)
@@ -18,9 +21,14 @@ namespace CarDealer.Web.Controllers
 
         public IActionResult All(int page = 1)
         {
-            var parts = this.parts.All(page);
+            var parts = this.parts.All(page, PageSize);
 
-            return View(parts);
+            return View(new PartPageListingModel
+            {
+                Parts = parts,
+                CurrentPage = page,
+                TotalPages = (int)Math.Ceiling(this.parts.Total() / (double)PageSize)
+            });
         }
     }
 }
