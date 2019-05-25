@@ -6,13 +6,14 @@
 
     public class StartUp
     {
-
         static void Main()
         {
+            decimal asdf = 2344.234234m;
+            int a = 2;
 
-            bool a = false;
-            bool b = true;
-            Console.WriteLine(b || (a & !b));
+            Console.WriteLine(asdf.ToPrice());
+
+            Console.WriteLine(a.AlittleMoreInt());
 
         }
 
@@ -20,11 +21,5 @@
         {
             wrtier.Write("Exmaple Of Interface");
         }
-
-
-
-
-
-
     }
 }
