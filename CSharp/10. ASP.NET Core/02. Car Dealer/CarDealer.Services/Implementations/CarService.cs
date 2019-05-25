@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CarDealer.Data;
-using CarDealer.Services.Models;
+using CarDealer.Services.Models.Parts;
 using CarDealer.Services.Models.Cars;
 
 namespace CarDealer.Services.Implementations

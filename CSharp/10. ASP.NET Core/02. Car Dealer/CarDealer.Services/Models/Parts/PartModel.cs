@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarDealer.Services.Models
+namespace CarDealer.Services.Models.Parts
 {
     public class PartModel
     {
