@@ -3,52 +3,47 @@
     using System.Collections.Generic;
     using System;
     using System.Linq;
+    using System.Text;
+    using System.Runtime.InteropServices;
 
     public class StartUp
     {
         static void Main()
         {
-            var arr = new int[] { 2, 3, 4, 5};
-            
-            var experiment = arr
-                .Select(x => new int[]
-                { 
-                })
-                .ToList();
+            var a = new int[10, 10];
 
-            foreach (var num in experiment)
+            for (int row = 0; row < a.GetLength(0); row++)
             {
+                for (int col = 0; col < a.GetLength(1); col++)
+                {
+                    a[row, col] = col;
+                }
+            }
 
-                Console.WriteLine(num);
+            for (int row = 0; row < a.GetLength(0); row++)
+            {
+                for (int col = 0; col < a.GetLength(1); col++)
+                {
+                    Console.Write(a[row, col]);
+                }
+                Console.WriteLine();
+            }
+
+            var st = new StringBuilder();
+
+            st.Append(a.GetUpperBound(0));
+
+            Console.WriteLine(st);
+
+            for (int row = 0; row < a.GetLength(0); row++)
+            {
+                for (int col = 0; col < a.GetLength(1); col++)
+                {
+                    
+                }
             }
         }
 
-        public static int MyWrtier(int[] arr)
-        {
-            var lagergestNumber = 0;
-            var temp = string.Empty;
-            var tempInt = 0;
-
-            for (int i = 0; i < arr.Length - 2; i++)
-            {
-                for (int j = i; j < i + 3; j++)
-                {
-                    temp += arr[j];
-                }
-
-                tempInt = int.Parse(temp);
-
-                if (lagergestNumber < tempInt)
-                {
-                    lagergestNumber = tempInt;
-                }
-
-                tempInt = 0;
-                temp = string.Empty;
-            }
-
-            return lagergestNumber;
-        }
     }
 }
 
